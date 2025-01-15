@@ -1,0 +1,36 @@
+<div class="container">
+
+    <div *ngIf="mode == 'login'">
+        <h3>Увійти</h3>
+        <form (ngSubmit)="login()">
+            <label>Email</label>
+            <input [(ngModel)]="email" name="email" type="text"/>
+            <label>Пароль</label>
+            <input [(ngModel)]="password" name="password" type="password"/>
+            <input type="submit"/>
+        </form>
+    </div>
+
+    <div  *ngIf="mode == 'registration'">
+        <h3>Зареєструватись</h3>
+        <form (ngSubmit)="registration()">
+            <label >Email</label>
+            <input [(ngModel)]="email" name="email" type="text"/>
+            <label>Пароль</label>
+            <input [(ngModel)]="password" name="password" type="password"/>
+            <label>Ще раз Пароль</label>
+            <input [(ngModel)]="confirmPassword" name="confirmPassword" type="password"/>
+            <input type="submit"/>
+        </form>
+    </div>
+
+    <div  *ngIf="mode == 'accept'">
+        <h3>Підтвердити</h3>
+        <span>На ваш еmail Відправили повідомлення, втикни</span>
+        <form (ngSubmit)="registrationAccept()">
+            <label>Код</label>
+            <input [(ngModel)]="key" name="key" type="text"/>
+            <input type="submit"/>
+        </form>
+    </div>
+</div>

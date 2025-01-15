@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, catchError, throwError } from 'rxjs';
+import { Observable, catchError, firstValueFrom, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'https://52a0-5-58-58-125.ngrok-free.app/api/Test';
+  private apiUrl = 'https://f5d3-5-58-124-38.ngrok-free.app/api/';
 
   constructor(private http: HttpClient) {}
 
@@ -19,5 +19,39 @@ export class ApiService {
         return throwError(() => error);
       })
     );
+  }
+
+  login(email:string, password:string){
+    const headers = new HttpHeaders({ 'Accept': 'application/json' });
+
+    return firstValueFrom(this.http.post(this.apiUrl+"Auth/login",{
+        email:email,
+        password:password
+      },
+      {headers}
+    ));
+  }
+
+  registration(email:string, password:string){
+    const headers = new HttpHeaders({ 'Accept': 'application/json' });
+
+    return firstValueFrom(this.http.post(this.apiUrl+"Auth/registration",{
+        email:email,
+        password:password
+      },
+      {headers}
+    ));
+  }
+
+  registrationAccept(email:string, password:string,key:string){
+    const headers = new HttpHeaders({ 'Accept': 'application/json' });
+
+    return firstValueFrom(this.http.post(this.apiUrl+"Auth/registration/accept",{
+        email:email,
+        password:password,
+        key:key
+      },
+      {headers}
+    ));
   }
 }

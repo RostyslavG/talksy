@@ -1,0 +1,21 @@
+header{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid gray;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+}
+
+nav >a{
+    margin-right: 15px;
+}
+
+a{
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
