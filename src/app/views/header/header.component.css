@@ -1,21 +1,61 @@
-header{
-    padding: 10px;
+header {
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: none;
+    margin: 26px 0 0;
+    padding: 0 28px;
+}
+
+.navbar {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid gray;
-}
-
-nav{
-    display: flex;
     align-items: center;
+    background-color: #FFFFFF;
+    padding: 20px 20px;
+    border-radius: 50px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-nav >a{
-    margin-right: 15px;
+.navbar .logo {
+    font-weight: bold;
+    font-size: 24px;
+    color: #000000;
 }
-
-a{
-    cursor: pointer;
+.navbar .nav-links {
+    display: flex;
+    gap: 30px;
+}
+.navbar .nav-links a {
     text-decoration: none;
-    color: black;
+    color: #000000;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+.navbar .nav-links a:hover {
+    color: #7B61FF;
+}
+.navbar .auth-links {
+    display: flex;
+    gap: 20px;
+}
+.navbar .auth-links a {
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
+.navbar .auth-links .login {
+    color: #7B61FF;
+    margin-right: 10px;
+}
+.navbar .auth-links .register {
+    background-color: #D0BCFF;
+    color: #FFFFFF;
+    padding: 22px 40px;
+    border-radius: 50px;
+    margin-right: -20px;
+}
+.navbar .auth-links .register:hover {
+    background-color: #7B61FF;
+    color: #FFFFFF;
 }

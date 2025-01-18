@@ -6,7 +6,7 @@ import { Observable, catchError, firstValueFrom, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'https://f5d3-5-58-124-38.ngrok-free.app/api/';
+  private apiUrl = 'https://76dc-5-58-58-125.ngrok-free.app/api/';
 
   constructor(private http: HttpClient) {}
 

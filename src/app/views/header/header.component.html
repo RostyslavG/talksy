@@ -1,9 +1,19 @@
 <header>
-    <h1>
-        <a routerLink="">Taskly</a>
-    </h1>
-    <nav>
-        <a [routerLink]="['login-registration','login']">Увійти</a>
-        <a [routerLink]="['login-registration','registration']">Зареєструватись</a>
-    </nav>
+    <div class="navbar">
+        <div class="logo">Talksy</div>
+        <div class="nav-links">
+            <a href="#">Про нас</a>
+            <a href="#">Особливості</a>
+            <a href="#">Відгуки</a>
+            <a href="#">Контакти</a>
+        </div>
+        <div class="auth-links">
+            <nav>
+                <a [routerLink]="['login-registration','login']" class="login">Вхід</a>
+                <a [routerLink]="['login-registration','registration']" class="register">Реєстрація</a>
+            </nav>
+        </div>
+    </div>
 </header>
+
+

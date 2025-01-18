@@ -1,36 +1,114 @@
-<div class="container">
-
-    <div *ngIf="mode == 'login'">
-        <h3>Увійти</h3>
-        <form (ngSubmit)="login()">
-            <label>Email</label>
-            <input [(ngModel)]="email" name="email" type="text"/>
-            <label>Пароль</label>
-            <input [(ngModel)]="password" name="password" type="password"/>
-            <input type="submit"/>
-        </form>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/>
+<div class="main-container">
+    <div *ngIf="mode === 'login'">
+        <div class="container">
+            <div class="left">
+                <img alt="login_img" src="assets/images/login-main.png" width="490" height="490" />
+            </div>
+            <form [formGroup]="authForm" (ngSubmit)="login()">
+                <div class="right">
+                    <h1>З поверненням!</h1>
+                    <div class="input-group" [ngClass]="{ error: email?.invalid && email?.touched }">
+                        <input formControlName="email" type="text" placeholder="E-mail" />
+                        <i
+                                class="fas icon"
+                                [ngClass]="{
+                'fa-check': email?.valid,
+                'fa-exclamation': email?.invalid && email?.touched
+              }"
+                        ></i>
+                    </div>
+                    <div class="input-group" [ngClass]="{ error: password?.invalid && password?.touched }">
+                        <input formControlName="password" type="password" placeholder="Пароль" />
+                        <i
+                                class="fas icon"
+                                [ngClass]="{
+                'fa-check': password?.valid,
+                'fa-exclamation': password?.invalid && password?.touched
+              }"
+                        ></i>
+                    </div>
+                    <div class="forgot-password">
+                        <a href="#">Забули пароль?</a>
+                    </div>
+                    <input class="login-button" type="submit" [disabled]="authForm.invalid" />
+                    <div class="register">
+                        Немає аккаунту?
+                        <a href="#">ЗАРЕЄСТРУВАТИСЬ</a>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 
-    <div  *ngIf="mode == 'registration'">
-        <h3>Зареєструватись</h3>
-        <form (ngSubmit)="registration()">
-            <label >Email</label>
-            <input [(ngModel)]="email" name="email" type="text"/>
-            <label>Пароль</label>
-            <input [(ngModel)]="password" name="password" type="password"/>
-            <label>Ще раз Пароль</label>
-            <input [(ngModel)]="confirmPassword" name="confirmPassword" type="password"/>
-            <input type="submit"/>
-        </form>
+    <!-- Registration Section -->
+    <div *ngIf="mode === 'registration'">
+        <div class="container">
+            <div class="left">
+                <img alt="reg_img" src="assets/images/reg-main.png" width="490" height="490" />
+            </div>
+            <form [formGroup]="authForm" (ngSubmit)="registration()">
+                <div class="right">
+                    <h1>Створити аккаунт</h1>
+                    <div class="input-group" [ngClass]="{ error: email?.invalid && email?.touched }">
+                        <input formControlName="email" type="text" placeholder="E-mail" />
+                        <i
+                                class="fas icon"
+                                [ngClass]="{
+                'fa-check': email?.valid,
+                'fa-exclamation': email?.invalid && email?.touched
+              }"
+                        ></i>
+                    </div>
+                    <div class="input-group" [ngClass]="{ error: password?.invalid && password?.touched }">
+                        <input formControlName="password" type="password" placeholder="Пароль" />
+                        <i
+                                class="fas icon"
+                                [ngClass]="{
+                'fa-check': password?.valid,
+                'fa-exclamation': password?.invalid && password?.touched
+              }"
+                        ></i>
+                    </div>
+                    <div
+                            class="input-group"
+                            [ngClass]="{ error: confirmPassword?.invalid && confirmPassword?.touched || authForm.errors?.['mismatch'] }"
+                    >
+                        <input formControlName="confirmPassword" type="password" placeholder="Підтвердити пароль" />
+                        <i
+                                class="fas icon"
+                                [ngClass]="{
+      'fa-check': confirmPassword?.valid && !authForm.errors?.['mismatch'],
+      'fa-exclamation': confirmPassword?.invalid && confirmPassword?.touched || authForm.errors?.['mismatch']
+    }"
+                        ></i>
+                    </div>
+                    <button class="login-button" type="submit" [disabled]="authForm.invalid">Далі</button>
+                    <div class="register">
+                        Вже маєте аккаунт?
+                        <a href="#">УВІЙТИ</a>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 
-    <div  *ngIf="mode == 'accept'">
-        <h3>Підтвердити</h3>
-        <span>На ваш еmail Відправили повідомлення, втикни</span>
-        <form (ngSubmit)="registrationAccept()">
-            <label>Код</label>
-            <input [(ngModel)]="key" name="key" type="text"/>
-            <input type="submit"/>
-        </form>
+    <!-- Code Accept Section -->
+    <div *ngIf="mode === 'accept'">
+        <div class="container-accept">
+            <h1>Введіть код</h1>
+            <p>На вашу електронну пошту був надісланий 6-значний код, який потрібно ввести нижче</p>
+            <form [formGroup]="authForm" (ngSubmit)="registrationAccept()">
+                <div class="code-inputs">
+                    <input formControlName="key" type="text" maxlength="1" placeholder="" />
+                    <input formControlName="key" type="text" maxlength="1" placeholder="" />
+                    <input formControlName="key" type="text" maxlength="1" placeholder="" />
+                    <input formControlName="key" type="text" maxlength="1" placeholder="" />
+                    <input formControlName="key" type="text" maxlength="1" placeholder="" />
+                    <input formControlName="key" type="text" maxlength="1" placeholder="" />
+                </div>
+                <button class="submit-btn" type="submit" [disabled]="authForm.invalid">Надіслати</button>
+            </form>
+        </div>
     </div>
 </div>
