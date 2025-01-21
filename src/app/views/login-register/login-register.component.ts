@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { ApiService } from '../../services/api.service';
+import { ErrorResponce } from '../../model/dto/errorResponce';
 
 @Component({
     selector: 'app-login-register',
@@ -20,6 +21,8 @@ import { ApiService } from '../../services/api.service';
 export class LoginRegisterComponent implements OnInit {
     mode: string | null = null;
     authForm: FormGroup;
+
+    invalid: string | null= null;
 
     constructor(
         private route: ActivatedRoute,
@@ -91,7 +94,12 @@ export class LoginRegisterComponent implements OnInit {
             console.log(await this.apiService.registration(email, password));
             this.mode = 'accept';
         } catch (error) {
-            console.error(error);
+            if(error){
+                console.log(error)
+                const errorResponce:ErrorResponce = error as ErrorResponce
+                this.invalid = `У полі ${errorResponce.reason} не правильно заповнене. Зверніть увагу, що ${errorResponce.message}`;
+            }
+           
         }
     }
 

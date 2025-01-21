@@ -50,6 +50,7 @@
             <form [formGroup]="authForm" (ngSubmit)="registration()">
                 <div class="right">
                     <h1>Створити аккаунт</h1>
+                    <span *ngIf="invalid" style="color: red;">{{invalid}}</span>
                     <div class="input-group" [ngClass]="{ error: email?.invalid && email?.touched }">
                         <input formControlName="email" type="text" placeholder="E-mail" />
                         <i

@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, catchError, firstValueFrom, throwError } from 'rxjs';
+import { error } from 'console';
+import { ErrorResponce } from '../model/dto/errorResponce';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'https://76dc-5-58-58-125.ngrok-free.app/api/';
+  private apiUrl = 'https://2d14-5-58-58-125.ngrok-free.app/api/';
 
   constructor(private http: HttpClient) {}
 
@@ -40,6 +42,10 @@ export class ApiService {
         password:password
       },
       {headers}
+    ).pipe(
+      catchError((error:any)=>{
+        return throwError(error.error as ErrorResponce)
+      })
     ));
   }
 
