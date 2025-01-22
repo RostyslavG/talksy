@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ApiService } from './services/api.service';
 import { HeaderComponent } from './views/header/header.component';
 import { LoginRegisterComponent } from './views/login-register/login-register.component';
 import { MainComponent } from './views/main/main.component';
@@ -18,19 +17,10 @@ import { MainComponent } from './views/main/main.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
-  data: any;
 
-  constructor(private apiService: ApiService) {}
+
+  constructor() {}
 
   ngOnInit() {
-    // this.apiService.getData().subscribe({
-    //   next: (response) => {
-    //     console.log('API Response:', response);
-    //     this.data = response;
-    //   },
-    //   error: (error) => {
-    //     console.error('Error fetching data:', error);
-    //   }
-    // });
   }
 }

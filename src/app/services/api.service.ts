@@ -42,10 +42,6 @@ export class ApiService {
         password:password
       },
       {headers}
-    ).pipe(
-      catchError((error:any)=>{
-        return throwError(error.error as ErrorResponce)
-      })
     ));
   }
 

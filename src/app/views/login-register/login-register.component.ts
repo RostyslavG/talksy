@@ -95,9 +95,9 @@ export class LoginRegisterComponent implements OnInit {
             this.mode = 'accept';
         } catch (error) {
             if(error){
-                console.log(error)
-                const errorResponce:ErrorResponce = error as ErrorResponce
-                this.invalid = `У полі ${errorResponce.reason} не правильно заповнене. Зверніть увагу, що ${errorResponce.message}`;
+                if(error instanceof ErrorResponce){
+                    this.invalid = `У полі ${error.reason} не правильно заповнене. Зверніть увагу, що ${error.message}`;
+                }
             }
            
         }
