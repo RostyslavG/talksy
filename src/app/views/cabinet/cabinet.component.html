@@ -1,29 +1,5 @@
 <div class="container">
-    <div class="section-header background-section-rounded">
-       <div>
-            <div class="section-header-logo">
-                <img src="../../../assets/images/logo.png" alt="logo"/>
-                <span>Taskly</span>
-            </div>
-            <div class="section-header-buttons">
-                <div>
-                    <img class="small-button-img" src="../../../assets/images/icon_home.svg" alt="home"/>
-                </div>
-                <div>
-                    <img class="big-button-img" src="../../../assets/images/icon_study.svg" alt="study"/>
-                </div>
-                <div>
-                    <img class="small-button-img" src="../../../assets/images/icon_test.svg" alt="test"/>
-                </div>
-                <div>
-                    <img class="big-button-img" src="../../../assets/images/icon_calendar.svg" alt="calendar"/>
-                </div>
-            </div>
-       </div>
-       <div class="section-header-setting">
-         <img src="../../../assets/images/icon_setting.svg" alt="setting image"/>
-       </div>
-    </div>
+    <app-header-log class="header"></app-header-log>
 
     <div class="section-stats background-section-rounded ">
         <div>
@@ -42,9 +18,11 @@
             <img src="../../../assets/images/icon_coin_3.png" alt="coin"/>
             <span>25</span>
         </div>
+        <img class="disabled" src="../../../assets/images/setting_purple.svg" alt="setting"/>
+        <img class="disabled" src="../../../assets/images/alarm.svg" alt="alarm"/>
     </div>
 
-    <div class="section-level background-section-rounded">
+    <div class="section-level">
         <div>
             <span>B2 Upper Intermediate</span>
             <span>70%</span>
@@ -76,7 +54,14 @@
     </div>
 
     <div class="section-notification-test background-section-cube">
-
+        <img src="../../../assets/images/cat_kubok.png" alt="cat"/>
+        <div>
+            <strong>10 успішних тестів</strong>
+            <div>
+                <strong>+5</strong>
+                <img src="../../../assets/images/icon_coin_3.png" alt="diamond"/>
+            </div>
+        </div>
     </div>
 
     <div class="section-homework background-section-cube ">
@@ -215,14 +200,28 @@
         <span>Навчання</span>
         <div>
             <img  src="../../../assets/images/study.png" alt="study"/>
-        <div class="section-study-buttons">
-            <div>Тести</div>
-            <div>Відео урок</div>
-            <div>Статті</div>
-        </div>
+            <div class="section-study-buttons">
+                <div>Тести</div>
+                <div>Відео урок</div>
+                <div>Статті</div>
+            </div>
         </div>
     </div>
 
+    <div class="section-stars">
+        <div>
+            <img src="../../../assets/images/icon_coin_1.png" alt="coin"/>
+            <span>25</span>
+        </div>
+        <div>
+            <img src="../../../assets/images/icon_coin_2.png" alt="coin"/>
+            <span>25</span>
+        </div>
+        <div>
+            <img src="../../../assets/images/icon_coin_3.png" alt="coin"/>
+            <span>25</span>
+        </div>
+    </div>
     
 
     

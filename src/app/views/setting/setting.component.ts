@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { HeaderLogComponent } from "../components/header-log/header-log.component";
 
 @Component({
-  selector: 'app-cabinet',
+  selector: 'app-setting',
   standalone: true,
   imports: [HeaderLogComponent],
-  templateUrl: './cabinet.component.html',
-  styleUrl: './cabinet.component.css'
+  templateUrl: './setting.component.html',
+  styleUrl: './setting.component.css'
 })
-export class CabinetComponent {
+export class SettingComponent {
 
 }
