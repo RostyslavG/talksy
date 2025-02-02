@@ -15,57 +15,20 @@
     background-color: white;
     overflow: hidden;
 }
-
+.disabled{
+    display: none;
+}
+.section-stars{
+    display: none;
+}
 /* HEADER-------------------------------------------------------- */
-.section-header{
+.header{
     grid-column-start: 1;
     grid-column-end: 1;
     grid-row-start: 1;
     grid-row-end: 16;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    margin: 2.315vh 1.302vw;
 }
-.section-header-logo{
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-    font-weight: bold;
-}
-.section-header-buttons{
-    display: flex;
-    flex-direction: column;
-    margin-top: 30px;
-    align-items: center;
-}
-.section-header-buttons >div{
-    margin-top: 25px;
-    cursor: pointer;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background-color: white;
-    transition: all .3s;
-}
-.section-header-buttons >div:hover{
-    background-color: #FFE0DB;
-}
-.section-header-setting{
-    background-color: #B09CFF;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-}
+
 
 /* Stats ---------------------------------------- */
 .section-stats{
@@ -78,6 +41,8 @@
     align-items: center;
     font-weight: bold;
     margin: 3.333vh 4.271vw 3.704vh 0;
+
+    
 }
 .section-stats >div:first-child{
     background-color: #B09CFF;
@@ -113,6 +78,9 @@
     display: flex;
     flex-direction: column;
     margin: 3.333vh 1.302vw 3.704vh 0;
+    border-radius: 100px;
+    background-color: white;
+    overflow: hidden;
 }
 .section-level >div:first-child{
     font-weight: bold;
@@ -175,6 +143,24 @@
     grid-row-start: 6;
     grid-row-end: 9;
     margin:0 2.083vw 3.704vh 0;
+    display: flex;
+    justify-content: space-between;
+}
+.section-notification-test >img{
+    margin-top: 2vh;
+}
+.section-notification-test >div{
+    margin-right: 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-direction: column;
+}
+.section-notification-test >div >div{
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 /* Homework------------------------------------------ */
@@ -186,19 +172,21 @@
     grid-row-end: 16;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     margin: 0 2.083vw 2.315vh 0;
 }
 .section-homework >span{
     font-weight: bold;
+    margin-left: 1vw;
 }
 .section-homework >div{
    border: 1px solid #B09CFF;
    border-radius: 10vh;
-   padding: 10px;
+   padding: 18px;
    display: flex;
    justify-content: space-between;
    align-items: center;
+   margin: 0 1vw;
 }
 
 /* Shedule--------------------------------------------------*/
@@ -229,6 +217,8 @@
     border: 1px solid #B09CFF;
     border-radius: 10vh;
     padding:  5px;
+    display: flex;
+    align-items: center;
 }
 .section-schedule-month >div >span:first-child{
    margin-right: 1vw;
@@ -263,7 +253,7 @@
 .section-schedule-day-study >span{
     background-color: #B09CFF;
     border-radius: 50%;
-    padding: 3px;
+    padding: 4px;
     color: white;
 }
 .section-schedule-day-test >span{
@@ -297,7 +287,7 @@
     flex: 1;
 }
 .section-notification >ul >li{
-    margin-top: 5px;
+    margin-top: 30px;
 }
 .section-notification-accent{
     color: #B09CFF;
@@ -315,8 +305,7 @@
     margin: 0 1.302vw 2.315vh 0;
 }
 .section-study >span{
-    margin-left: 15%;
-    margin-top: 2%;
+    margin: 2vh 0 1vh 5vw;
     font-weight: bold;
 }
 .section-study >div{
@@ -331,7 +320,7 @@
     display: flex;
     justify-content: space-around;
     width: 80%;
-    margin-top: 2%;
+    margin-top: 4vh;
 }
 .section-study-buttons >div{
     padding: 5%;
@@ -352,20 +341,27 @@
         grid-template-rows: repeat(18,1fr);
     }
 
-    .section-header{
+    /* Header */
+    .header{
         grid-column-start: 1;
         grid-column-end: 3;
 
         grid-row-start: 17;
         grid-row-end: 19;
-        margin: 0;
     }
 
+    /* Stats */
     .section-stats{
         grid-column-start: 1;
         grid-column-end: 3;
     }
+    .section-stats >div:first-child{
+        width: 30px;
+        height: 30px;
+        font-size: 1.5em;
+    }
 
+    /* Notification Test */
     .section-notification-test{
         grid-column: 1;
     
@@ -374,13 +370,19 @@
         margin: 0 1.562vw 1.852vh 1.562vw;
     }
 
+    /* Homework */
     .section-level{
         grid-column: 2;
         grid-row-start: 3;
         grid-row-end: 5;
         margin: 0 1.562vw 2.778vh 1.562vw; 
     }
+    .section-level {
+        padding: 5px;
+    }
 
+
+    /* Daily */
     .section-daily{
         grid-column: 1;
 
@@ -389,6 +391,7 @@
         margin: 0 1.562vw 1.852vh 1.562vw;
     }
 
+    /* Shedule */
     .section-schedule{
         grid-column: 2;
 
@@ -396,6 +399,7 @@
         grid-row-end: 12;
     }
 
+    /* Homework */
     .section-homework{
         grid-column: 1;
 
@@ -403,7 +407,11 @@
         grid-row-end: 13;
         margin: 0 1.562vw 1.852vh 1.562vw;
     }
+    .section-homework >div{
+        padding: 6px;
+    }
 
+    /* Notification */
     .section-notification{
         grid-column: 1;
 
@@ -411,16 +419,40 @@
         grid-row-end: 17;
         margin: 0 1.562vw 1.852vh 1.562vw;
     }
+    .section-notification >ul >li{
+        margin-top: 3px;
+    }
 
+    /* Study */
     .section-study{
         grid-column: 2;
 
         grid-row-start: 12;
         grid-row-end: 17;
     }
-
-    .visivility{
-        display: none;
+    .section-study>div{
+        flex-direction: row-reverse;
+        align-items: start;
+    }
+    .section-study-buttons{
+        display: flex;
+        flex-direction: column;
+        margin: 0 1vw;
+        gap: 10px;
+    }
+    .section-study-buttons >span{
+        margin: 1vh 0 1vh 0 1vw;
+    }
+    .section-study-buttons >div{
+        border-radius: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .section-study img{
+        width: 60%;
+        height: 60%;
+        margin: 5px;
     }
 }
 
@@ -431,48 +463,123 @@
        height: 200vh;
     }
 
-    .section-header{
+    /* Header */
+    .header{
         grid-column-start: 1;
         grid-column-end: 3;
 
         grid-row-start: 17;
         grid-row-end: 17;
-        margin: 1.852vh 1.042vw;
     }
-
+    
+    /* Stats  */
     .section-stats{
         grid-column-start: 1;
         grid-column-end: 3;
 
         grid-row-start: 1;
         grid-row-end: 2;
-
-        margin:1.852vh 1.042vw;
+    }
+    .section-stats >div:first-child{
+        width: 30px;
+        height: 30px;
+        font-size: 1.5em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .section-stats >span{
+        margin-right: 35vw;
+    }
+    .section-stats >img{
+        margin-right: 2vw;
+    }
+    .section-stats >div:first-child >span{
+        margin: 0;
+    }
+    .section-stats >div:not(:first-child){
+        display: none;
+    }
+    .disabled{
+        display: block;
     }
 
+    /* Level */
     .section-level{
         grid-column: 2;
         grid-row-start: 2;
         grid-row-end: 4;
 
-        margin: 0 1.562vw 1.852vh 1.562vw;  
+        margin: 0 1.562vw 1.852vh 1.562vw;
+        border-radius: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+    }
+    .section-level >div:last-child{
+        display: none;
+    }
+    .section-level > div:first-child {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background: conic-gradient(#4A1EBB 0% 70%, #FFE0DB 70% 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .section-level > div:first-child span {
+        position: absolute;
+        font-size: 20px;
+        text-align: center;
+    }
+    .section-level > div:first-child span:first-child {
+        bottom: 14%;
+    }
+    .section-level > div:first-child span:last-child {
+        bottom: 5%;
     }
 
-    .section-notification-test{
+    /* Stars */
+    .section-stars{
         grid-column: 1;
     
         grid-row-start: 2;
         grid-row-end: 3;
         margin: 0 0 1.852vh 1.852vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        border-radius: 30px;
+        gap:15px;
+    }
+    .section-stars >div{
+        gap: 3px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
+    /* Notifiaction-test */
+    .section-notification-test{
+        grid-column: 1;
+    
+        grid-row-start: 3;
+        grid-row-end: 4;
+        margin: 0 0 1.852vh 5%;
+        font-size: 11px;
+    }
+
+    /* Shedule */
     .section-schedule{
         grid-column-start: 1;
         grid-column-end: 3;
 
         grid-row-start: 4;
         grid-row-end: 8;
-        margin: 0 1.042vw;
+        margin: 0 3%;
     }
 
     .section-daily{
@@ -481,9 +588,10 @@
 
         grid-row-start: 8;
         grid-row-end: 10;
-        margin: 1.852vh 1.042vw;
+        margin: 1.852vh 3%;
     }
 
+    /* Homework */
     .section-homework{
         grid-column-start: 1;
         grid-column-end: 3;
@@ -493,7 +601,14 @@
         margin: 0;
         margin: 0 1.042vw;
     }
+    .section-homework >span{
+        text-align: center;
+    }
+    .section-homework >div{
+        padding: 5px ;
+    }
 
+    /* Notification */
     .section-notification{
         grid-column-start: 1;
         grid-column-end: 3;
@@ -502,13 +617,25 @@
         grid-row-end: 14;
         margin: 1.852vh 1.042vw;
     }
+    .section-notification >ul >li{
+        margin: 0.8vh 0;
+        text-align: center;
+    }
 
+    /* Study */
     .section-study{
         grid-column-start: 1;
         grid-column-end: 3;
 
         grid-row-start: 14;
         grid-row-end: 17;
+    }
+    .section-study >div >img{
+        width: 50%;
+        height: 70%;
+    }
+    .section-study-buttons{
+        margin: 1vh;
     }
 }
 
