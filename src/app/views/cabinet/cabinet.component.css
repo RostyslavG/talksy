@@ -1,0 +1,529 @@
+.container{
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    grid-template-rows: repeat(15,1fr);
+    height: 100vh;
+    width: 100%;
+}
+.background-section-rounded{
+    border-radius: 100px;
+    background-color: white;
+    overflow: hidden;
+}
+.background-section-cube{
+    border-radius: 30px;
+    background-color: white;
+    overflow: hidden;
+}
+
+/* HEADER-------------------------------------------------------- */
+.section-header{
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 16;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2.315vh 1.302vw;
+}
+.section-header-logo{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    font-weight: bold;
+}
+.section-header-buttons{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    align-items: center;
+}
+.section-header-buttons >div{
+    margin-top: 25px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: white;
+    transition: all .3s;
+}
+.section-header-buttons >div:hover{
+    background-color: #FFE0DB;
+}
+.section-header-setting{
+    background-color: #B09CFF;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Stats ---------------------------------------- */
+.section-stats{
+    grid-column-start: 2;
+    grid-column-end: 9;
+
+    grid-row-start: 1;
+    grid-row-end: 3;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    margin: 3.333vh 4.271vw 3.704vh 0;
+}
+.section-stats >div:first-child{
+    background-color: #B09CFF;
+    border-radius: 50%;
+    font-size: 2em;
+    width: 50px;
+    height: 50px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.section-stats >span{
+    margin-left: 1vw;
+}
+.section-stats >div{
+    margin-left: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.section-stats >div >span{
+    margin-left: 5px;
+}
+
+/* Level -------------------------------------------- */
+.section-level{
+    grid-column-start: 9;
+    grid-column-end: 14;
+
+    grid-row-start: 1;
+    grid-row-end: 3;
+    display: flex;
+    flex-direction: column;
+    margin: 3.333vh 1.302vw 3.704vh 0;
+}
+.section-level >div:first-child{
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 2vw 0 1vw;
+}
+.section-level >div:last-child{
+    background-color: #FFE0DB;
+    height: 2vh;
+    width: 93%;
+    margin: 1% 1vw;
+    border-radius: 20px;
+}
+.section-level >div:last-child >div{
+    background-color: #B09CFF;
+    height: 2vh;
+    width: 70%;
+    border-radius: 20px;
+}
+
+/* Daily--------------------------------------------------------- */
+.section-daily{
+    grid-column-start: 2;
+    grid-column-end: 5;
+
+    grid-row-start: 3;
+    grid-row-end: 6;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 2.083vw 3.704vh 0;
+}
+.section-daily-cat{
+    display: flex;
+    align-items: end;
+    overflow: hidden;
+}
+.section-daily-test{
+    padding: 3vh 1vw 0 1vw ;
+}
+.section-daily-test-question{
+    font-weight: 600;
+}
+.section-daily-test-question-word{
+    font-weight: 400;
+    color: #B09CFF;
+}
+.section-daily-test >div{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    margin-top: 8px;
+    cursor: pointer;
+}
+/* Test */
+.section-notification-test{
+    grid-column-start: 2;
+    grid-column-end: 5;
+
+    grid-row-start: 6;
+    grid-row-end: 9;
+    margin:0 2.083vw 3.704vh 0;
+}
+
+/* Homework------------------------------------------ */
+.section-homework{
+    grid-column-start: 2;
+    grid-column-end: 5;
+
+    grid-row-start: 9;
+    grid-row-end: 16;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 2.083vw 2.315vh 0;
+}
+.section-homework >span{
+    font-weight: bold;
+}
+.section-homework >div{
+   border: 1px solid #B09CFF;
+   border-radius: 10vh;
+   padding: 10px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+/* Shedule--------------------------------------------------*/
+.section-schedule{
+    grid-column-start: 5;
+    grid-column-end: 9;
+
+    grid-row-start: 3;
+    grid-row-end: 10;
+    display: flex;
+    flex-direction: column;
+    padding: 3%;
+    justify-content: space-around;
+    margin: 0 2.083vw 3.704vh 0;
+}
+.section-schedule-month{
+    width: 86%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 7%;
+    margin-right: 7%;
+    align-items: center;
+}
+.section-schedule-month >span{
+    font-weight: bold;
+}
+.section-schedule-month >div{
+    border: 1px solid #B09CFF;
+    border-radius: 10vh;
+    padding:  5px;
+}
+.section-schedule-month >div >span:first-child{
+   margin-right: 1vw;
+   color: #B09CFF;
+}
+.section-schedule-month >div >span:last-child{
+    margin-left: 1vw;
+    color: #B09CFF;
+}
+.section-schedule th{
+    color: #B09CFF;
+}
+.section-schedule >table >tbody >tr >td{
+   text-align: center;
+   vertical-align: middle;
+   height: 4vh;
+}
+.section-schedule-icons{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 2vh;
+}
+.section-schedule-icons >div{
+    display: flex;
+    align-items: center;
+}
+.section-schedule-icons >div >img{
+    margin-right: 5px;
+}
+.section-schedule-day-study >span{
+    background-color: #B09CFF;
+    border-radius: 50%;
+    padding: 3px;
+    color: white;
+}
+.section-schedule-day-test >span{
+    background-color: #4a1ebb;
+    border-radius: 50%;
+    padding: 4px;
+    color: white;
+}
+
+/* Notification ------------------------------------------------- */
+.section-notification{
+    grid-column-start: 5;
+    grid-column-end: 9;
+
+    grid-row-start: 10;
+    grid-row-end: 16;
+    display: flex;
+    flex-direction: column;
+    padding: 3vh;
+    margin: 0 2.083vw 2.315vh 0;
+}
+.section-notification >div:first-child{
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+    justify-content: space-between;
+    align-items: center;
+}
+.section-notification >ul{
+    list-style-type: none;
+    flex: 1;
+}
+.section-notification >ul >li{
+    margin-top: 5px;
+}
+.section-notification-accent{
+    color: #B09CFF;
+}
+
+/* Study------------------------------------------------------ */
+.section-study{
+    grid-column-start: 9;
+    grid-column-end: 14;
+
+    grid-row-start: 3;
+    grid-row-end: 16;
+    display: flex;
+    flex-direction: column;
+    margin: 0 1.302vw 2.315vh 0;
+}
+.section-study >span{
+    margin-left: 15%;
+    margin-top: 2%;
+    font-weight: bold;
+}
+.section-study >div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.section-study img{
+    width: 80%;
+}
+.section-study-buttons{
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin-top: 2%;
+}
+.section-study-buttons >div{
+    padding: 5%;
+    border: 2px solid #B09CFF;
+    border-radius: 10%;
+    color: black;
+    transition: all .3s;
+    cursor: pointer;
+}
+.section-study-buttons >div:hover{
+    background-color: #B09CFF;
+    color: white;
+}
+
+@media (min-width: 450px) and (max-width: 1000px){
+    .container{
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(18,1fr);
+    }
+
+    .section-header{
+        grid-column-start: 1;
+        grid-column-end: 3;
+
+        grid-row-start: 17;
+        grid-row-end: 19;
+        margin: 0;
+    }
+
+    .section-stats{
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    .section-notification-test{
+        grid-column: 1;
+    
+        grid-row-start: 3;
+        grid-row-end: 6;
+        margin: 0 1.562vw 1.852vh 1.562vw;
+    }
+
+    .section-level{
+        grid-column: 2;
+        grid-row-start: 3;
+        grid-row-end: 5;
+        margin: 0 1.562vw 2.778vh 1.562vw; 
+    }
+
+    .section-daily{
+        grid-column: 1;
+
+        grid-row-start: 6;
+        grid-row-end: 9;
+        margin: 0 1.562vw 1.852vh 1.562vw;
+    }
+
+    .section-schedule{
+        grid-column: 2;
+
+        grid-row-start: 5;
+        grid-row-end: 12;
+    }
+
+    .section-homework{
+        grid-column: 1;
+
+        grid-row-start: 9;
+        grid-row-end: 13;
+        margin: 0 1.562vw 1.852vh 1.562vw;
+    }
+
+    .section-notification{
+        grid-column: 1;
+
+        grid-row-start: 13;
+        grid-row-end: 17;
+        margin: 0 1.562vw 1.852vh 1.562vw;
+    }
+
+    .section-study{
+        grid-column: 2;
+
+        grid-row-start: 12;
+        grid-row-end: 17;
+    }
+
+    .visivility{
+        display: none;
+    }
+}
+
+@media (max-width: 450px){
+    .container{
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(17,1fr);
+       height: 200vh;
+    }
+
+    .section-header{
+        grid-column-start: 1;
+        grid-column-end: 3;
+
+        grid-row-start: 17;
+        grid-row-end: 17;
+        margin: 1.852vh 1.042vw;
+    }
+
+    .section-stats{
+        grid-column-start: 1;
+        grid-column-end: 3;
+
+        grid-row-start: 1;
+        grid-row-end: 2;
+
+        margin:1.852vh 1.042vw;
+    }
+
+    .section-level{
+        grid-column: 2;
+        grid-row-start: 2;
+        grid-row-end: 4;
+
+        margin: 0 1.562vw 1.852vh 1.562vw;  
+    }
+
+    .section-notification-test{
+        grid-column: 1;
+    
+        grid-row-start: 2;
+        grid-row-end: 3;
+        margin: 0 0 1.852vh 1.852vh;
+    }
+
+    .section-schedule{
+        grid-column-start: 1;
+        grid-column-end: 3;
+
+        grid-row-start: 4;
+        grid-row-end: 8;
+        margin: 0 1.042vw;
+    }
+
+    .section-daily{
+        grid-column-start: 1;
+        grid-column-end: 3;
+
+        grid-row-start: 8;
+        grid-row-end: 10;
+        margin: 1.852vh 1.042vw;
+    }
+
+    .section-homework{
+        grid-column-start: 1;
+        grid-column-end: 3;
+
+        grid-row-start: 10;
+        grid-row-end: 12;
+        margin: 0;
+        margin: 0 1.042vw;
+    }
+
+    .section-notification{
+        grid-column-start: 1;
+        grid-column-end: 3;
+
+        grid-row-start: 12;
+        grid-row-end: 14;
+        margin: 1.852vh 1.042vw;
+    }
+
+    .section-study{
+        grid-column-start: 1;
+        grid-column-end: 3;
+
+        grid-row-start: 14;
+        grid-row-end: 17;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
