@@ -1,26 +1,7 @@
 <div class="container">
     <app-header-log class="header"></app-header-log>
 
-    <div class="section-stats background-section-rounded ">
-        <div>
-           <span>C</span> 
-        </div>
-        <span>Welcome back, Світлана!</span>
-        <div>
-            <img src="../../../assets/images/icon_coin_1.png" alt="coin"/>
-            <span>25</span>
-        </div>
-        <div>
-            <img src="../../../assets/images/icon_coin_2.png" alt="coin"/>
-            <span>25</span>
-        </div>
-        <div>
-            <img src="../../../assets/images/icon_coin_3.png" alt="coin"/>
-            <span>25</span>
-        </div>
-        <img class="disabled" src="../../../assets/images/setting_purple.svg" alt="setting"/>
-        <img class="disabled" src="../../../assets/images/alarm.svg" alt="alarm"/>
-    </div>
+    <app-label-log class="stats"></app-label-log>
 
     <div class="section-level">
         <div>
@@ -201,9 +182,9 @@
         <div>
             <img  src="../../../assets/images/study.png" alt="study"/>
             <div class="section-study-buttons">
-                <div>Тести</div>
-                <div>Відео урок</div>
-                <div>Статті</div>
+                <a [routerLink]="['/test']">Тести</a>
+                <a>Відео урок</a>
+                <a>Статті</a>
             </div>
         </div>
     </div>

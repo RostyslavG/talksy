@@ -22,7 +22,7 @@
     margin-top: 30px;
     align-items: center;
 }
-.section-header-buttons >div{
+.section-header-buttons >diav{
     margin-top: 25px;
     cursor: pointer;
     width: 30px;
@@ -34,14 +34,14 @@
     background-color: white;
     transition: all .3s;
 }
-.section-header-buttons >div:hover{
+.section-header-buttons >a:hover{
     background-color: #FFE0DB;
 }
 .section-header-setting{
     background-color: #B09CFF;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;

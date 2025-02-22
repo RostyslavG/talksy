@@ -31,42 +31,14 @@
 
 
 /* Stats ---------------------------------------- */
-.section-stats{
+.stats{
     grid-column-start: 2;
     grid-column-end: 9;
 
     grid-row-start: 1;
-    grid-row-end: 3;
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-    margin: 3.333vh 4.271vw 3.704vh 0;
+    grid-row-end: 3; 
+}
 
-    
-}
-.section-stats >div:first-child{
-    background-color: #B09CFF;
-    border-radius: 50%;
-    font-size: 2em;
-    width: 50px;
-    height: 50px;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.section-stats >span{
-    margin-left: 1vw;
-}
-.section-stats >div{
-    margin-left: 1vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.section-stats >div >span{
-    margin-left: 5px;
-}
 
 /* Level -------------------------------------------- */
 .section-level{
@@ -322,7 +294,7 @@
     width: 80%;
     margin-top: 4vh;
 }
-.section-study-buttons >div{
+.section-study-buttons >a{
     padding: 5%;
     border: 2px solid #B09CFF;
     border-radius: 10%;
@@ -330,7 +302,7 @@
     transition: all .3s;
     cursor: pointer;
 }
-.section-study-buttons >div:hover{
+.section-study-buttons >a:hover{
     background-color: #B09CFF;
     color: white;
 }

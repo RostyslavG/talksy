@@ -1,18 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { ApiService } from '../../services/api.service';
 import { ErrorResponce } from '../../model/dto/errorResponce';
 
+
 @Component({
     selector: 'app-login-register',
     standalone: true,
     imports: [
         CommonModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        RouterLink,
     ],
     templateUrl: './login-register.component.html',
     styleUrls: ['./login-register.component.css']
@@ -27,7 +29,8 @@ export class LoginRegisterComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
         private fb: FormBuilder,
-        private apiService: ApiService
+        private apiService: ApiService,
+        private router:Router,
     ) {
 
         this.authForm = this.fb.group(
@@ -72,15 +75,23 @@ export class LoginRegisterComponent implements OnInit {
             return;
         }
 
-        try {
-            const { email, password } = this.authForm.value;
-            const response = await this.apiService.login(email, password);
-            console.log('Успішний вхід:', response);
-        } catch (error: any) {
-            console.error('Помилка входу:', error);
-            const errorMessage = error?.message || 'Невідома помилка. Спробуйте знову.';
-            alert(errorMessage);
-        }
+        // try {
+        //     const { email, password } = this.authForm.value;
+        //     const response = await this.apiService.login(email, password);
+        //     console.log('Успішний вхід:', response);
+        // } catch (error: any) {
+        //     console.error('Помилка входу:', error);
+        //     const errorMessage = error?.message || 'Невідома помилка. Спробуйте знову.';
+        //     alert(errorMessage);
+        // }
+
+        const { email, password } = this.authForm.value;
+       if(email == "student@gmail.com"){
+        this.router.navigate(['/cabinet']);
+       }else{
+        this.router.navigate(['/cabinet']);
+       }
+        
     }
 
     async registration() {
