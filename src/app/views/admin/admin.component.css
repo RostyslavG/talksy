@@ -1,0 +1,125 @@
+.admin { 
+    display: grid;
+    width: 100%;
+    height: 100vh;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: repeat(13,1fr);
+    background-color: #ffecec;
+}
+
+.admin-header { 
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.admin-label {
+    grid-column-start: 2;
+    grid-column-end: 8;
+}
+
+.search-bar {
+    grid-column-start: 9;
+    grid-column-end: 13;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+
+.search-bar > img {
+    position: absolute;
+    left: 10px;
+}
+
+.search-bar input {
+    width: 100%;
+    outline: none;
+    border: 2px solid #B09CFF;
+    border-radius: 20px;
+    background-color: transparent;
+    padding: 10px 20px 10px 35px;
+    font-size: 1.1rem;
+    margin-right: 40px;
+}
+
+.admin-container {
+    grid-column-start: 2;
+    grid-row-start: 2 ;
+    grid-column-end: 12;
+    grid-row-end: 13;
+    display: flex;
+    justify-content: space-around;
+    gap: 50px;
+}
+
+/* ======= Lesson block ======= */
+
+
+.lesson-block {
+    background-color: #FFFBFA;
+    border-radius: 40px;
+    padding: 30px;
+}
+
+.lesson-header { 
+    padding-bottom: 30px;
+}
+
+.lesson-elements {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 25px;
+    min-width: 525px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.lesson-element {
+    width: 150px;
+    border: 1px solid #B09CFF;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 11px;
+    font-size: 12px;
+    position: relative;
+}
+
+.lesson-theme {
+    padding: 10px 0;
+} 
+
+.controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+}
+
+.buttons > button {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+}
+
+.lesson-date {
+    text-align: right;
+    width: 100%;
+}
+
+.add-block {
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFBFA;
+    padding: 50px;
+}
+
+
+
