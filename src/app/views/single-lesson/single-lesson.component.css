@@ -1,0 +1,266 @@
+.header-lesson {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.header-lesson::after {
+    content: "";
+    position: absolute;
+    bottom: 1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #B09CFF;
+}
+
+.lesson-title {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    background: #FFFBFA;
+    padding: 10px;
+    border-radius: 50px;
+}
+
+.lesson-title h1, .lesson-title h2 {
+    padding: 20px;
+    font-size: 60px;
+    color: black;
+}
+
+.lesson-title h2 {
+    color: #B09CFF;
+}
+
+.header-lesson img {
+    height: 800px;
+    width: 100%;
+}
+
+/*==================================================================================*/
+
+.informal {
+    position: relative;
+}
+
+.informal-container {
+    background: #FFFBFA;
+    padding: 40px;
+    border-radius: 20px;
+    margin: 40px 125px;
+}
+
+.informal::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #B09CFF;
+}
+
+h2 {
+    color: #a78bfa;
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+p {
+    color: #333;
+    font-size: 1.2em;
+}
+.text-after-content{
+    margin-bottom: 40px;
+}
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.text-content {
+    width: 55%;
+}
+.section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.column {
+    width: 55%;
+}
+.column h3 {
+    color: #a78bfa;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+.column p {
+    color: #000;
+    font-size: 1.2em;
+    margin: 40px 0;
+    font-weight: 700;
+}
+.image-container {
+    width: 40%;
+    margin-top: 50px;
+}
+.image-container img {
+    width: 100%;
+    border-radius: 10px;
+}
+.floating-image {
+    position: absolute;
+    top: -5px;
+    right: 30px;
+    width: 60px;
+    height: auto;
+}
+
+.floating-image img {
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .text-content, .image-container {
+        width: 100%;
+    }
+}
+
+/*===============================================================================================*/
+
+
+.formal {
+    position: relative;
+}
+
+.formal::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #B09CFF;
+}
+
+.formal .informal-container {
+    background: #FFFBFA;
+    padding: 40px;
+    border-radius: 20px;
+    margin: 40px 125px;
+}
+
+.formal .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formal .text-content {
+    text-align: left;
+}
+
+.formal .section {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.formal .column {
+    width: 45%;
+    max-width: 300px;
+}
+
+.formal .column h3 {
+    color: #a78bfa;
+    font-size: 1.5em;
+}
+
+.formal .column p {
+    color: #000;
+    font-size: 1.2em;
+    margin: 40px 0;
+}
+
+@media (max-width: 768px) {
+    .formal .section {
+        flex-direction: column;
+        align-items: center;
+    }
+    .formal .column {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/*=====================================================================================*/
+
+.small-talk {
+    position: relative;
+}
+
+.small-talk::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #B09CFF;
+}
+
+.small-talk .informal-container {
+    background: #FFFBFA;
+    padding: 40px;
+    border-radius: 20px;
+    margin: 40px 125px;
+}
+
+.small-talk .text-after-content {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+
+.small-talk .text-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 40px 80px;
+    max-width: 100%;
+}
+
+.small-talk .column {
+    background: none;
+    padding: 10px;
+    text-align: left;
+}
+
+.small-talk .column h3 {
+    color: #a78bfa;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.small-talk .column p {
+    color: #000;
+    font-size: 1.2em;
+    margin: 40px 0;
+}
+
+/*================================================================================================*/
+
+.footer-lesson {
+    position: relative;
+}
+
+
+
+
+
+

@@ -6,6 +6,7 @@ import { SettingComponent } from './views/setting/setting.component';
 import { TestComponent } from './views/test/test.component';
 import { DzComponent } from './views/dz/dz.component';
 import { LessonsComponent } from './views/lessons/lessons.component';
+import { SingleLessonComponent } from './views/single-lesson/single-lesson.component';
 import { AdminComponent } from './views/admin/admin.component';
 
 export const routes: Routes = [
@@ -16,5 +17,6 @@ export const routes: Routes = [
     { path:'test', component:TestComponent},
     { path:'homework', component:DzComponent},
     { path:'lessons', component:LessonsComponent},
+    { path: 'lesson/:id', component: SingleLessonComponent },
     { path:'admin', component:AdminComponent},
 ];
