@@ -9,7 +9,7 @@
         </div>
 
         <div>
-            <div class="lesson-element">
+            <div class="lesson-element" *ngFor="let lesson of lessons" [routerLink]="['/lesson', lesson.id]">
                 <img src="../../../assets/images/lessons/lesson.png" alt="lesson"/>
                 <span>Lesson 1: Greetings and Introductions</span>
                 <span>12.01.2025</span>
@@ -54,7 +54,7 @@
                 <span>Lesson 1: Greetings and Introductions</span>
                 <span>12.01.2025</span>
             </div>
-            
+
         </div>
     </div>
 </div>
