@@ -79,7 +79,8 @@
 }
 
 .lesson-element {
-    width: 150px;
+    min-width: 150px;
+    width: 31%;
     border: 1px solid #B09CFF;
     border-radius: 20px;
     display: flex;
@@ -214,6 +215,158 @@
     transform: translate(-50%);
 }
 
-@media(max-width: 1200px) {
+@media (max-width: 1199px) {
+
+    .admin {
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto 1fr auto  auto; 
+    }
+
+    .admin-header {
+        grid-column: 1 / -1;
+        grid-row: 6;
+    }
+
+    .admin-label {
+        grid-column: 1 / 13;
+        grid-row: 1;
+        margin-left: 40px;
+    }
+
+    .search-bar {
+        grid-column: 1 / 8; 
+        grid-row: 2;
+        margin-left: 40px;
+        margin-bottom: 10px;
+    }
+
+    .lesson-block {
+        grid-column: 1 / 5;
+        grid-row: 2;
+        gap: 20px;
+        max-height: 500px;
+    }
     
+    .upload-block {
+        grid-column: 8 / 13;
+        grid-row: 2;
+    }
+    
+    .admin-container {
+        grid-column: 1 / 13;
+        grid-row-start: 4;
+        grid-row-end: 5;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin: 0 30px;
+        height: auto;
+    }
+
+    .lesson-elements {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .lesson-element {
+        min-width: 100px;
+        width: 30%;
+    }
+
+    .upload-btn {
+        width: 100%;
+    }
+
+    /* Teacher List */
+    .teacher-list {
+        grid-column: 1 / 13;
+        grid-row: 5;
+        max-height: 500px;
+    }
+
+    .list {
+        display: block;
+        height: 80%;
+        width: 100%;
+        flex-grow: 1;
+        overflow-y: auto;
+    }
+
+    .teacher-btn {
+        display: block;
+        width: 60%;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 10px;
+    }
+
+    .teacher {
+        width: 46%;
+        display: inline-flex; 
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .teacher-info {
+        width: 70%;
+    }
+
+    .admin-header {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .admin {
+        padding: 0 10px;
+        height: auto;
+    }
+
+    .admin-label {
+        width: 100%;
+        margin: 0;
+        grid-column: 1 / 13;
+        margin-right: - 4.271vw;
+    }
+
+    .search-bar {
+        grid-column: 1 / 13;
+        margin: 0;
+        width: 100%;
+    }
+
+    .search-bar input {
+        margin: 0 0 10px 0;
+
+    }
+
+    .admin-container {
+        display: flex; 
+        flex-direction: column;
+        justify-content: space-around;
+        margin: 0;
+        padding: 0;
+    }
+
+    .lesson-block {
+        padding: 20px;
+    }
+
+    .list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .teacher {
+        width: 100%;
+    }
+
+    .teacher img {
+        display: block;
+    }
+
 }
