@@ -203,6 +203,7 @@
     height: 50px;
     border-radius: 50%;
     object-fit: cover;
+    flex-shrink: 0;
 }
 
 .teacher-info {
@@ -367,6 +368,10 @@
 
     .teacher img {
         display: block;
+    }
+
+    .teacher-btn {
+        width: 100%;
     }
 
 }
