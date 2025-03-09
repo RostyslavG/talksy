@@ -367,8 +367,6 @@ body {
     height: 55.5%;
 }
 
-.sign-up__block-text {}
-
 .block-text {
     display: flex;
     flex-direction: column;
@@ -420,10 +418,6 @@ body {
 .sign-up__box {
     display: none;
 }
-
-.sign-up__pic {}
-
-.sign-up__bot {}
 
 .sign-up__info {
     position: relative;
@@ -919,15 +913,162 @@ body {
     text-decoration: none;
 }
 
+@media (max-width: 1200px) {   
+
+    .advant {
+        margin: 40px;
+    }
+
+    .title {
+        font-size: 24px;
+    }
+    
+    .advantages {
+        flex-wrap: wrap;
+    }
+    .advantage {
+        max-width: 40%;
+        text-align: center;
+    }
+
+    .about {
+        margin: 40px;
+    }
+
+    .card {
+        position: relative;
+    }
+
+    .card-title {
+        font-size: 24px;
+        position: static;
+    }
+
+    .card-text {
+        font-size: 18px;
+    }
+
+    .func {
+        margin: 40px 0;
+    }
+
+    .column h2 {
+        font-size: 36px;
+    }
+
+    .column p {
+        font-size: 18px;
+    }
+
+    .left p {
+        margin-bottom: 0;
+    }
+}
+
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
     }
     .right2 {
         padding: 20px;
+        align-items: center;
     }
     .left {
         padding: 20px;
     }
+
+    .about {
+        margin: 40px 0;
+    }
+
+    .card {
+        padding: 30px;
+    }
+
+    .func {
+        padding: 10px;
+    }
+
+    .registrations {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        max-width: 100%;
+    }
+
+    .left h2 {
+        font-size: 36px;
+    }
+
+    .left p, .pidzagolovok {
+        font-size: 18px;
+    }
+
+    .right2 input, .right2 button {
+        width: 80%;
+    }
 }
 
+@media (max-width: 600px) {
+    
+    .advant {
+        margin: 40px 0;
+    }
+
+    .advantages {
+        width: 100%;
+        display: flex;;
+        align-items: center;
+    }
+
+    .advantage {
+        width: 100%;    
+        margin: 0;
+    }
+
+    .advantage p {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .advantage img {
+        margin-bottom: 20px;
+    }
+
+    .about {
+        padding: 10px;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-number {
+        font-size: 36px;
+    }
+
+    .card-text-container {
+        text-align: center;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .column h2 {
+        font-size: 24px;
+    }
+
+    .right2 input, .right2 button {
+        width: 100%;
+    }
+
+    .button2 {
+        width: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
