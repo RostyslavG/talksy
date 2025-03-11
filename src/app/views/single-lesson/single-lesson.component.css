@@ -259,8 +259,41 @@ p {
     position: relative;
 }
 
+.foot {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.text-group {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.text-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
 
 
+.foot h4,
+.foot .afk {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
 
+.foot h4{
+    color: #a78bfa;
+}
 
-
+.foot img {
+    position: relative;
+    height: 630px;
+    left: 25%;
+    transform: translateY(40px);
+}

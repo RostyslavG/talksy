@@ -31,6 +31,7 @@ header {
     color: #000000;
     font-size: 16px;
     transition: color 0.3s;
+    font-weight: 600;
 }
 .navbar .nav-links a:hover {
     color: #7B61FF;
@@ -58,4 +59,111 @@ header {
 .navbar .auth-links .register:hover {
     background-color: #7B61FF;
     color: #FFFFFF;
+}
+
+.auth-icons {
+    display: none;
+    gap: 15px;
+}
+
+.burger{
+    display: none;
+    cursor: pointer;
+}
+
+.burger input {
+    display: none;
+}
+
+.burger span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: black;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+
+.burger span:nth-of-type(1) {
+    top: 0px;
+    transform-origin: left center;
+}
+
+.burger span:nth-of-type(2) {
+    top: 50%;
+    transform: translateY(-50%);
+    transform-origin: left center;
+}
+
+.burger span:nth-of-type(3) {
+    top: 100%;
+    transform-origin: left center;
+    transform: translateY(-100%);
+}
+
+.burger input:checked ~ span:nth-of-type(1) {
+    transform: rotate(45deg);
+    top: 2px;
+    left: 0;
+}
+
+.burger input:checked ~ span:nth-of-type(2) {
+    width: 0%;
+    opacity: 0;
+}
+
+.burger input:checked ~ span:nth-of-type(3) {
+    transform: rotate(-45deg);
+    top: 20px;
+    left: 0;
+}
+
+.nav-actions{
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .burger {
+        position: relative;
+        width: 26px;
+        height: 18px;
+        background: transparent;
+        cursor: pointer;
+        display: block;
+    }
+
+    .navbar .auth-links {
+        display: none;
+    }
+
+    .auth-icons {
+        display: flex;
+    }
 }
