@@ -9,6 +9,7 @@ import { LessonsComponent } from './views/lessons/lessons.component';
 import { SingleLessonComponent } from './views/single-lesson/single-lesson.component';
 import { AdminComponent } from './views/admin/admin.component';
 import { CalendarComponent } from './views/calendar/calendar.component';
+import { TeachersComponent } from './views/teachers/teachers.component';
 
 export const routes: Routes = [
     { path: '' , component:MainComponent },
@@ -18,7 +19,8 @@ export const routes: Routes = [
     { path:'test', component:TestComponent},
     { path:'homework', component:DzComponent},
     { path:'lessons', component:LessonsComponent},
-    { path: 'lesson/:id', component: SingleLessonComponent },
+    { path:'lesson/:id', component: SingleLessonComponent },
     { path:'admin', component:AdminComponent},
-    { path: 'calendar', component:CalendarComponent}
+    { path: 'calendar', component:CalendarComponent},
+    { path:'teachers', component:TeachersComponent},
 ];

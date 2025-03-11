@@ -1,0 +1,147 @@
+<div class="teachers">
+
+    <app-header-log class="teachers-header"></app-header-log>
+    <app-label-log class="teachers-label"></app-label-log>
+
+    <div class="search-bar">
+        <img src="../../../assets/images/lessons/lupa.svg" alt="search"/>
+        <input type="text" placeholder="Пошук..."/>
+    </div>
+
+    <div class="teachers-container">
+
+        <form action="#" class="add-teacher">
+
+            <input class="text-field" type="text" name="name" placeholder="Ім'я">
+            <input class="text-field" type="text" name="lastname" placeholder="Прізвище">
+            <input class="text-field" type="text" name="patronymic" placeholder="По батькові">
+            <input class="text-field" type="date" name="date" placeholder="Дата народження">
+            <label for="image" class="img-container">
+                <div class="content">
+                    <div class="circle">
+                        <img src="../../../assets/images/upload_img.svg" alt="upload icon">
+                    </div>
+                    <p class="text">Завантажити фотографію</p>
+                </div>
+                <input class="image-field" type="file" name="image" id="image">
+            </label>
+            <input type="button" value="Додати викладача" class="btn">
+
+        </form>
+
+        <div class="teachers-list">
+
+            <div class="teacher-header">
+                <h3 class="head-text">Викладачі</h3>
+                <div class="search-bar">
+                    <img src="../../../assets/images/lessons/lupa.svg" alt="search"/>
+                    <input type="text" placeholder="Пошук..."/>
+                </div>
+            </div>
+
+            <div class="list">
+
+                <div class="teacher">
+                    <img src="../../../assets/images/teacher_photo.jpg" alt="teacher image">
+                    <p class="teacher-info">Тарасенко Василь Дмитрович</p>
+                </div>
+                
+                <div class="teacher">
+                    <img src="../../../assets/images/teacher_photo.jpg" alt="teacher image">
+                    <p class="teacher-info">Тарасенко Василь Дмитрович</p>
+                </div>
+                
+                <div class="teacher">
+                    <img src="../../../assets/images/teacher_photo.jpg" alt="teacher image">
+                    <p class="teacher-info">Тарасенко Василь Дмитрович</p>
+                </div>
+                
+                <div class="teacher">
+                    <img src="../../../assets/images/teacher_photo.jpg" alt="teacher image">
+                    <p class="teacher-info">Тарасенко Василь Дмитрович</p>
+                </div>
+                
+                <div class="teacher">
+                    <img src="../../../assets/images/teacher_photo.jpg" alt="teacher image">
+                    <p class="teacher-info">Тарасенко Василь Дмитрович</p>
+                </div>
+                
+                <div class="teacher">
+                    <img src="../../../assets/images/teacher_photo.jpg" alt="teacher image">
+                    <p class="teacher-info">Тарасенко Василь Дмитрович</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="back">
+    <div class="modal-window">
+
+        <div class="modal-header">
+            <img src="../../../assets/images/teacher_photo.jpg" alt="teacher image">
+            <h3 class="teacher-name">Тарасенко Василь Дмитрович</h3>
+            <div class="buttons">
+                <button class="btn-modal delete-teacher-btn">
+                    <img src="../../../assets/images/icon_delete.svg" alt="delete icon">
+                </button>
+
+                <button class="btn-modal edit-teacher-btn">
+                    <img src="../../../assets/images/icon_edit.svg" alt="delete icon">
+                </button>
+            </div>
+        </div>
+
+        <form action="#" class="confirm-form">
+            <button class="btn">Завантажити розклад</button>
+
+            <input type="text" name="login" placeholder="логін" class="text-field">
+            <input type="text" name="password" placeholder="пароль" class="text-field">
+
+            <input type="submit" value="Згенерувати" class="btn btn-submit">
+        </form>
+    </div>
+</div>
+
+
+<div class="back">
+    <div class="modal-window edit">
+
+        <form action="#" class="edit-teacher">
+            <input class="text-field" type="text" name="name" placeholder="Ім'я" value="Василь">
+            <input class="text-field" type="text" name="lastname" placeholder="Прізвище" value="Тарасенко">
+            <input class="text-field" type="text" name="patronymic" placeholder="По батькові" value="Дмитрович">
+            <input class="text-field" type="date" name="date" value="12-02-1990">
+            <label for="image" class="img-container">
+                <div class="content">
+                    <div class="circle">
+                        <img src="../../../assets/images/teacher_photo.jpg" alt="upload icon">
+                    </div>
+                    <p class="text">Завантажити фотографію</p>
+                </div>
+                <input class="image-field" type="file" name="image" id="image">
+            </label>
+            <input type="button" value="Додати викладача" class="btn">
+        </form>
+
+    </div>
+</div>
+
+
+
+
+<div class="back">
+    <div class="modal-window delete">
+        <h3 class="delete-message">Ви впевнені що хочете видалити?</h3>
+
+        <div class="teacher">
+            <img src="../../../assets/images/teacher_photo.jpg" alt="teacher image">
+            <p class="teacher-info">Тарасенко Василь Дмитрович</p>
+        </div>
+
+        <button class="btn btn-delete">Видалити</button>
+    </div>
+</div>
