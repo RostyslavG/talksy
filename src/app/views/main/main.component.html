@@ -20,7 +20,9 @@
                                     <br>
                                                               in Learning English
                                 </h1>
-                                <a href="" class="block-text__button button">Зареєструватись</a>
+                                <a [routerLink]="['login-registration','registration']" class="block-text__button button">
+                                    Зареєструватись
+                                </a>
                             </div>
                         </div>
                         <div class="sign-up__robot">
@@ -35,7 +37,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="sign-up__info">
+                    <div id="about-us" class="sign-up__info">
                         <div class="sign-up__title">Про нас</div>
                         <div class="sign-up__text">Talksy створений, щоб зробити навчання ефективним і зручним.
                                                    Викладачі можуть створювати уроки та відстежувати прогрес студентів. Студенти отримують
@@ -191,7 +193,7 @@
                     <button>Далі</button>
                     <div class="login-link">
                         <span>Вже маєте акаунт?</span>
-                        <a href="#">УВІЙТИ</a>
+                        <a [routerLink]="['login-registration','login']">УВІЙТИ</a>
                     </div>
                 </div>
             </section>

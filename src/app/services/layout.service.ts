@@ -9,16 +9,16 @@ import { filter } from 'rxjs/operators';
 export class LayoutService {
     private hideHeaderFooter = new BehaviorSubject<boolean>(false);
     hideHeaderFooter$ = this.hideHeaderFooter.asObservable();
-  
+
     constructor(private router: Router) {
-      this.router.events.subscribe(event => {
-        if (event instanceof NavigationEnd) {
-            if (event.urlAfterRedirects === '/' || event.urlAfterRedirects.startsWith('/login-registration')) {
-            this.hideHeaderFooter.next(false);
-          } else {
-            this.hideHeaderFooter.next(true);
-          }
-        }
-      });
+      // this.router.events.subscribe(event => {
+      //   if (event instanceof NavigationEnd) {
+      //       if (event.urlAfterRedirects === '/' || event.urlAfterRedirects.startsWith('/login-registration')) {
+      //       this.hideHeaderFooter.next(false);
+      //     } else {
+      //       this.hideHeaderFooter.next(true);
+      //     }
+      //   }
+      // });
     }
 }

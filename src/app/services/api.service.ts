@@ -9,7 +9,7 @@ import { JWTToken } from '../model/dto/jwtToken';
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'https://cc52-5-58-58-125.ngrok-free.app/';
+  private apiUrl = 'https://ef37-5-58-58-125.ngrok-free.app/';
 
   constructor(private http: HttpClient) {}
 
