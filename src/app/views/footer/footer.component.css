@@ -46,10 +46,26 @@ body {
 
 @media (max-width: 768px) {
     .footer {
-        flex-direction: column;
+        flex-direction: row;
         text-align: center;
         gap: 15px;
     }
+
+    .footer > .footer-nav {
+        display: none;
+    }
+
+    .footer > .privacy-policy {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .footer .image {
+        width: 25px;
+        height: 25px;
+    }
+    
 }
 
 .footer-nav, .social-icons {
@@ -82,4 +98,14 @@ body {
 
 .contact-item {
     flex-direction: column;
+}
+
+.image {
+    background-color: #B09CFF;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
 }
