@@ -175,18 +175,16 @@
     margin: 0 2.083vw 3.704vh 0;
 }
 .section-schedule-month{
-    width: 86%;
+    max-width: 100%;
     display: flex;
-    justify-content: space-between;
-    margin-left: 7%;
-    margin-right: 7%;
+    justify-content: space-around;
     align-items: center;
 }
 .section-schedule-month >span{
     font-weight: bold;
 }
 .section-schedule-month >div{
-    border: 1px solid #B09CFF;
+    border: 1px solid #4827cc;
     border-radius: 10vh;
     padding:  5px;
     display: flex;
@@ -235,6 +233,23 @@
     color: white;
 }
 
+
+.section-schedule-day-study, 
+.section-schedule-day-test {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.section-schedule-day-study > span, 
+.section-schedule-day-test > span {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding: 6px;
+}
+
 /* Notification ------------------------------------------------- */
 .section-notification{
     grid-column-start: 5;
@@ -257,6 +272,8 @@
 .section-notification >ul{
     list-style-type: none;
     flex: 1;
+    height: 70%;
+    overflow-y: auto;
 }
 .section-notification >ul >li{
     margin-top: 30px;
@@ -307,7 +324,7 @@
     color: white;
 }
 
-@media (min-width: 450px) and (max-width: 1000px){
+@media (min-width: 450px) and (max-width: 1200px){
     .container{
         grid-template-columns: repeat(2,1fr);
         grid-template-rows: repeat(18,1fr);
@@ -337,9 +354,9 @@
     .section-notification-test{
         grid-column: 1;
     
-        grid-row-start: 3;
-        grid-row-end: 6;
-        margin: 0 1.562vw 1.852vh 1.562vw;
+        grid-row-start: 1;
+        grid-row-end: 5;
+        margin: 30px 1.562vw 1.852vh 1.562vw;
     }
 
     /* Homework */
@@ -358,8 +375,8 @@
     .section-daily{
         grid-column: 1;
 
-        grid-row-start: 6;
-        grid-row-end: 9;
+        grid-row-start: 5;
+        grid-row-end: 8;
         margin: 0 1.562vw 1.852vh 1.562vw;
     }
 
@@ -375,8 +392,8 @@
     .section-homework{
         grid-column: 1;
 
-        grid-row-start: 9;
-        grid-row-end: 13;
+        grid-row-start: 8;
+        grid-row-end: 12;
         margin: 0 1.562vw 1.852vh 1.562vw;
     }
     .section-homework >div{
@@ -387,7 +404,7 @@
     .section-notification{
         grid-column: 1;
 
-        grid-row-start: 13;
+        grid-row-start: 12;
         grid-row-end: 17;
         margin: 0 1.562vw 1.852vh 1.562vw;
     }
@@ -443,6 +460,12 @@
         grid-row-start: 17;
         grid-row-end: 17;
     }
+
+    .stats {
+        grid-column-start: 1;
+        grid-row-start: 1;
+        margin-left: 18px;
+    }
     
     /* Stats  */
     .section-stats{
@@ -493,8 +516,8 @@
         display: none;
     }
     .section-level > div:first-child {
-        width: 150px;
-        height: 150px;
+        width: 120px;
+        height: 120px;
         border-radius: 50%;
         background: conic-gradient(#4A1EBB 0% 70%, #FFE0DB 70% 100%);
         display: flex;
@@ -503,7 +526,7 @@
     }
     .section-level > div:first-child span {
         position: absolute;
-        font-size: 20px;
+        font-size: 16px;
         text-align: center;
     }
     .section-level > div:first-child span:first-child {

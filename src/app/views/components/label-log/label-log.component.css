@@ -1,11 +1,14 @@
 .section-stats{
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    font-weight: bold;
-    margin: 3.333vh 4.271vw 3.704vh 0;
+    font-weight: bold; 
+    margin: 25px 0;
+    padding: 10px;
     border-radius: 100px;
     background-color: white;
     overflow: hidden;
+
 }
 .section-stats >div:first-child{
     background-color: #B09CFF;
@@ -17,16 +20,41 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    vertical-align: middle;
 }
-.section-stats >span{
-    margin-left: 1vw;
-}
-.section-stats >div{
-    margin-left: 1vw;
+.avatar, .badge {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.section-stats >div >span{
-    margin-left: 5px;
+
+.avatar > span {
+    display: inline-block;
+}
+
+.badge > span {
+    padding-left: 10px;
+    display: inline-block;
+}
+
+.icon img{
+    width: 18px;
+    height: 18px;
+}
+
+.alarm {
+    position: relative;
+    margin-right: 20px;
+    display: inline-block;
+}
+
+.alarm::after {
+    content: "";
+    position: absolute;
+    right: 23px;
+    width: 5px;
+    height:5px;
+    background-color: #4A1EBB;
+    border-radius: 50%;
 }
