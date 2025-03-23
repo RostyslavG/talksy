@@ -13,9 +13,9 @@
                         <i
                                 class="fas icon"
                                 [ngClass]="{
-                'fa-check': email?.valid,
-                'fa-exclamation': email?.invalid && email?.touched
-              }"
+                                    'fa-check': email?.valid,
+                                    'fa-exclamation': email?.invalid && email?.touched
+                                }"
                         ></i>
                     </div>
                     <div class="input-group" [ngClass]="{ error: password?.invalid && password?.touched }">
@@ -23,15 +23,16 @@
                         <i
                                 class="fas icon"
                                 [ngClass]="{
-                'fa-check': password?.valid,
-                'fa-exclamation': password?.invalid && password?.touched
-              }"
+                                    'fa-check': password?.valid,
+                                    'fa-exclamation': password?.invalid && password?.touched
+                                }"
                         ></i>
                     </div>
                     <div class="forgot-password">
-                        <a [routerLink]="['/cabinet']">Забули пароль?</a>
+                        <a>Забули пароль?</a>
                     </div>
-                    <input class="login-button" type="submit" [disabled]="authForm.invalid" />
+                    <!-- <input class="login-button" type="submit"  [disabled]="authForm.invalid" /> -->
+                    <input class="login-button" type="submit" />
                     <div class="register">
                         Немає аккаунту?
                         <a href="#">ЗАРЕЄСТРУВАТИСЬ</a>

@@ -36,7 +36,7 @@ export class LoginRegisterComponent implements OnInit {
         this.authForm = this.fb.group(
             {
                 email: ['', [Validators.required, Validators.email]],
-                password: ['', [Validators.required, Validators.minLength(8)]],
+                password: ['', [Validators.required, Validators.minLength(3)]],
                 confirmPassword: [''],
                 key: ['']
             },
@@ -47,6 +47,7 @@ export class LoginRegisterComponent implements OnInit {
     ngOnInit(): void {
         this.route.paramMap.subscribe(params => {
             this.mode = params.get('mode');
+
         });
     }
 
@@ -69,29 +70,21 @@ export class LoginRegisterComponent implements OnInit {
     async login() {
         console.log('Метод login() викликано');
 
-        if (this.authForm.invalid) {
-            this.authForm.markAllAsTouched();
-            console.log('Форма недійсна:', this.authForm.errors);
-            return;
-        }
-
-        // try {
-        //     const { email, password } = this.authForm.value;
-        //     const response = await this.apiService.login(email, password);
-        //     console.log('Успішний вхід:', response);
-        // } catch (error: any) {
-        //     console.error('Помилка входу:', error);
-        //     const errorMessage = error?.message || 'Невідома помилка. Спробуйте знову.';
-        //     alert(errorMessage);
+        // if (this.authForm.invalid) {
+        //     this.authForm.markAllAsTouched();
+        //     console.log('Форма недійсна:', this.authForm.errors);
+        //     return;
         // }
 
-        const { email, password } = this.authForm.value;
-       if(email == "student@gmail.com"){
-        this.router.navigate(['/cabinet']);
-       }else{
-        this.router.navigate(['/cabinet']);
-       }
-        
+        try {
+            const { email, password } = this.authForm.value;
+            const response = await this.apiService.login(email, password);
+            this.router.navigate(['/cabinet']);
+            console.log('Успішний вхід:', response);
+        } catch (error: any) {
+            console.error('Помилка входу:', error);
+            const errorMessage = error?.message || 'Невідома помилка. Спробуйте знову.';
+        }    
     }
 
     async registration() {
@@ -100,10 +93,22 @@ export class LoginRegisterComponent implements OnInit {
             return;
         }
 
+        // try {
+        //     const { email, password } = this.authForm.value;
+        //     console.log(await this.apiService.registration(email, password));
+        //     this.mode = 'accept';
+        // } catch (error) {
+        //     if(error){
+        //         if(error instanceof ErrorResponce){
+        //             this.invalid = `У полі ${error.reason} не правильно заповнене. Зверніть увагу, що ${error.message}`;
+        //         }
+        //     }
+           
+        // }
+
         try {
             const { email, password } = this.authForm.value;
-            console.log(await this.apiService.registration(email, password));
-            this.mode = 'accept';
+            const response = await this.apiService.registration(email, password);
         } catch (error) {
             if(error){
                 if(error instanceof ErrorResponce){
