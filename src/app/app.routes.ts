@@ -21,6 +21,6 @@ export const routes: Routes = [
     { path:'lessons', component:LessonsComponent},
     { path:'lesson/:id', component: SingleLessonComponent },
     { path:'admin', component:AdminComponent},
-    { path: 'calendar', component:CalendarComponent},
+    { path:'calendar', component:CalendarComponent},
     { path:'teachers', component:TeachersComponent},
 ];

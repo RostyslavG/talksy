@@ -15,21 +15,56 @@
     grid-column-end: 8;
 }
 
+.search-bar {
+    grid-column-start: 9;
+    grid-column-end: 13;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+
+.search-bar > img {
+    position: absolute;
+    left: 10px;
+}
+
+.search-bar input {
+    width: 100%;
+    outline: none;
+    border: 2px solid #B09CFF;
+    border-radius: 20px;
+    background-color: transparent;
+    padding: 10px 20px 10px 35px;
+    font-size: 1.1rem;
+    margin-right: 40px;
+}
+
 .calendar-container{
     grid-column-start: 2;
     grid-column-end: 13;
-    grid-row: 2 / span 12;
+    grid-row: 2 / span 11;
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: auto 1fr;
+    margin-right: 30px;
 }
 
 .calendar-container-block{
     grid-row: 2;
     grid-column: 1 / span 3;
     border-collapse: collapse;
-    padding: 10px;
+    table-layout: fixed;
+    border-spacing: 0;
     border-radius: 50px;
+    height: 100%;
+}
+
+table {
+    border: 1px solid white;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
 }
 
 .calendar-container-block th{
@@ -85,8 +120,13 @@
 .calendar-container-block >thead{
     background-color: #B09CFF;
     color:white;
-    border-radius: 50px;
 }
+
+thead > tr > th {
+    padding: 30px 0;
+}
+
+
 .section-schedule-icons{
     margin-bottom: 38px;
     grid-column: 3;
@@ -132,52 +172,75 @@
     font-size: 1.5rem;
 }
 
-@media (max-width: 1000px){
+@media (max-width: 1200px){
     
     .calendar{
         grid-template-columns: repeat(2,1fr);
-        grid-template-rows: repeat(18,1fr);
+        grid-template-rows: auto auto repeat(6, 1fr);
     }
-    .calendar-header{
-        grid-column:1 / span 2;
 
-        grid-row-start: 17;
-        grid-row-end: 20;
-    }
     .calendar-stats{
         grid-column-start: 1;
-        grid-column-end: 3;
+        grid-column-end: -1;
+    }
+
+    .search-bar {
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 2;
+        margin-left: 10px;
+    }
+
+    .search-bar input {
+        margin-right: 0;
     }
 
     .calendar-container{
         grid-template-columns: 1fr;
         grid-template-rows: auto 1fr auto;
         grid-column: 1 / span 2;
-        grid-row: 2 / span 15;
+        grid-row: 3 / span 5;
+        margin: 10px;
     }
+
+    .calendar-header{
+        grid-column:1 / span 2;
+        grid-row: 9;
+    }
+
     .section-schedule-month{
         grid-column: 1;
         margin: 0 auto;
+        padding: 20px 10px;
     }
     .section-schedule-icons{
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        text-align: start;
+        gap: 20px;
         grid-column: 1;
-        margin-right: auto;
         grid-row: 3;
         margin-bottom: 0;
-        margin-top: 10px;
+        padding-top: 20px;
     }
 
-    .calendar-element-time1{
-        padding: 5px 8px;
+    .calendar-element-time1, .calendar-element-time2{
+        padding: 8px 5px ;
     }
-    
-    .calendar-element-time2{
-        padding: 5px 8px;
+
+    .calendar {
+        height: auto;
     }
-    
+
 }
 
-@media(max-width:450px){
+@media(max-width:500px){
+
+    .calendar{
+        grid-template-rows: repeat(2, auto) repeat(3, 1fr) 50px auto;
+    }
+
     .calendar-container-block th >span:first-child{
         display: none;
     }
@@ -185,11 +248,38 @@
         display: block;
     }
 
-    .calendar-element-time1{
-        padding: 3px 1px;
+    .search-bar {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        margin-right: 0;
     }
-    
-    .calendar-element-time2{
-        padding: 3px 1px;
+
+    .search-bar input {
+        margin-right: 20px;
+    }
+
+    .calendar-element-time1, .calendar-element-time2{
+        padding: 6px 3px;
+        font-size: 12px;
+        margin: 0;
+    }
+
+    .calendar-container-block td {
+        padding: 10px 5px;
+    }
+
+    .calendar-container-block {
+        border-radius: 20px;
+    }
+
+    .calendar-header{
+        grid-column:1 / span 2;
+        grid-row: -1;
+    }
+
+    .calendar-container{
+        grid-column: 1 / span 2;
+        grid-row: 3 / span 3;
+        margin: 20px;
     }
 }

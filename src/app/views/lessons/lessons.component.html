@@ -8,7 +8,7 @@
             <input type="text" placeholder="Пошук..."/>
         </div>
 
-        <div>
+        <div class="lessons-content">
             <div class="lesson-element" *ngFor="let lesson of lessons" [routerLink]="['/lesson', lesson.id]">
                 <img src="../../../assets/images/lessons/lesson.png" alt="lesson"/>
                 <span>Lesson 1: Greetings and Introductions</span>
