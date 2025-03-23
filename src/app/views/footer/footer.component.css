@@ -41,6 +41,7 @@ body {
     justify-content: space-between;
     margin: 0 auto;
     width: 100%;
+    position: relative;
 }
 
 
@@ -57,6 +58,11 @@ body {
 
     .footer > .privacy-policy {
         margin-top: 0;
+    }
+
+    .footer > .social-icons {
+        position: static;
+        transform: translateX(0);
     }
 }
 
@@ -78,6 +84,12 @@ body {
     text-decoration: none;
     color: #333;
     font-size: 16px;
+}
+
+.social-icons {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .social-icons a {
