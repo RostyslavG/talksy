@@ -41,15 +41,37 @@ body {
     justify-content: space-between;
     margin: 0 auto;
     width: 100%;
+    position: relative;
 }
 
 
 @media (max-width: 768px) {
     .footer {
-        flex-direction: column;
+        flex-direction: row;
         text-align: center;
         gap: 15px;
     }
+
+    .footer > .footer-nav {
+        display: none;
+    }
+
+    .footer > .privacy-policy {
+        margin-top: 0;
+    }
+
+    .footer > .social-icons {
+        position: static;
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 500px) {
+    .footer .image {
+        width: 25px;
+        height: 25px;
+    }
+    
 }
 
 .footer-nav, .social-icons {
@@ -62,6 +84,12 @@ body {
     text-decoration: none;
     color: #333;
     font-size: 16px;
+}
+
+.social-icons {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .social-icons a {
@@ -82,4 +110,14 @@ body {
 
 .contact-item {
     flex-direction: column;
+}
+
+.image {
+    background-color: #B09CFF;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
 }
