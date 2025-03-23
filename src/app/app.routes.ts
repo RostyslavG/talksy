@@ -10,6 +10,7 @@ import { SingleLessonComponent } from './views/single-lesson/single-lesson.compo
 import { AdminComponent } from './views/admin/admin.component';
 import { CalendarComponent } from './views/calendar/calendar.component';
 import { TeachersComponent } from './views/teachers/teachers.component';
+import { AdminMainComponent } from './views/admin-main/admin-main.component';
 
 export const routes: Routes = [
     { path: '' , component:MainComponent },
@@ -23,4 +24,5 @@ export const routes: Routes = [
     { path:'admin', component:AdminComponent},
     { path:'calendar', component:CalendarComponent},
     { path:'teachers', component:TeachersComponent},
+    { path:'admin-main', component:AdminMainComponent},
 ];
