@@ -6,6 +6,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { ApiService } from '../../services/api.service';
 import { ErrorResponce } from '../../model/dto/errorResponce';
+import { UserAuthService } from '../../services/user-auth.service';
+import { JWTToken } from '../../model/dto/jwtToken';
 
 
 @Component({
@@ -31,6 +33,7 @@ export class LoginRegisterComponent implements OnInit {
         private fb: FormBuilder,
         private apiService: ApiService,
         private router:Router,
+        private userAuthService:UserAuthService
     ) {
 
         this.authForm = this.fb.group(
@@ -79,7 +82,23 @@ export class LoginRegisterComponent implements OnInit {
         try {
             const { email, password } = this.authForm.value;
             const response = await this.apiService.login(email, password);
-            this.router.navigate(['/cabinet']);
+            this.userAuthService.authUser(response);
+
+            switch(this.userAuthService.roleValue){
+                case 'User':
+                        this.router.navigate(['/cabinet']);
+                    break;
+                case 'Teacher':
+                        this.router.navigate(['/teachers']);
+                    break;
+                case 'Admin':
+                        this.router.navigate(['/admin']);
+                    break;
+                default:
+                    this.router.navigate([''])
+                    break;
+            }
+
             console.log('Успішний вхід:', response);
         } catch (error: any) {
             console.error('Помилка входу:', error);
@@ -109,6 +128,9 @@ export class LoginRegisterComponent implements OnInit {
         try {
             const { email, password } = this.authForm.value;
             const response = await this.apiService.registration(email, password);
+
+            this.userAuthService.authUser(response);
+            this.router.navigate(['/cabinet']);
         } catch (error) {
             if(error){
                 if(error instanceof ErrorResponce){
@@ -131,6 +153,10 @@ export class LoginRegisterComponent implements OnInit {
         } catch (error) {
             console.error(error);
         }
+    }
+
+    async setNextPage(token:JWTToken){
+       
     }
 }
 

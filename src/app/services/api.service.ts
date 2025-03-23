@@ -9,7 +9,7 @@ import { JWTToken } from '../model/dto/jwtToken';
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'https://ef37-5-58-58-125.ngrok-free.app/';
+  private apiUrl = 'http://localhost:5248/api/';
 
   constructor(private http: HttpClient) {}
 
@@ -26,7 +26,7 @@ export class ApiService {
   }
 
   registration(email:string, password:string){
-    return firstValueFrom(this.http.post(this.apiUrl+"Auth/registration",{
+    return firstValueFrom(this.http.post<JWTToken>(this.apiUrl+"Auth/registration",{
         email:email,
         password:password
       }

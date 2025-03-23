@@ -15,6 +15,7 @@ export class UserAuthService {
   private refreshToken: string | null = null; // refreshToken
   private expiredEnd:number | null = null; // Дата закінчення токена
   private isRefreshing: boolean = false; // Чи не йде оновлення токена
+  private role: string | null =null;
 
   constructor(
     private http:HttpClient,
@@ -49,16 +50,33 @@ export class UserAuthService {
   get isRefreshingValue(): boolean {
     return this.isRefreshing;
   }
+
+  get roleValue():string | null{
+    return this.role;
+  }
+
   // Встановити чи оновлюється токен
   setIsRefreshingValue(value: boolean): void {
     this.isRefreshing = value;
   }
 
 
+  authUser(token:JWTToken){
+    const accesToken = token.accessToken;
+    const refreshToken = token.refreshToken;
+
+    this.cookieService.set('AccessToken', token.accessToken, 1, '/', undefined, true, 'Strict');
+    this.cookieService.set('RefreshToken', token.refreshToken, 1, '/', undefined, true, 'Strict');
+    this.isAuth=true;
+
+    this.parseJwt(accesToken);
+  }
+
   parseJwt(token:string){
     const decToken = this.jwtHelper.decodeToken(token);
 
     this.expiredEnd = decToken.exp;
+    this.role = decToken.role;
   }
 
   // Отримання чи токен ще не протерінувався
