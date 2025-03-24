@@ -1,16 +1,39 @@
 .section-stats{
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 30px;
     font-weight: bold; 
-    margin: 25px 0;
+    margin: 20px 0;
     padding: 10px;
     border-radius: 100px;
     background-color: white;
     overflow: hidden;
+    max-width: 100%;
+    position: relative;
+}
+
+.avatar-text, .badges, .icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 
 }
-.section-stats >div:first-child{
+
+.avatar-text, .icons {
+    gap: 10px;
+}
+
+.badges {
+    gap: 20px;
+}
+
+.icons {
+    margin-left: auto;
+}
+
+
+.avatar-text >div:first-child{
     background-color: #B09CFF;
     border-radius: 50%;
     font-size: 2em;
@@ -23,6 +46,11 @@
     text-align: center;
     vertical-align: middle;
 }
+
+.welcome {
+    vertical-align: middle;
+}
+
 .avatar, .badge {
     display: flex;
     align-items: center;
@@ -45,16 +73,66 @@
 
 .alarm {
     position: relative;
-    margin-right: 20px;
+    margin-right: 10px;
     display: inline-block;
 }
 
 .alarm::after {
     content: "";
     position: absolute;
-    right: 23px;
+    right: 13px;
     width: 5px;
     height:5px;
     background-color: #4A1EBB;
     border-radius: 50%;
+}
+
+.setting {
+    display: none;
+}
+
+/* For hide element use this class */
+
+.hidden {
+    display: none;
+}
+
+/* =============================== */
+
+@media (max-width: 1200px) {
+    .setting {
+        display: block;
+    }
+
+    .section-stats {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-stats {
+        gap: 10px;
+    }
+    .badges {
+        gap: 10px;
+    }
+    .alarm {
+        margin-right: 0;
+    }
+    .alarm::after {
+        right: 3px;
+    }
+    .welcome {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 500px) {
+    .badge {
+        display: none;
+    }
+
+    .welcome {
+        margin-right: 10px;
+    }
 }

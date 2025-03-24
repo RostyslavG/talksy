@@ -6,7 +6,7 @@
     grid-template-rows: repeat(13,1fr);
     background-color: #ffecec;
     box-sizing: border-box;
-    padding-right: 40px;
+    padding-right: 25px;
 }
 
 .teachers-header { 
@@ -327,13 +327,13 @@
     .teachers-label {
         grid-column: 1 / 13;
         grid-row: 1;
-        padding-left: 40px;
+        padding: 0 30px;
     }
 
     .search-bar {
         grid-column: 1 / 8; 
         grid-row: 2;
-        margin-left: 40px;
+        margin-left: 30px;
     }
 
     .teachers-container {
@@ -341,7 +341,7 @@
         grid-row-start: 3;
         grid-row-end: 3;
         flex-direction: column;
-        padding: 30px 40px;
+        padding: 30px;
     }
 
     .add-teacher {
@@ -374,7 +374,7 @@
     .teachers-label {
         grid-column: 1 / 13;
         grid-row: 1;
-        padding-left: 40px;
+        padding: 0 20px;
     }
 
     .search-bar {

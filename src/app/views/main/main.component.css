@@ -721,11 +721,17 @@ body {
 .button2{
     position: absolute;
     bottom: 35%;
-    left: 40%;
+    left: 54%;
+    transform: translateX(-50%);
     width: 35%;
-    height: 65px;
+    padding: 20px;
     border-radius: 100px;
     background-color: #B09CFF;
+}
+
+.banner-main img {
+    width: 100%;
+    object-fit: cover;
 }
 
 /*===============================================================*/
@@ -791,15 +797,21 @@ body {
 .comments{
     position: relative;
     max-width: 100%;
-    padding: 40px 42px 42px 40px;
-    margin: 40px 120px;
+    padding: 40px 0 42px 40px;
+    margin: 40px 0 120px 40px;
 }
+
+#comments {
+    margin-right: 0;
+}
+
 
 .reviews {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
     gap: 20px;
-    flex-wrap: wrap;
+    padding: 20px;
+    overflow: auto;
 }
 
 .review {
@@ -837,7 +849,7 @@ body {
 
 /*===============================================================*/
 
-.registrations {
+.registrations-container {
     background-color: #fff;
     border-radius: 50px;
     display: flex;
@@ -916,7 +928,7 @@ body {
 @media (max-width: 1200px) {   
 
     .advant {
-        margin: 40px;
+        margin: 30px;
     }
 
     .title {
@@ -932,7 +944,7 @@ body {
     }
 
     .about {
-        margin: 40px;
+        margin: 30px;
     }
 
     .card {
@@ -949,7 +961,7 @@ body {
     }
 
     .func {
-        margin: 40px 0;
+        margin: 30px 0;
     }
 
     .column h2 {
@@ -962,6 +974,15 @@ body {
 
     .left p {
         margin-bottom: 0;
+    }
+
+    .registrations {
+        padding: 30px;
+    }
+
+    .comments {
+        margin: 20px 0px 30px 20px;
+        padding: 0;
     }
 }
 
@@ -978,7 +999,7 @@ body {
     }
 
     .about {
-        margin: 40px 0;
+        margin: 30px 0;
     }
 
     .card {
@@ -989,11 +1010,23 @@ body {
         padding: 10px;
     }
 
-    .registrations {
+    .reviews::-webkit-scrollbar {
+        width: 0;
+    }
+
+    .registrations-container {
         flex-direction: column;
         text-align: center;
         justify-content: center;
         max-width: 100%;
+    }
+
+    .banner-main img{
+        min-height: 60vh;
+    }
+
+    .button2 a{
+        padding: 10px;
     }
 
     .left h2 {
@@ -1007,6 +1040,7 @@ body {
     .right2 input, .right2 button {
         width: 80%;
     }
+
 }
 
 @media (max-width: 600px) {
@@ -1036,7 +1070,11 @@ body {
     }
 
     .about {
-        padding: 10px;
+        padding: 20px;
+    }
+
+    .func {
+        padding: 20px;
     }
 
     .card {
@@ -1058,6 +1096,36 @@ body {
         text-align: center;
     }
 
+    #contacts {
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .review {
+        min-width: 200px;
+    }
+
+    .review-header {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .review-header h3 {
+        font-size: 18px;
+    }
+
+    .review-header img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .review p {
+        text-align: center;
+    }
+
     .column h2 {
         font-size: 24px;
     }
@@ -1068,7 +1136,6 @@ body {
 
     .button2 {
         width: 50%;
-        left: 50%;
         transform: translateX(-50%);
     }
 }

@@ -22,15 +22,18 @@
     display: flex;
     flex-direction: column;
     gap: 40px;
-    margin-top: 40px;
     width: 100%;
 }
 
 .search-bar {
-    width: 40%;
+    grid-row: 1;
+    grid-column: 8 / span 12;
+    max-width: 100%;
     padding: 10px;
     border: 2px solid #D3BFFF;
     border-radius: 25px;
+    height: auto;
+    margin: 35px 30px;
     display: flex;
     align-items: center;
 }
@@ -43,24 +46,22 @@
     background-color: transparent;
 }
 
-.search-bar >img {
-    margin-right: 10px;
-}
-
 .lessons-container >div:last-child{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: wrap;    
     gap: 30px;
     overflow-y: auto;
     width: 100%;
+    padding-right: 30px;
 }
 
 .lesson-element{
     display: flex;
     flex-direction: column;
     background-color: white;
-    min-width: 170px;
+    min-width: 100px;
+    max-width: 160px;
     padding: 11px;
     border-radius: 20px;
     border: 1px solid #B09CFF;
@@ -83,11 +84,10 @@
 }
 
 
-@media(max-width: 1000px){
+@media(max-width: 1200px){
     .lessons{
-        grid-template-columns: 1fr;
-        grid-template-rows: auto minmax(0,1fr) auto;
-
+        grid-template-columns: 2fr;
+        grid-template-rows: auto auto minmax(0,1fr) auto;
     }
 
     .lessons-header{
@@ -98,42 +98,66 @@
     .lessons-label{
         grid-row: 1;
         grid-column: 1;
+        padding: 0 30px;
+    }
+
+    .search-bar {
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row: 2;
+        width: 100%;
+        margin: 10px 0 0 30px;
     }
 
     .lessons-container{
         grid-column: 1;
-        grid-row: 2;
+        grid-row: 3;
+        padding: 30px;
     }
 
     .search-bar {
         width: 60%;
     }
 
-    .lessons-container >div:last-child{
-      
+    .lessons-container >div:last-child { 
+
         padding: 10px;
         width: 100%;
         gap: 10px;
     }
 
     .lesson-element {
-        min-width: 150px;
-        width: 20%;
+        min-width: 24%;
+        max-width: 30%;
     }
 }
 
 @media(max-width:500px) {
+
+    .lessons{
+        grid-template-columns: 2fr;
+    }
+
+    .lessons-label {
+        padding: 0 20px;
+    }
+    
+    .search-bar {
+        grid-column: 1 / span 2;
+        width: 89%;
+        margin: 0 20px 10px 20px;
+    }
+
+    .lessons-container {
+        padding: 0 20px;
+    }
+
     .lessons-container >div:last-child{
         padding: 10px;
         width: 100%;
     }
 
-    .search-bar {
-        width: 90%;
-        margin: 0 20px;
-    }
-
     .lesson-element {
-        min-width: 130px;
+        min-width: 47%;
     }
 }

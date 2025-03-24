@@ -45,7 +45,8 @@ body {
 }
 
 
-@media (max-width: 768px) {
+
+@media (max-width: 900px) {
     .footer {
         flex-direction: row;
         text-align: center;

@@ -2,11 +2,12 @@
     <app-header-log class="lessons-header"></app-header-log>
     <app-label-log class="lessons-label"></app-label-log>
 
+    <div class="search-bar">
+        <img src="../../../assets/images/lessons/lupa.svg" alt="search"/>
+        <input type="text" placeholder="Пошук..."/>
+    </div>
+
     <div class="lessons-container">
-        <div class="search-bar">
-            <img src="../../../assets/images/lessons/lupa.svg" alt="search"/>
-            <input type="text" placeholder="Пошук..."/>
-        </div>
 
         <div class="lessons-content">
             <div class="lesson-element" *ngFor="let lesson of lessons" [routerLink]="['/lesson', lesson.id]">

@@ -131,7 +131,7 @@ img.test-img-back:nth-of-type(6){
 }
 
 
-@media(max-width: 768px){
+@media(max-width: 1200px){
     .test-container{
         grid-template-columns: 1fr;
         grid-template-rows: auto minmax(0,1fr) auto;
@@ -146,6 +146,7 @@ img.test-img-back:nth-of-type(6){
     .test-stats{
         grid-row: 1;
         grid-column: 1;
+        margin: 0 30px;
     }
 
     .test-container-form{
@@ -166,5 +167,7 @@ img.test-img-back:nth-of-type(6){
 }
 
 @media(max-width:500px) {
-    
+    .test-stats, .test-container-form-form {
+        margin: 0 20px;
+    }
 }
