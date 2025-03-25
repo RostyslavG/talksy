@@ -17,7 +17,7 @@ export class HeaderComponent {
   hideHeader: boolean = false;
 
   constructor(private layoutService: LayoutService) {
-    this.layoutService.hideHeaderFooter$.subscribe(hide => {
+    this.layoutService.hideHeader$.subscribe(hide => {
       this.hideHeader = hide;
     });
   }

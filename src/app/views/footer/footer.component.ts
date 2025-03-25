@@ -15,7 +15,7 @@ export class FooterComponent {
   hideFooter: boolean = false;
 
   constructor(private layoutService: LayoutService) {
-    this.layoutService.hideHeaderFooter$.subscribe(hide => {
+    this.layoutService.hideFooter$.subscribe(hide => {
       this.hideFooter = hide;
     });
   }

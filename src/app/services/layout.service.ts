@@ -7,17 +7,24 @@ import { filter } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class LayoutService {
-    private hideHeaderFooter = new BehaviorSubject<boolean>(false);
-    hideHeaderFooter$ = this.hideHeaderFooter.asObservable();
+    private hideHeader = new BehaviorSubject<boolean>(false);
+    private hideFooter = new BehaviorSubject<boolean>(false);
+    hideHeader$ = this.hideHeader.asObservable();
+    hideFooter$ = this.hideFooter.asObservable();
 
     constructor(private router: Router) {
         this.router.events.subscribe(event => {
             if (event instanceof NavigationEnd) {
                 const url = event.urlAfterRedirects.split('#')[0];
-                if (url === '/' || url.startsWith('/login-registration')) {
-                    this.hideHeaderFooter.next(false);
+                if (url === '/') {
+                    this.hideHeader.next(false);
+                    this.hideFooter.next(false);
+                } else if (url.startsWith('/login-registration')) {
+                    this.hideHeader.next(false);
+                    this.hideFooter.next(true);
                 } else {
-                    this.hideHeaderFooter.next(true);
+                    this.hideHeader.next(true);
+                    this.hideFooter.next(true);
                 }
             }
         });
