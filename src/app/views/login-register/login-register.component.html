@@ -52,40 +52,92 @@
                 <div class="right">
                     <h1>Створити аккаунт</h1>
                     <span *ngIf="invalid" style="color: red;">{{invalid}}</span>
-                    <div class="input-group" [ngClass]="{ error: email?.invalid && email?.touched }">
-                        <input formControlName="email" type="text" placeholder="E-mail" />
+                    
+                    <div *ngIf="registrationCount == 0 " class="input-group" [ngClass]="{ error: email?.invalid && email?.touched }">
+                        <input formControlName="email" type="email"  placeholder="E-mail" />
                         <i
                                 class="fas icon"
                                 [ngClass]="{
-                'fa-check': email?.valid,
-                'fa-exclamation': email?.invalid && email?.touched
-              }"
+                                'fa-check': email?.valid,
+                                'fa-exclamation': email?.invalid && email?.touched
+                            }"
                         ></i>
                     </div>
-                    <div class="input-group" [ngClass]="{ error: password?.invalid && password?.touched }">
-                        <input formControlName="password" type="password" placeholder="Пароль" />
+                    <div *ngIf="registrationCount === 0 " class="input-group" [ngClass]="{ error: password?.invalid && password?.touched }">
+                        <input formControlName="password" 
+                        type="password"
+                        placeholder="Пароль" />
                         <i
                                 class="fas icon"
                                 [ngClass]="{
-                'fa-check': password?.valid,
-                'fa-exclamation': password?.invalid && password?.touched
-              }"
+                                'fa-check': password?.valid,
+                                'fa-exclamation': password?.invalid && password?.touched
+                            }"
                         ></i>
                     </div>
-                    <div
+                    <div  *ngIf="registrationCount === 0 "
                             class="input-group"
                             [ngClass]="{ error: confirmPassword?.invalid && confirmPassword?.touched || authForm.errors?.['mismatch'] }"
                     >
-                        <input formControlName="confirmPassword" type="password" placeholder="Підтвердити пароль" />
+                        <input formControlName="confirmPassword" type="password"  placeholder="Підтвердити пароль" />
                         <i
                                 class="fas icon"
                                 [ngClass]="{
-      'fa-check': confirmPassword?.valid && !authForm.errors?.['mismatch'],
-      'fa-exclamation': confirmPassword?.invalid && confirmPassword?.touched || authForm.errors?.['mismatch']
-    }"
+                                'fa-check': confirmPassword?.valid && !authForm.errors?.['mismatch'],
+                                'fa-exclamation': confirmPassword?.invalid && confirmPassword?.touched || authForm.errors?.['mismatch']
+                                }"
                         ></i>
                     </div>
-                    <button class="login-button" type="submit" >Далі</button>
+
+                    <div   *ngIf="registrationCount === 1 "
+                            class="input-group"
+                            [ngClass]="{ error: name?.invalid && name?.touched || authForm.errors?.['mismatch'] }"
+                    >
+                        <input formControlName="name" type="text"  placeholder="Ім'я" />
+                        <i      
+                                class="fas icon"
+                                [ngClass]="{
+                                'fa-check': name?.valid && !authForm.errors?.['mismatch'],
+                                'fa-exclamation': name?.invalid && name?.touched || authForm.errors?.['mismatch']
+                                }"
+                        ></i>
+                    </div>
+                    <div  *ngIf="registrationCount === 1 "
+                            class="input-group"
+                            [ngClass]="{ error: lastname?.invalid && lastname?.touched || authForm.errors?.['mismatch'] }"
+                    >
+                        <input formControlName="lastname" type="text'"  placeholder="Ім'я" />
+                        <i
+                                class="fas icon"
+                                [ngClass]="{
+                                'fa-check': lastname?.valid && !authForm.errors?.['mismatch'],
+                                'fa-exclamation': lastname?.invalid && lastname?.touched || authForm.errors?.['mismatch']
+                                }"
+                        ></i>
+                    </div>
+                    <div  *ngIf="registrationCount === 1 "
+                            class="input-group"
+                            [ngClass]="{ error: birthday?.invalid && birthday?.touched || authForm.errors?.['mismatch'] }"
+                    >
+                        <input formControlName="birthday" type="date"  placeholder="Ім'я" />
+                        <i
+                                
+                                class="fas icon"
+                                [ngClass]="{
+                                'fa-check': birthday?.valid && !authForm.errors?.['mismatch'],
+                                'fa-exclamation': birthday?.invalid && birthday?.touched || authForm.errors?.['mismatch']
+                                }"
+                        ></i>
+                    </div>
+                    
+                    <div  *ngIf="registrationCount === 2 "
+                            class="input-group"
+                            [ngClass]="{ error: birthday?.invalid && birthday?.touched || authForm.errors?.['mismatch'] }"
+                    >
+                        <input formControlName="level" type="hidden"  placeholder="Ім'я" />
+                    </div>
+                    <button  (click)="nexyStepRegister()" class="login-button" type="button"  >Далі</button>
+                    
                     <div class="register">
                         Вже маєте аккаунт?
                         <a href="#">УВІЙТИ</a>
