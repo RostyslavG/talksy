@@ -28,6 +28,8 @@ export class LoginRegisterComponent implements OnInit {
 
     invalid: string | null= null;
 
+    registrationCount: number = 0;
+
     constructor(
         private route: ActivatedRoute,
         private fb: FormBuilder,
@@ -40,6 +42,10 @@ export class LoginRegisterComponent implements OnInit {
             {
                 email: ['', [Validators.required, Validators.email]],
                 password: ['', [Validators.required, Validators.minLength(3)]],
+                name:[''],
+                lastname:[''],
+                level:[''],
+                birthday:[''],
                 confirmPassword: [''],
                 key: ['']
             },
@@ -56,6 +62,16 @@ export class LoginRegisterComponent implements OnInit {
 
     get email() {
         return this.authForm.get('email');
+    }
+
+    get name() {
+        return this.authForm.get('name');
+    }
+    get lastname() {
+        return this.authForm.get('lastname');
+    }
+    get birthday() {
+        return this.authForm.get('birthday');
     }
 
     get password() {
@@ -155,8 +171,9 @@ export class LoginRegisterComponent implements OnInit {
         }
     }
 
-    async setNextPage(token:JWTToken){
-       
+    nexyStepRegister(){
+        console.log(this.authForm);
+        this.registrationCount++;
     }
 }
 
