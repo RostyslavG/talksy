@@ -23,9 +23,9 @@ export class AppComponent implements OnInit {
     hideHeaderFooter: boolean = false;
 
     constructor(private layoutService: LayoutService) {
-      // this.layoutService.hideHeaderFooter$.subscribe(hide => {
-      //   this.hideHeaderFooter = hide;
-      // });
+      this.layoutService.hideHeaderFooter$.subscribe(hide => {
+        this.hideHeaderFooter = hide;
+      });
     }
 
     ngOnInit() {

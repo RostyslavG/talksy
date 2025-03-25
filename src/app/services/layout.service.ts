@@ -11,14 +11,15 @@ export class LayoutService {
     hideHeaderFooter$ = this.hideHeaderFooter.asObservable();
 
     constructor(private router: Router) {
-      // this.router.events.subscribe(event => {
-      //   if (event instanceof NavigationEnd) {
-      //       if (event.urlAfterRedirects === '/' || event.urlAfterRedirects.startsWith('/login-registration')) {
-      //       this.hideHeaderFooter.next(false);
-      //     } else {
-      //       this.hideHeaderFooter.next(true);
-      //     }
-      //   }
-      // });
+        this.router.events.subscribe(event => {
+            if (event instanceof NavigationEnd) {
+                const url = event.urlAfterRedirects.split('#')[0];
+                if (url === '/' || url.startsWith('/login-registration')) {
+                    this.hideHeaderFooter.next(false);
+                } else {
+                    this.hideHeaderFooter.next(true);
+                }
+            }
+        });
     }
 }
