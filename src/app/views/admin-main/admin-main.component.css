@@ -39,7 +39,7 @@
     background-color: transparent;
     padding: 10px 20px 10px 35px;
     font-size: 1.1rem;
-    margin-right: 40px;
+    margin-right: 30px;
 }
 
 .admin-container {
@@ -226,6 +226,10 @@
 
 .tests-btn {
     margin-top: auto;
+    max-width: 300px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 /* ========== lesson block ========== */
@@ -369,8 +373,7 @@
     padding: 10px;
   }
   
-  .close-btn::before, 
-  .close-btn::after {
+  .close-btn::before, .close-btn::after {
     content: "";
     position: absolute;
     width: 100%;
@@ -521,7 +524,6 @@
         grid-column: 1;
         grid-row: 9 / span 2;
     }
-
 
     .popup-content {
         border-radius: 20px;

@@ -11,6 +11,7 @@ import { AdminComponent } from './views/admin/admin.component';
 import { CalendarComponent } from './views/calendar/calendar.component';
 import { TeachersComponent } from './views/teachers/teachers.component';
 import { AdminMainComponent } from './views/admin-main/admin-main.component';
+import { HomeworkListComponent } from './views/homework-list/homework-list.component';
 
 export const routes: Routes = [
     { path: '' , component:MainComponent },
@@ -25,4 +26,5 @@ export const routes: Routes = [
     { path:'calendar', component:CalendarComponent},
     { path:'teachers', component:TeachersComponent},
     { path:'admin-main', component:AdminMainComponent},
+    { path:'homework-list', component:HomeworkListComponent},
 ];
