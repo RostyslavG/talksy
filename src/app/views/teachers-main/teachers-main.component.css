@@ -1,0 +1,341 @@
+.teachers {
+    display: grid;
+    width: 100%;
+    height: 100vh;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: repeat(13,1fr);
+    background-color: #ffecec;
+    box-sizing: border-box;
+}
+
+.teachers-header {
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.teachers-label {
+    grid-column-start: 2;
+    grid-column-end: 8;
+}
+
+.next-theme {
+    grid-column-start: 9;
+    grid-column-end: 13;
+    grid-row: 1 / span 2;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    position: relative;
+    padding: 20px;
+    background-color: #FFFBFA;
+    border-radius: 30px;
+    margin: 20px 30px 20px;
+    gap: 20px;
+    overflow: hidden;
+}
+
+.header-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: #121212;
+}
+
+.theme {
+    font-size: 24px;
+    font-weight: 700;
+    color: #B09CFF;
+    position: relative;
+    z-index: 1;
+}
+
+.image {
+    position: absolute;
+    right: 20px;
+    z-index: 0;
+}
+
+.image > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    object-fit: cover;
+}
+
+
+.teachers-container {
+    grid-column-start: 2;
+    grid-row-start: 2 ;
+    grid-column-end: 13;
+    grid-row-end: 12;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    gap: 30px;
+    height: 80vh;
+    padding-right: 30px;
+    width: 100%;
+    overflow-y: auto;
+}
+
+/* ============ students ============ */
+
+.students {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 6;
+    background-color: #FFFBFA;
+    border-radius: 40px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-self: start;
+    gap: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+.students-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.student {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.student-info, .online-status, .marks {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+}
+
+.online-status {
+    grid-column: 2;
+    gap: 10px;
+    justify-self: center;
+}
+
+.marks {
+    grid-column: 3;
+    gap: 20px;
+    justify-self: end;
+}
+
+.mark {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #B09CFF;
+    color: #FDF6F2;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.avatar {
+    grid-column: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #B09CFF;
+    color: #FDF6F2;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 24px;
+    height: 30px;
+    min-width: 30px;
+    border-radius: 50%;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.initials {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #C1C1C1;
+    cursor: pointer;
+}
+
+.online {
+    background-color: #A2D4B7;
+}
+
+.ofline {
+    background-color: #FF6A6C;
+}
+
+/* ============ homeworks ============ */
+
+.homeworks {
+    grid-column: 1 / span 2;
+    grid-row: 7 / span 4;
+    background-color: #FFFBFA;
+    border-radius: 40px;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-self: start;
+    gap: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+.homeworks-header-text {
+    margin-left: 20px;
+}
+
+.homeworks-content {
+    max-height: 100%;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 25px;
+}
+
+.homework-list {
+    width: 100%;
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.homeworks-head-text, .homework {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr) 1fr;
+    width: 100%;
+    grid-auto-flow: column;
+    padding: 0 35px;
+}
+
+.homeworks-head-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: #121212;
+    margin: 6px 0;
+}
+
+.homework {
+    font-size: 14px;
+    color: #121212;
+}
+
+.homework > span {
+    display: inline-block;
+    padding: 8px 8px 8px 0;
+}
+
+.homework:nth-child(odd) {
+    background-color: #B09CFF1A;
+}
+
+/* ============ Shedule ============ */
+
+.section-schedule{
+    grid-column: 3 / span 2;
+    grid-row: 1 / span 6;
+    display: flex;
+    flex-direction: column;
+    padding: 3%;
+    justify-content: space-around;
+    background-color: #FFFBFA;
+    border-radius: 40px;
+}
+.section-schedule-month{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: flex-start;
+    padding: 0 20px;
+}
+.section-schedule-month >span{
+    font-weight: bold;
+}
+.section-schedule-month >div{
+    border: 1px solid #4827cc;
+    border-radius: 10vh;
+    padding:  6px 20px;
+    display: flex;
+    align-items: center;
+}
+.section-schedule-month >div >span:first-child{
+   margin-right: 1vw;
+   color: #B09CFF;
+}
+.section-schedule-month >div >span:last-child{
+    margin-left: 1vw;
+    color: #B09CFF;
+}
+.section-schedule th{
+    color: #B09CFF;
+}
+.section-schedule >table >tbody >tr >td{
+   text-align: center;
+   vertical-align: middle;
+   height: 4vh;
+}
+.section-schedule-icons{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 2vh;
+}
+.section-schedule-icons >div{
+    display: flex;
+    align-items: center;
+}
+.section-schedule-icons >div >img{
+    margin-right: 5px;
+}
+.section-schedule-day-study >span{
+    background-color: #B09CFF;
+    border-radius: 50%;
+    padding: 4px;
+    color: white;
+}
+.section-schedule-day-test >span{
+    background-color: #4a1ebb;
+    border-radius: 50%;
+    padding: 4px;
+    color: white;
+}
+
+
+.section-schedule-day-study, 
+.section-schedule-day-test {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.section-schedule-day-study > span, 
+.section-schedule-day-test > span {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding: 6px;
+}
