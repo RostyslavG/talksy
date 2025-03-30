@@ -19,7 +19,7 @@
 }
 
 .next-theme {
-    grid-column-start: 9;
+    grid-column-start: 8;
     grid-column-end: 13;
     grid-row: 1 / span 2;
     display: flex;
@@ -29,7 +29,7 @@
     padding: 20px;
     background-color: #FFFBFA;
     border-radius: 30px;
-    margin: 20px 30px 20px;
+    margin: 20px 30px;
     gap: 20px;
     overflow: hidden;
 }
@@ -258,7 +258,7 @@
     display: flex;
     flex-direction: column;
     padding: 3%;
-    justify-content: space-around;
+    justify-content: space-between;
     background-color: #FFFBFA;
     border-radius: 40px;
 }
@@ -268,7 +268,8 @@
     justify-content: space-between;
     align-items: center;
     align-self: flex-start;
-    padding: 0 20px;
+    padding: 30px;
+    padding-top: 0;
 }
 .section-schedule-month >span{
     font-weight: bold;
@@ -294,14 +295,14 @@
 .section-schedule >table >tbody >tr >td{
    text-align: center;
    vertical-align: middle;
-   height: 4vh;
+   height: 50px;
 }
 .section-schedule-icons{
     display: flex;
     width: 100%;
     align-items: center;
     justify-content: space-around;
-    margin-top: 2vh;
+    margin: 40px 0 30px 0;
 }
 .section-schedule-icons >div{
     display: flex;
@@ -338,4 +339,191 @@
     justify-content: center; 
     align-items: center;
     padding: 6px;
+}
+
+
+/* ============ Notification ============ */
+
+.section-notification{
+    grid-column: 3 / span 2;
+    grid-row: 7 / span 4;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #FFFBFA;
+    border-radius: 40px;
+    position: relative;
+}
+.section-notification >div:first-child{
+    display: flex;
+    font-weight: bold;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.notification-images {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+}
+.section-notification >ul{
+    list-style-type: none;
+    flex: 1;
+    height: 70%;
+    overflow-y: auto;
+}
+.section-notification >ul >li{
+    margin-top: 30px;
+}
+.section-notification-accent{
+    color: #B09CFF;
+}
+
+/* ============ Lessons ============ */
+
+.lesson-block {
+    background-color: #FFFBFA;
+    border-radius: 40px;
+    padding: 20px 20px 60px 20px;
+    overflow: hidden;
+    height: 100%;
+    grid-column: 5 / span 3;
+    grid-row: 2 / span 9;
+    overflow: hidden;
+}
+
+.lesson-header {
+    padding-bottom: 30px;
+}
+
+.lesson-elements {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    overflow-y: auto;
+    max-height: 100%;
+}
+
+.lesson-element {
+    min-width: 150px;
+    width: 31%;
+    border: 1px solid #B09CFF;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 11px;
+    font-size: 12px;
+    position: relative;
+}
+
+.lesson-theme {
+    padding: 10px 0;
+} 
+
+.lesson-date {
+    text-align: right;
+    width: 100%;
+}
+
+/* ============ Media ============ */
+
+@media (max-width: 1200px) {
+    .teachers {
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(13,1fr);
+        height: 160vh;
+    }
+
+    .teachers-header {
+        grid-row: 13;
+        grid-column: 1 / span 2;
+    }
+
+    .teachers-label {
+        grid-column: 1 / span 2;
+        grid-row: 1;
+        padding: 0 30px;
+    }
+
+    .next-theme {
+        grid-column: 2 / span 1;
+        grid-row: 2;
+        max-width: 100%;
+        margin: 0 30px 0 10px;
+    }
+
+    .teachers-container {
+        grid-column: 1 / span 2;
+        grid-row-start: 2;
+        grid-row-end: 13;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(12, 1fr);
+        height: 100%;
+        padding: 0 30px 60px 30px;
+    }
+
+    .students {
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 4;
+        padding: 20px 10px;
+    }
+
+    .student {
+        gap: 20px;
+    }
+
+    .initials {
+        font-size: 14px;
+    }
+
+    .marks {
+        gap: 20px;
+    }
+    
+    .section-schedule {
+        grid-column: 3 / span 2;
+        grid-row: 2 / span 6;
+        margin-top: 40px;
+    }
+
+    .homeworks {
+        grid-column: 1 / span 2;
+        grid-row: 5 / span 4;
+    }
+
+    .lesson-block {
+        grid-column: 3 / span 2;
+        grid-row: 8 / span 5;
+    }
+
+    .lesson-element {
+        min-width: 100px;
+        width: 30%;
+    }
+
+    .section-notification {
+        grid-column: 1 / span 2;
+        grid-row: 9 / span 4;
+    }
+
+    .notification-images {
+        bottom: 20px;
+        top: 84%;
+    }
+}
+
+@media (max-width: 700px) {
+    .student {
+        gap: 7px;
+    }
+
+    .student-info, .online-status, .marks {
+        gap: 5px;
+    }
+}
+
+@media (max-width: 600px) {
+
 }

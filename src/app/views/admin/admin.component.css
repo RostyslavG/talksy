@@ -51,7 +51,7 @@
     display: flex;
     justify-content: space-around;
     gap: 50px;
-    height: 70vh;
+    height: 85vh;
     padding: 40px 20px 20px 20px;
 }
 
@@ -200,11 +200,10 @@
 }
 
 .teacher img {
-    width: 59px;
+    min-width: 50px;
     height: 50px;
     border-radius: 50%;
     object-fit: cover;
-    flex-shrink: 0;
 }
 
 .teacher-info {
@@ -366,7 +365,7 @@ s
 
     .teacher img {
         display: block;
-        width: 40px;
+        min-width: 40px;
         height: 40px;
     }
 
