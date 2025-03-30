@@ -10,7 +10,7 @@ import { UserRegister } from '../model/userRegister';
     providedIn: 'root'
 })
 export class ApiService {
-    private apiUrl = 'http://localhost:5248/api/';
+    private apiUrl = 'https://e9b3-5-58-58-125.ngrok-free.app/api/';
 
     constructor(private http: HttpClient) {
     }
