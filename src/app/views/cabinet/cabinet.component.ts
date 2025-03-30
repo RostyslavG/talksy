@@ -34,8 +34,9 @@ export class CabinetComponent implements OnInit {
           break;
       }
     }
-
+    
     try{
+      console.log("cabinet")
       const responce = await this.apiService.studentCabinet();
       console.log(responce);
     }

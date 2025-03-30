@@ -6,19 +6,26 @@ import {ErrorResponce} from '../model/dto/errorResponce';
 import {JWTToken} from '../model/dto/jwtToken';
 import { UserRegister } from '../model/userRegister';
 import { User } from '../model/user.model';
+import { UserAuthService } from './user-auth.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ApiService {
-    private apiUrl = 'https://e9b3-5-58-58-125.ngrok-free.app/api/';
+    private apiUrl = 'http://localhost:5248/api/';
 
-    constructor(private http: HttpClient) {
+
+
+    constructor(private http: HttpClient,
+        private authService:UserAuthService
+    ) {
+    }
+    studentCabinet(){
+        console.log(this.authService.accessTokenValue);
+        const headers = { Authorization: `Bearer ${this.authService.accessTokenValue}` };
+        return firstValueFrom(this.http.get<User>(this.apiUrl+"Student", {headers}));
     }
 
-    getData(): Observable<any> {
-        return this.http.get<any>(this.apiUrl);
-    }
 
     login(email: string, password: string) {
         return firstValueFrom(this.http.post<JWTToken>(this.apiUrl + "Auth/login", {
@@ -41,7 +48,5 @@ export class ApiService {
         ));
     }
 
-    studentCabinet(){
-        return firstValueFrom(this.http.get<User>(this.apiUrl+"Student"));
-    }
+    
 }
