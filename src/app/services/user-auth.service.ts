@@ -90,15 +90,15 @@ export class UserAuthService {
 
   // Запит на оновлення токена
   refreshNewToken(): Promise<JWTToken> {
-  return firstValueFrom(
-    this.http.post<JWTToken>('https://localhost:7028/api/Token/refresh', { refreshToken: this.refreshToken })
-    .pipe(
-      tap((result: JWTToken) => {
-        this.cookieService.set('AccessToken', result.accessToken as string, 1, '/', undefined, true, 'Strict');
-        this.accessToken = result.accessToken;
-        this.parseJwt(result.accessToken);
-      })
-    )
-  );
-}
+    return firstValueFrom(
+      this.http.post<JWTToken>('https://localhost:7028/api/Token/refresh', { refreshToken: this.refreshToken })
+        .pipe(
+          tap((result: JWTToken) => {
+            this.cookieService.set('AccessToken', result.accessToken, 1, '/', undefined, true, 'Strict');
+            this.accessToken = result.accessToken;
+            this.parseJwt(result.accessToken);
+          })
+        )
+    );
+  }
 }
