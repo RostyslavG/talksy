@@ -5,6 +5,7 @@ import {error} from 'console';
 import {ErrorResponce} from '../model/dto/errorResponce';
 import {JWTToken} from '../model/dto/jwtToken';
 import { UserRegister } from '../model/userRegister';
+import { User } from '../model/user.model';
 
 @Injectable({
     providedIn: 'root'
@@ -38,5 +39,9 @@ export class ApiService {
                 key: key
             }
         ));
+    }
+
+    studentCabinet(){
+        return firstValueFrom(this.http.get<User>(this.apiUrl+"Student"));
     }
 }

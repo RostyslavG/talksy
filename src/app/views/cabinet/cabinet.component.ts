@@ -3,6 +3,7 @@ import { HeaderLogComponent } from "../components/header-log/header-log.componen
 import { LabelLogComponent } from "../components/label-log/label-log.component";
 import { Router, RouterLink } from '@angular/router';
 import { UserAuthService } from '../../services/user-auth.service';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-cabinet',
@@ -16,22 +17,31 @@ import { UserAuthService } from '../../services/user-auth.service';
 export class CabinetComponent implements OnInit {
  
   constructor(private router:Router,
-     private userAuthService:UserAuthService) {}
+     private userAuthService:UserAuthService,
+    private apiService:ApiService) {}
    
-   ngOnInit(): void {
-     if(this.userAuthService.roleValue != "User"){
-       switch(this.userAuthService.roleValue){
-         case 'Teacher':
-             this.router.navigate(['/teachers']);
-           break;
-           case 'Admin':
-             this.router.navigate(['/admin']);
-           break;
-           default :
-             this.router.navigate(['/main']);
-           break;
-       }
-     }
-   }
+  async ngOnInit() {
+    if(this.userAuthService.roleValue != "User"){
+      switch(this.userAuthService.roleValue){
+        case 'Teacher':
+            this.router.navigate(['/teachers']);
+          break;
+          case 'Admin':
+            this.router.navigate(['/admin']);
+          break;
+          default :
+            this.router.navigate(['/main']);
+          break;
+      }
+    }
+
+    try{
+      const responce = await this.apiService.studentCabinet();
+    }
+    catch(error){
+      console.log(error);
+    }
+    
+  }  
 
 }
