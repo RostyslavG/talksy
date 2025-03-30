@@ -8,7 +8,7 @@ import { ApiService } from '../../services/api.service';
 import { ErrorResponce } from '../../model/dto/errorResponce';
 import { UserAuthService } from '../../services/user-auth.service';
 import { JWTToken } from '../../model/dto/jwtToken';
-
+import { UserRegister } from '../../model/userRegister';
 
 @Component({
     selector: 'app-login-register',
@@ -29,7 +29,18 @@ export class LoginRegisterComponent implements OnInit {
     invalid: string | null= null;
 
     registrationCount: number = 0;
+    labelRefister: string | null = null;
+    selectedLevel: string | null = null; 
+    selectedIndex: number | null = null;
+    registerTrue: boolean = false;
 
+    levels = [
+        { name: 'Beginner (A1)' },
+        { name: 'Elementary (A2)' },
+        { name: 'Intermediate (B1)' },
+        { name: 'Upper Intermediate (B2)' }
+    ];
+    
     constructor(
         private route: ActivatedRoute,
         private fb: FormBuilder,
@@ -58,6 +69,10 @@ export class LoginRegisterComponent implements OnInit {
             this.mode = params.get('mode');
 
         });
+
+        if(this.mode === 'registration'){
+            this.labelRefister = 'Створити аккаунт';
+        }
     }
 
     get email() {
@@ -72,6 +87,9 @@ export class LoginRegisterComponent implements OnInit {
     }
     get birthday() {
         return this.authForm.get('birthday');
+    }
+    get level() {
+        return this.authForm.get('level');
     }
 
     get password() {
@@ -123,10 +141,10 @@ export class LoginRegisterComponent implements OnInit {
     }
 
     async registration() {
-        if (this.authForm.invalid) {
-            this.authForm.markAllAsTouched();
-            return;
-        }
+        // if (this.authForm.invalid) {
+        //     this.authForm.markAllAsTouched();
+        //     return;
+        // }
 
         // try {
         //     const { email, password } = this.authForm.value;
@@ -142,11 +160,25 @@ export class LoginRegisterComponent implements OnInit {
         // }
 
         try {
-            const { email, password } = this.authForm.value;
-            const response = await this.apiService.registration(email, password);
+            const { email, password, name, lastname, birthday, level } = this.authForm.value;
 
-            this.userAuthService.authUser(response);
-            this.router.navigate(['/cabinet']);
+            const user: UserRegister ={
+                email: email,
+                password: password,
+                name: name,
+                lastname: lastname,
+                birthday: birthday,
+                level: level
+            
+            }
+
+            const response = await this.apiService.registration(user);
+            
+            if(response){
+                this.registerTrue = true;
+                this.userAuthService.authUser(response);
+            }
+           
         } catch (error) {
             if(error){
                 if(error instanceof ErrorResponce){
@@ -172,9 +204,28 @@ export class LoginRegisterComponent implements OnInit {
     }
 
     nexyStepRegister(){
-        console.log(this.authForm);
         this.registrationCount++;
+
+        if(this.registrationCount>1){
+            this.labelRefister = 'Оберіть свій рівень';
+        }
+
+        if(this.registrationCount > 2 ){
+            this.registration();
+        }
     }
+
+    selectLevel(level: { name: string }, index: number) {
+        this.selectedLevel = level.name; 
+        this.selectedIndex = index;
+        this.authForm.get('level')?.setValue(level.name);
+    }
+
+    routeToPage(){
+        this.router.navigate(['/cabinet']);
+    }
+    
+
 }
 
 export function matchPasswordsValidator(passwordKey: string, confirmPasswordKey: string): ValidatorFn {

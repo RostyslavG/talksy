@@ -1,9 +1,10 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/>
 <div class="main-container">
+
     <div *ngIf="mode === 'login'">
         <div class="container">
             <div class="left">
-                <img alt="login_img" src="assets/images/login-main.png" width="490" height="490" />
+                <img alt="login_img" src="assets/images/login-main.png" />
             </div>
             <form [formGroup]="authForm" (ngSubmit)="login()">
                 <div class="right">
@@ -45,12 +46,14 @@
     <!-- Registration Section -->
     <div *ngIf="mode === 'registration'">
         <div class="container">
-            <div class="left">
-                <img alt="reg_img" src="assets/images/reg-main.png" width="490" height="490" />
+            <div *ngIf="!registerTrue" class="left">
+                <img *ngIf="registrationCount == 0 "  alt="reg_img" src="assets/images/reg-main.png"  class="reg-1-img"/>
+                <img *ngIf="registrationCount == 2 "  alt="reg_img" src="assets/images/cat-relax.png"  class="reg-2-img"/>
+                <img alt="login_img" src="assets/images/register-m.png" />
             </div>
-            <form [formGroup]="authForm" (ngSubmit)="registration()">
+            <form *ngIf="!registerTrue" [formGroup]="authForm" (ngSubmit)="registration()">
                 <div class="right">
-                    <h1>Створити аккаунт</h1>
+                    <h1> {{ labelRefister }} </h1>
                     <span *ngIf="invalid" style="color: red;">{{invalid}}</span>
                     
                     <div *ngIf="registrationCount == 0 " class="input-group" [ngClass]="{ error: email?.invalid && email?.touched }">
@@ -106,7 +109,7 @@
                             class="input-group"
                             [ngClass]="{ error: lastname?.invalid && lastname?.touched || authForm.errors?.['mismatch'] }"
                     >
-                        <input formControlName="lastname" type="text'"  placeholder="Ім'я" />
+                        <input formControlName="lastname" type="text'"  placeholder="Прізвище" />
                         <i
                                 class="fas icon"
                                 [ngClass]="{
@@ -132,18 +135,39 @@
                     
                     <div  *ngIf="registrationCount === 2 "
                             class="input-group"
-                            [ngClass]="{ error: birthday?.invalid && birthday?.touched || authForm.errors?.['mismatch'] }"
+                            [ngClass]="{ error: level?.invalid && level?.touched || authForm.errors?.['mismatch'] }"
                     >
                         <input formControlName="level" type="hidden"  placeholder="Ім'я" />
                     </div>
-                    <button  (click)="nexyStepRegister()" class="login-button" type="button"  >Далі</button>
+
+                    <ul *ngIf="registrationCount === 2 " class="register-radio">
+                        <li *ngFor="let level of levels; let i = index" 
+                            (click)="selectLevel(level, i)"
+                            [class.active]="selectedIndex === i">
+                            <b>{{ level.name }}</b>
+                            <img *ngIf="selectedIndex === i" src="assets/images/svg/lucide_cat.svg" alt="icon" />
+                            <img *ngIf="selectedIndex !== i" src="assets/images/test/input_disabled_cat.svg" alt="icon" />
+                        </li>
+                    </ul>
+
+                    <button *ngIf="registrationCount <= 2 " (click)="nexyStepRegister()" class="login-button" type="button"  >Далі</button>
                     
                     <div class="register">
                         Вже маєте аккаунт?
                         <a href="#">УВІЙТИ</a>
                     </div>
                 </div>
+            
+                
             </form>
+            <div *ngIf="registerTrue" class="register-assept-container">
+                <img  alt="reg_img" src="assets/images/register-accept.png"  class="reg-1-img"/>
+                <div class="register-assept" >
+                    <strong>Реєстрація успішна!</strong>
+                    <button (click)="routeToPage">Далі</button>
+                </div>
+            </div>
+           
         </div>
     </div>
 
@@ -165,4 +189,12 @@
             </form>
         </div>
     </div>
+
+    <img class="register-star" src="assets/images/star.svg" alt="icon"/>
+    <img class="register-star" src="assets/images/star.svg" alt="icon"/>
+    <img class="register-star" src="assets/images/star.svg" alt="icon"/>
+    <img class="register-star" src="assets/images/star.svg" alt="icon"/>
+    <img class="register-star" src="assets/images/star.svg" alt="icon"/>
+    <img class="register-star" src="assets/images/star.svg" alt="icon"/>
+    <img class="register-star" src="assets/images/star.svg" alt="icon"/>
 </div>

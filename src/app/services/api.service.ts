@@ -4,12 +4,13 @@ import {Observable, catchError, firstValueFrom, throwError} from 'rxjs';
 import {error} from 'console';
 import {ErrorResponce} from '../model/dto/errorResponce';
 import {JWTToken} from '../model/dto/jwtToken';
+import { UserRegister } from '../model/userRegister';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ApiService {
-    private apiUrl = 'https://3e11-5-58-58-125.ngrok-free.app/api/';
+    private apiUrl = 'http://localhost:5248/api/';
 
     constructor(private http: HttpClient) {
     }
@@ -26,12 +27,8 @@ export class ApiService {
         ));
     }
 
-    registration(email: string, password: string) {
-        return firstValueFrom(this.http.post<JWTToken>(this.apiUrl + "Auth/registration", {
-                email: email,
-                password: password
-            }
-        ));
+    registration(user:UserRegister) {
+        return firstValueFrom(this.http.post<JWTToken>(this.apiUrl + "Auth/registration", user ));
     }
 
     registrationAccept(email: string, password: string, key: string) {

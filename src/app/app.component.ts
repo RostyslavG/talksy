@@ -21,10 +21,7 @@ import { LayoutService } from './services/layout.service';
 export class AppComponent implements OnInit {
 
 
-    constructor() {
-      
-    }
+    constructor() { }
 
-    ngOnInit() {
-    }
+    ngOnInit() {}
 }
