@@ -20,10 +20,11 @@ export class ApiService {
         private authService:UserAuthService
     ) {
     }
+
     studentCabinet(){
         console.log(this.authService.accessTokenValue);
         const headers = { Authorization: `Bearer ${this.authService.accessTokenValue}` };
-        return firstValueFrom(this.http.get<User>(this.apiUrl+"Student", {headers}));
+        return firstValueFrom(this.http.get<User>(this.apiUrl+"Student",{ headers }));
     }
 
 

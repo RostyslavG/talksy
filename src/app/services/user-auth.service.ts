@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { JWTToken } from '../model/dto/jwtToken';
-import { firstValueFrom, tap } from 'rxjs';
+import { catchError, firstValueFrom, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -91,14 +91,18 @@ export class UserAuthService {
   // Запит на оновлення токена
   refreshNewToken(): Promise<JWTToken> {
     return firstValueFrom(
-      this.http.post<JWTToken>('https://localhost:7028/api/Token/refresh', { refreshToken: this.refreshToken })
-        .pipe(
-          tap((result: JWTToken) => {
-            this.cookieService.set('AccessToken', result.accessToken, 1, '/', undefined, true, 'Strict');
-            this.accessToken = result.accessToken;
-            this.parseJwt(result.accessToken);
-          })
-        )
+        this.http.post<JWTToken>('http://localhost:5248/api/Auth/refresh', { refreshToken: this.refreshToken })
+            .pipe(
+                tap((result: JWTToken) => {
+                    this.cookieService.set('AccessToken', result.accessToken, 1, '/', undefined, true, 'Strict');
+                    this.accessToken = result.accessToken;
+                    this.parseJwt(result.accessToken);
+                }),
+                catchError((error) => {
+                    console.error('Error refreshing token:', error);
+                    throw new Error('Failed to refresh token');
+                })
+            )
     );
   }
 }
