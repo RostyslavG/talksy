@@ -1,0 +1,654 @@
+.teachers {
+    display: grid;
+    width: 100%;
+    height: 100vh;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: repeat(13,1fr);
+    background-color: #ffecec;
+    box-sizing: border-box;
+}
+
+.teachers-header {
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.teachers-label {
+    grid-column-start: 2;
+    grid-column-end: 8;
+}
+
+.next-theme {
+    grid-column-start: 8;
+    grid-column-end: 13;
+    grid-row: 1 / span 2;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    position: relative;
+    padding: 20px;
+    background-color: #FFFBFA;
+    border-radius: 30px;
+    margin: 20px 30px;
+    gap: 20px;
+    overflow: hidden;
+}
+
+.header-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: #121212;
+}
+
+.theme {
+    font-size: 24px;
+    font-weight: 700;
+    color: #B09CFF;
+    position: relative;
+    z-index: 1;
+}
+
+.image {
+    position: absolute;
+    right: 20px;
+    z-index: 0;
+}
+
+.image > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    object-fit: cover;
+}
+
+
+.teachers-container {
+    grid-column-start: 2;
+    grid-row-start: 2 ;
+    grid-column-end: 13;
+    grid-row-end: 12;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    gap: 30px;
+    height: 80vh;
+    padding-right: 30px;
+    width: 100%;
+    overflow-y: auto;
+}
+
+/* ============ students ============ */
+
+.students {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 6;
+    background-color: #FFFBFA;
+    border-radius: 40px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-self: start;
+    gap: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+.students-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.student {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.student-info, .online-status, .marks {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+}
+
+.online-status {
+    grid-column: 2;
+    gap: 10px;
+    justify-self: center;
+}
+
+.marks {
+    grid-column: 3;
+    gap: 20px;
+    justify-self: end;
+}
+
+.mark {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #B09CFF;
+    color: #FDF6F2;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.avatar {
+    grid-column: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #B09CFF;
+    color: #FDF6F2;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 24px;
+    height: 30px;
+    min-width: 30px;
+    border-radius: 50%;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.initials {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #C1C1C1;
+    cursor: pointer;
+}
+
+.online {
+    background-color: #A2D4B7;
+}
+
+.ofline {
+    background-color: #FF6A6C;
+}
+
+/* ============ homeworks ============ */
+
+.homeworks {
+    grid-column: 1 / span 2;
+    grid-row: 7 / span 4;
+    background-color: #FFFBFA;
+    border-radius: 40px;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-self: start;
+    gap: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+.homeworks-header-text {
+    margin-left: 20px;
+}
+
+.homeworks-content {
+    max-height: 100%;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 25px;
+}
+
+.homework-list {
+    width: 100%;
+    max-height: 100%;
+    overflow-y: auto;
+    padding: 0 35px;
+}
+
+.homeworks-head-text, .homework {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr) 1fr;
+    width: 100%;
+    grid-auto-flow: column;
+
+}
+
+.homeworks-head-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: #121212;
+    margin: 6px 0;
+    padding: 0 35px;
+}
+
+.homework {
+    font-size: 14px;
+    color: #121212;
+}
+
+.homework > span {
+    display: inline-block;
+    padding: 8px 8px 8px 0;
+}
+
+.homework:nth-child(odd) {
+    background-color: #B09CFF1A;
+}
+
+/* ============ Shedule ============ */
+
+.section-schedule{
+    grid-column: 3 / span 2;
+    grid-row: 1 / span 6;
+    display: flex;
+    flex-direction: column;
+    padding: 3%;
+    justify-content: space-between;
+    background-color: #FFFBFA;
+    border-radius: 40px;
+}
+.section-schedule-month{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: flex-start;
+    padding: 30px;
+    padding-top: 0;
+}
+.section-schedule-month >span{
+    font-weight: bold;
+}
+.section-schedule-month >div{
+    border: 1px solid #4827cc;
+    border-radius: 10vh;
+    padding:  6px 20px;
+    display: flex;
+    align-items: center;
+}
+.section-schedule-month >div >span:first-child{
+   margin-right: 1vw;
+   color: #B09CFF;
+}
+.section-schedule-month >div >span:last-child{
+    margin-left: 1vw;
+    color: #B09CFF;
+}
+.section-schedule th{
+    color: #B09CFF;
+}
+.section-schedule >table >tbody >tr >td{
+   text-align: center;
+   vertical-align: middle;
+   height: 50px;
+}
+.section-schedule-icons{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    margin: 40px 0 30px 0;
+}
+.section-schedule-icons >div{
+    display: flex;
+    align-items: center;
+}
+.section-schedule-icons >div >img{
+    margin-right: 5px;
+}
+.section-schedule-day-study >span{
+    background-color: #B09CFF;
+    border-radius: 50%;
+    padding: 4px;
+    color: white;
+}
+.section-schedule-day-test >span{
+    background-color: #4a1ebb;
+    border-radius: 50%;
+    padding: 4px;
+    color: white;
+}
+
+
+.section-schedule-day-study, 
+.section-schedule-day-test {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.section-schedule-day-study > span, 
+.section-schedule-day-test > span {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding: 6px;
+}
+
+
+/* ============ Notification ============ */
+
+.section-notification{
+    grid-column: 3 / span 2;
+    grid-row: 7 / span 4;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #FFFBFA;
+    border-radius: 40px;
+    position: relative;
+}
+.section-notification >div:first-child{
+    display: flex;
+    font-weight: bold;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.notification-images {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+}
+.section-notification >ul{
+    list-style-type: none;
+    flex: 1;
+    max-height: 100%;
+    overflow-y: auto;
+}
+.section-notification >ul >li{
+    margin-top: 30px;
+}
+.section-notification-accent{
+    color: #B09CFF;
+}
+
+/* ============ Lessons ============ */
+
+.lesson-block {
+    background-color: #FFFBFA;
+    border-radius: 40px;
+    padding: 20px 20px 60px 20px;
+    overflow: hidden;
+    height: 100%;
+    grid-column: 5 / span 3;
+    grid-row: 2 / span 9;
+    overflow: hidden;
+}
+
+.lesson-header {
+    padding-bottom: 30px;
+}
+
+.lesson-elements {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    overflow-y: auto;
+    max-height: 100%;
+}
+
+.lesson-element {
+    min-width: 150px;
+    width: 31%;
+    border: 1px solid #B09CFF;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 11px;
+    font-size: 12px;
+    position: relative;
+}
+
+.lesson-theme {
+    padding: 10px 0;
+} 
+
+.lesson-date {
+    text-align: right;
+    width: 100%;
+}
+
+/* ============ Media ============ */
+
+@media (max-width: 1200px) {
+    .teachers {
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(13,1fr);
+        height: 160vh;
+    }
+
+    .teachers-header {
+        grid-row: 13;
+        grid-column: 1 / span 2;
+    }
+
+    .teachers-label {
+        grid-column: 1 / span 2;
+        grid-row: 1;
+        padding: 0 30px;
+    }
+
+    .next-theme {
+        grid-column: 2 / span 1;
+        grid-row: 2;
+        max-width: 100%;
+        margin: 0 30px 0 10px;
+    }
+
+    .teachers-container {
+        grid-column: 1 / span 2;
+        grid-row-start: 2;
+        grid-row-end: 13;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(12, 1fr);
+        height: 100%;
+        padding: 0 30px 60px 30px;
+    }
+
+    .students {
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 4;
+        padding: 20px 10px;
+    }
+
+    .student {
+        gap: 20px;
+    }
+
+    .initials {
+        font-size: 14px;
+    }
+
+    .marks {
+        gap: 20px;
+    }
+    
+    .section-schedule {
+        grid-column: 3 / span 2;
+        grid-row: 2 / span 6;
+        margin-top: 40px;
+    }
+
+    .homeworks {
+        grid-column: 1 / span 2;
+        grid-row: 5 / span 4;
+    }
+
+    .lesson-block {
+        grid-column: 3 / span 2;
+        grid-row: 8 / span 5;
+    }
+
+    .lesson-element {
+        min-width: 90px;
+        width: 30%;
+    }
+
+    .section-notification {
+        grid-column: 1 / span 2;
+        grid-row: 9 / span 4;
+    }
+
+    .notification-images {
+        bottom: 20px;
+        top: 84%;
+    }
+}
+
+@media (max-width: 700px) {
+    .student {
+        gap: 7px;
+    }
+
+    .student-info, .online-status, .marks {
+        gap: 5px;
+    }
+}
+
+@media (max-width: 600px) {
+    .teachers {
+        grid-template-columns: repeat(1,1fr);
+        grid-template-rows: repeat(13,auto);
+        height: 100%;
+    }
+
+    .teachers-header {
+        grid-row: 13;
+        grid-column: 1;
+    }
+
+    .teachers-label {
+        grid-column: 1;
+        grid-row: 1;
+        padding: 0 20px;
+    }
+
+    .next-theme {
+        grid-column: 1;
+        grid-row: 2;
+        max-width: 100%;
+        margin: 0 20px;
+    }
+
+    .teachers-container {
+        grid-column: 1;
+        grid-row: 3 / span 10;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(12, auto);
+        gap: 20px;
+        height: 100%;
+        padding: 20px 20px 60px 20px;
+    }
+
+    .header-text {
+        font-size: 14px;
+    }
+
+    .section-schedule {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        margin-top: 0;
+    }
+
+    .section-schedule-month {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 0;
+        padding-bottom: 20px;
+    }
+
+    .section-schedule-month > div {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .students {
+        grid-column: 1;
+        grid-row: 3 / span 2;
+        padding: 20px 10px;
+        max-height: 400px;
+    }
+
+    .student-info, .online-status {
+        gap: 10px;
+    }
+
+    .student-info {
+        font-size: 13px;
+    }
+
+    .marks {
+        gap: 20px;
+    }
+
+    .homeworks {
+        grid-column: 1;
+        grid-row: 5 / span 2;
+        max-height: 300px;
+    }
+
+
+    .homework-list, .homeworks-head-text  {
+        padding: 0 20px;
+    }
+
+    .homeworks-head-text {
+        font-size: 15px;
+    }
+
+    .homework {
+        font-size: 14px;
+    }
+
+    .section-notification {
+        grid-column: 1;
+        grid-row: 7 / span 2;
+        max-height: 320px;
+        padding: 20px 10px 60px 10px;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .notification-header {
+        width: 100%;
+        text-align: center;
+    }
+
+    .notification-images {
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    .section-notification > ul li {
+        margin: 15px 0;
+    }
+
+    .lesson-block {
+        grid-column: 1;
+        grid-row: 9 / span 4;
+        max-height: 400px;
+    }
+}

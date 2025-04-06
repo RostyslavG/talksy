@@ -1,0 +1,281 @@
+.homework-list {
+    display: grid;
+    width: 100%;
+    height: 100vh;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: repeat(13,1fr);
+    background-color: #ffecec;
+    box-sizing: border-box;
+}
+
+.header {
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.label {
+    grid-column-start: 2;
+    grid-column-end: 8;
+}
+
+.search-bar {
+    grid-column-start: 9;
+    grid-column-end: 13;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.search-bar > img {
+    position: absolute;
+    left: 10px;
+}
+
+.search-bar input {
+    width: 100%;
+    outline: none;
+    border: 2px solid #B09CFF;
+    border-radius: 20px;
+    background-color: transparent;
+    padding: 10px 20px 10px 35px;
+    font-size: 1.1rem;
+    margin-right: 30px;
+}
+
+.homework-container {
+    grid-column: 2 / span 11;
+    grid-row: 2 / span 11;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    height: 80vh;
+    padding-right: 30px;
+    width: 100%;
+    overflow-y: auto;
+}
+
+.homework {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 20px;
+    align-items: center;
+    padding: 20px;
+    background-color: #FFFBFA;
+    border-radius: 20px;
+}
+
+.info, .info-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 10px;
+    color: #121212;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.info:first-child { 
+    grid-column: 1;
+}
+
+.info-container {
+    gap: 30px;
+    grid-column: 2;
+}
+
+.avatar, .mark {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #B09CFF;
+    font-size: 24px;
+    font-weight: 700;
+    color: #FDF6F2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.mark {
+    font-size: 18px;
+}
+
+.data {
+    color: #B09CFF;
+    font-weight: 600;
+}
+
+.btn {
+    background-color: #B09CFF;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px  20px;
+    outline: none;
+    border: none;
+    color: #FDF6F2;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+.delete-btn {
+    background-color: #FF6A6C;
+}
+
+.homework .info:last-child {
+    gap: 30px;
+    grid-column: 3;
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media (max-width: 1500px) {
+    .info-container {
+        gap: 15px;
+    }
+
+    .info, .initials {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .homework{
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .info-container {
+        gap: 10px;
+    }
+
+    .info, .initials {
+        font-size: 14px;
+        gap: 5px;
+    }
+
+    .homework > .info:last-child {
+        gap: 5px;
+    }
+
+    .btn {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .homework-list {
+        height: auto;
+        grid-template-rows: repeat(4, auto);
+    }
+
+    .header {
+        grid-row: 4;
+        grid-column: 1 / span 13;
+    }
+
+    .label {
+        grid-column: 1 / span 13;
+        grid-row: 1;
+        padding: 0 30px;
+    }
+
+    .search-bar {
+        grid-column: 1 / span 8;
+        grid-row: 2;
+        margin: 10px 30px 30px 30px;
+        margin-bottom: 30px;
+    }
+
+    .search-bar input {
+        margin-right: 0;
+    }
+
+    .homework-container {
+        padding: 30px;
+        grid-column: 1 / span 13;
+        grid-row: 3;
+        padding: 0 30px;
+        height: auto;
+    }
+}
+
+@media (max-width: 1100px) {
+    .homework-container {
+        padding-bottom: 40px;
+    }
+
+    .homework, .info-container {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .homework {
+        position: relative;
+    }
+
+    .homework > .info:last-child {
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    .info-container {
+        padding: 0;
+    }
+
+    .mark {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+
+    .info, .info-container, .initials {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 500px) {
+    .homework-list {
+        grid-template-columns: 1fr;
+    }
+
+    .label {
+        grid-column: 1 / span 13;
+        grid-row: 1;
+        padding: 0 20px;
+    }
+
+    .search-bar {
+        margin: 10px 20px 30px 20px;
+        margin-bottom: 30px;
+    }
+
+    .homework-container {
+        padding: 0 20px;
+        padding-bottom: 40px;
+    }
+
+    .homework > .info:last-child {
+        position: static;
+        width: 100%;
+        right: 0;
+        bottom: 0;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .info {
+        font-size: 14px;
+    }
+}
