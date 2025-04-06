@@ -12,10 +12,10 @@ import { Router } from '@angular/router';
   styleUrl: './admin.component.css'
 })
 export class AdminComponent  implements OnInit {
-  
+
   constructor(private router:Router,
     private userAuthService:UserAuthService) {}
-  
+
   ngOnInit(): void {
     if(this.userAuthService.roleValue != "Admin"){
       switch(this.userAuthService.roleValue){
@@ -31,5 +31,10 @@ export class AdminComponent  implements OnInit {
       }
     }
   }
+
+    goToTeachers(): void {
+        this.router.navigate(['/teachers']);
+    }
+
 
 }

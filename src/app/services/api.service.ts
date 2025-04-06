@@ -12,7 +12,7 @@ import { UserAuthService } from './user-auth.service';
     providedIn: 'root'
 })
 export class ApiService {
-    private apiUrl = 'http://localhost:5248/api/';
+    private apiUrl = 'https://6436-5-58-58-125.ngrok-free.app/api/';
 
 
     constructor(
@@ -22,7 +22,7 @@ export class ApiService {
 
     private async createAuthHeaders(): Promise<HttpHeaders> {
         await this.authService.ensureValidToken();
-        
+
         return new HttpHeaders({
             'Accept': 'application/json',
             'Authorization': `Bearer ${this.authService.accessTokenValue}`
@@ -57,6 +57,4 @@ export class ApiService {
             }
         ));
     }
-
-    
 }

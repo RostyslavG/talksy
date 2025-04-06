@@ -10,12 +10,12 @@
 
     <div class="teachers-container">
 
-        <form action="#" class="add-teacher">
+        <form [formGroup]="teacherForm" class="add-teacher">
 
-            <input class="text-field" type="text" name="name" placeholder="Ім'я">
-            <input class="text-field" type="text" name="lastname" placeholder="Прізвище">
-            <input class="text-field" type="text" name="patronymic" placeholder="По батькові">
-            <input class="text-field" type="date" name="date" placeholder="Дата народження">
+            <input class="text-field" type="text" formControlName="name" placeholder="Ім'я">
+            <input class="text-field" type="text" formControlName="lastname" placeholder="Прізвище">
+            <input class="text-field" type="text" formControlName="patronymic" placeholder="По батькові">
+            <input class="text-field" type="date" formControlName="birthDate" placeholder="Дата народження">
             <label for="image" class="img-container">
                 <div class="content">
                     <div class="circle">
@@ -23,9 +23,9 @@
                     </div>
                     <p class="text">Завантажити фотографію</p>
                 </div>
-                <input class="image-field" type="file" name="image" id="image">
+                <input class="image-field" type="file" name="image" (change)="onFileSelected($event)" id="imag">
             </label>
-            <input type="button" value="Додати викладача" class="btn">
+            <button class="btn" type="button" (click)="openConfirmModal()" >Додати викладача</button>
 
         </form>
 
@@ -45,45 +45,46 @@
                     <img src="../../../assets/images/teacher_photo.jpg" alt="teacher image">
                     <p class="teacher-info">Тарасенко Василь Дмитрович</p>
                 </div>
-                
+
                 <div class="teacher">
                     <img src="../../../assets/images/teacher_photo.jpg" alt="teacher image">
                     <p class="teacher-info">Тарасенко Василь Дмитрович</p>
                 </div>
-                
+
                 <div class="teacher">
                     <img src="../../../assets/images/teacher_photo.jpg" alt="teacher image">
                     <p class="teacher-info">Тарасенко Василь Дмитрович</p>
                 </div>
-                
+
                 <div class="teacher">
                     <img src="../../../assets/images/teacher_photo.jpg" alt="teacher image">
                     <p class="teacher-info">Тарасенко Василь Дмитрович</p>
                 </div>
-                
+
                 <div class="teacher">
                     <img src="../../../assets/images/teacher_photo.jpg" alt="teacher image">
                     <p class="teacher-info">Тарасенко Василь Дмитрович</p>
                 </div>
-                
+
                 <div class="teacher">
                     <img src="../../../assets/images/teacher_photo.jpg" alt="teacher image">
                     <p class="teacher-info">Тарасенко Василь Дмитрович</p>
                 </div>
-                
             </div>
         </div>
     </div>
 </div>
 
-
-
-<div class="back">
+<div class="back" [ngClass]="{'active': showConfirmModal}">
     <div class="modal-window">
 
         <div class="modal-header">
             <img src="../../../assets/images/teacher_photo.jpg" alt="teacher image">
-            <h3 class="teacher-name">Тарасенко Василь Дмитрович</h3>
+            <h3 class="teacher-name">
+                {{ teacherForm.get('lastname')?.value }}
+                {{ teacherForm.get('name')?.value }}
+                {{ teacherForm.get('patronymic')?.value }}
+            </h3>
             <div class="buttons">
                 <button class="btn-modal delete-teacher-btn">
                     <img src="../../../assets/images/icon_delete.svg" alt="delete icon">
@@ -95,22 +96,21 @@
             </div>
         </div>
 
-        <form action="#" class="confirm-form">
+        <form [formGroup]="confirmForm" (ngSubmit)="submitAll()" class="confirm-form">
             <button class="btn">Завантажити розклад</button>
 
-            <input type="text" name="login" placeholder="логін" class="text-field">
-            <input type="text" name="password" placeholder="пароль" class="text-field">
+            <input type="text" formControlName="login" placeholder="логін" class="text-field">
+            <input type="password" formControlName="password" placeholder="пароль" class="text-field">
 
             <input type="submit" value="Згенерувати" class="btn btn-submit">
         </form>
     </div>
 </div>
 
-
 <div class="back">
     <div class="modal-window edit">
 
-        <form action="#" class="edit-teacher">
+        <form [formGroup]="teacherForm" class="edit-teacher">
             <input class="text-field" type="text" name="name" placeholder="Ім'я" value="Василь">
             <input class="text-field" type="text" name="lastname" placeholder="Прізвище" value="Тарасенко">
             <input class="text-field" type="text" name="patronymic" placeholder="По батькові" value="Дмитрович">
@@ -124,14 +124,10 @@
                 </div>
                 <input class="image-field" type="file" name="image" id="image">
             </label>
-            <input type="button" value="Додати викладача" class="btn">
+            <button class="btn" type="submit">Додати викладача</button>
         </form>
-
     </div>
 </div>
-
-
-
 
 <div class="back">
     <div class="modal-window delete">
