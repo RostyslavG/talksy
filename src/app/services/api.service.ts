@@ -29,6 +29,14 @@ export class ApiService {
         });
     }
 
+
+    async createTeacher(data:FormData){
+        const headers = await this.createAuthHeaders();
+        return firstValueFrom(
+            this.http.post(`${this.apiUrl}Admin/teachers`, data, { headers })
+        );
+    }
+
     async studentCabinet(): Promise<User> {
         const headers = await this.createAuthHeaders();
         return firstValueFrom(

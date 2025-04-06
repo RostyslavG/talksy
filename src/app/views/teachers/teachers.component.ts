@@ -7,6 +7,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {CommonModule} from '@angular/common';
 import {ReactiveFormsModule} from '@angular/forms';
+import { ApiService } from '../../services/api.service';
 
 @Component({
     selector: 'app-teachers',
@@ -25,7 +26,8 @@ export class TeachersComponent implements OnInit {
         private router: Router,
         private userAuthService: UserAuthService,
         private fb: FormBuilder,
-        private http: HttpClient
+        private http: HttpClient,
+        private apiService:ApiService
     ) {
     }
 
@@ -71,7 +73,7 @@ export class TeachersComponent implements OnInit {
         this.showConfirmModal = true;
     }
 
-    submitAll(): void {
+    async submitAll() {
         if (this.confirmForm.invalid) {
             this.confirmForm.markAllAsTouched();
             return;
@@ -93,17 +95,30 @@ export class TeachersComponent implements OnInit {
             formData.append('avatar', this.selectedFile);
         }
 
-        this.http.post('https://6436-5-58-58-125.ngrok-free.app/api/Admin/teachers', formData).subscribe({
-            next: res => {
-                alert('Викладач створений!');
-                this.teacherForm.reset();
-                this.confirmForm.reset();
-                this.showConfirmModal = false;
-            },
-            error: err => {
-                console.error(err);
-                alert('Помилка при створенні викладача');
-            }
-        });
+        try{
+            await this.apiService.createTeacher(formData);
+            alert('Викладач створений!');
+            this.teacherForm.reset();
+            this.confirmForm.reset();
+            this.showConfirmModal = false;
+        }
+        catch(error){
+            console.error(error);
+            alert('Помилка при створенні викладача');
+        }
+       
+
+        // this.http.post('https://6436-5-58-58-125.ngrok-free.app/api/Admin/teachers', formData).subscribe({
+        //     next: res => {
+        //         alert('Викладач створений!');
+        //         this.teacherForm.reset();
+        //         this.confirmForm.reset();
+        //         this.showConfirmModal = false;
+        //     },
+        //     error: err => {
+        //         console.error(err);
+        //         alert('Помилка при створенні викладача');
+        //     }
+        // });
     }
 }
