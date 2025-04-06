@@ -1,11 +1,11 @@
 <div class="container">
     <app-header-log class="header"></app-header-log>
-    <app-label-log class="stats"></app-label-log>
+    <app-label-log class="stats" [user]="user"></app-label-log>
 
     <div class="section-level">
         <div>
-            <span>B2 Upper Intermediate</span>
-            <span>70%</span>
+            <span>{{ user?.levelName}}</span>
+            <span>{{ user?.levelNumber}}%</span>
         </div>
         <div>
             <div></div>

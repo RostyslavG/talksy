@@ -10,6 +10,7 @@ import { catchError, firstValueFrom, tap } from 'rxjs';
 })
 export class UserAuthService {
 
+  private pendingRefresh: Promise<void> | null = null;
   private isAuth: boolean = false; // Чи користувач увійшов
   private accessToken: string | null = null; // accessToken
   private refreshToken: string | null = null; // refreshToken
@@ -89,20 +90,39 @@ export class UserAuthService {
   }
 
   // Запит на оновлення токена
-  refreshNewToken(): Promise<JWTToken> {
-    return firstValueFrom(
-        this.http.post<JWTToken>('http://localhost:5248/api/Auth/refresh', { refreshToken: this.refreshToken })
-            .pipe(
-                tap((result: JWTToken) => {
-                    this.cookieService.set('AccessToken', result.accessToken, 1, '/', undefined, true, 'Strict');
-                    this.accessToken = result.accessToken;
-                    this.parseJwt(result.accessToken);
-                }),
-                catchError((error) => {
-                    console.error('Error refreshing token:', error);
-                    throw new Error('Failed to refresh token');
-                })
-            )
+  async ensureValidToken(): Promise<void> {
+    if (!this.accessToken) {
+      throw new Error('No access token');
+    }
+
+    if (!this.isTokenExpired()) {
+      return;
+    }
+
+    if (!this.pendingRefresh) {
+      this.pendingRefresh = this.refreshNewToken()
+        .catch(error => {
+          throw error;
+        })
+        .finally(() => {
+          this.pendingRefresh = null;
+        });
+    }
+
+    return this.pendingRefresh;
+  }
+
+  private async refreshNewToken(): Promise<void> {
+    if (!this.refreshToken) {
+      throw new Error('No refresh token');
+    }
+
+    const response = await firstValueFrom(
+      this.http.post<JWTToken>('http://localhost:5248/api/Auth/refresh', {
+        refreshToken: this.refreshToken
+      })
     );
+
+    this.authUser(response);
   }
 }

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { User } from '../../../model/user.model';
 
 @Component({
   selector: 'app-header-log',

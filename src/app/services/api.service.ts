@@ -15,16 +15,25 @@ export class ApiService {
     private apiUrl = 'http://localhost:5248/api/';
 
 
-
-    constructor(private http: HttpClient,
+    constructor(
+        private http: HttpClient,
         private authService:UserAuthService
-    ) {
+    ) {}
+
+    private async createAuthHeaders(): Promise<HttpHeaders> {
+        await this.authService.ensureValidToken();
+        
+        return new HttpHeaders({
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${this.authService.accessTokenValue}`
+        });
     }
 
-    studentCabinet(){
-        console.log(this.authService.accessTokenValue);
-        const headers = { Authorization: `Bearer ${this.authService.accessTokenValue}` };
-        return firstValueFrom(this.http.get<User>(this.apiUrl+"Student",{ headers }));
+    async studentCabinet(): Promise<User> {
+        const headers = await this.createAuthHeaders();
+        return firstValueFrom(
+          this.http.get<User>(`${this.apiUrl}Student`, { headers })
+        );
     }
 
 

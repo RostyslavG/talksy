@@ -4,6 +4,7 @@ import { LabelLogComponent } from "../components/label-log/label-log.component";
 import { Router, RouterLink } from '@angular/router';
 import { UserAuthService } from '../../services/user-auth.service';
 import { ApiService } from '../../services/api.service';
+import { User } from '../../model/user.model';
 
 @Component({
   selector: 'app-cabinet',
@@ -16,8 +17,10 @@ import { ApiService } from '../../services/api.service';
 })
 export class CabinetComponent implements OnInit {
  
+  user: User| undefined;
+
   constructor(private router:Router,
-     private userAuthService:UserAuthService,
+    private userAuthService:UserAuthService,
     private apiService:ApiService) {}
    
   async ngOnInit() {
@@ -36,9 +39,7 @@ export class CabinetComponent implements OnInit {
     }
     
     try{
-      console.log("cabinet")
-      const responce = await this.apiService.studentCabinet();
-      console.log(responce);
+      this.user = await this.apiService.studentCabinet();
     }
     catch(error){
       console.log(error);

@@ -2,24 +2,24 @@
 
     <div class="avatar-text">
         <div class="avatar">
-            <span>C</span> 
+            <span>{{firstLetter}}</span> 
         </div>
         <div class="text">
-            <p class="welcome">Welcome back, Світлана!</p>
+            <p class="welcome">Welcome back, {{user?.name}}!</p>
         </div>
     </div>
     <div class="badges">
         <div class="badge">
             <img src="../../../../assets/images/icon_coin_1.png" alt="coin"/>
-            <span>25</span>
+            <span>{{user?.point1}}</span>
         </div>
         <div class="badge">
             <img src="../../../../assets/images/icon_coin_2.png" alt="coin"/>
-            <span>25</span>
+            <span>{{user?.point2}}</span>
         </div>
         <div class="badge">
             <img src="../../../../assets/images/icon_coin_3.png" alt="coin"/>
-            <span>25</span>
+            <span>{{user?.point3}}</span>
         </div>
     </div>
     <div class="icons">
