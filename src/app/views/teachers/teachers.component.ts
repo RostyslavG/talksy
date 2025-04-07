@@ -32,7 +32,6 @@ export class TeachersComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        console.log('Компонент TeachersComponent ініціалізовано');
         // if (this.userAuthService.roleValue != "Teacher") {
         //     switch (this.userAuthService.roleValue) {
         //         case 'User':
@@ -69,7 +68,6 @@ export class TeachersComponent implements OnInit {
             this.teacherForm.markAllAsTouched();
             return;
         }
-        console.log('Викликається openConfirmModal');
         this.showConfirmModal = true;
     }
 
@@ -79,46 +77,27 @@ export class TeachersComponent implements OnInit {
             return;
         }
 
-        const teacherData = {
-            Name: this.teacherForm.get('name')?.value,
-            LastName: this.teacherForm.get('lastname')?.value,
-            Patronymic: this.teacherForm.get('patronymic')?.value,
-            BirthDate: this.teacherForm.get('birthDate')?.value,
-            Login: this.confirmForm.get('login')?.value,
-            Password: this.confirmForm.get('password')?.value,
-        };
-
         const formData = new FormData();
-        formData.append('us', JSON.stringify(teacherData));
+        formData.append('Name', this.teacherForm.get('name')?.value);
+        formData.append('LastName', this.teacherForm.get('lastname')?.value);
+        formData.append('Patronymic', this.teacherForm.get('patronymic')?.value);
+        formData.append('BirthDate', this.teacherForm.get('birthDate')?.value);
+        formData.append('Login', this.confirmForm.get('login')?.value);
+        formData.append('Password', this.confirmForm.get('password')?.value);
 
         if (this.selectedFile) {
             formData.append('avatar', this.selectedFile);
         }
 
-        try{
+        try {
             await this.apiService.createTeacher(formData);
             alert('Викладач створений!');
             this.teacherForm.reset();
             this.confirmForm.reset();
             this.showConfirmModal = false;
-        }
-        catch(error){
+        } catch (error) {
             console.error(error);
             alert('Помилка при створенні викладача');
         }
-       
-
-        // this.http.post('https://6436-5-58-58-125.ngrok-free.app/api/Admin/teachers', formData).subscribe({
-        //     next: res => {
-        //         alert('Викладач створений!');
-        //         this.teacherForm.reset();
-        //         this.confirmForm.reset();
-        //         this.showConfirmModal = false;
-        //     },
-        //     error: err => {
-        //         console.error(err);
-        //         alert('Помилка при створенні викладача');
-        //     }
-        // });
     }
 }
