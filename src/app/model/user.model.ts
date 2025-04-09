@@ -9,6 +9,9 @@ export interface User {
     lastName?: string;
     birthday?: string;
     levelName?: string;
+    patronymic?:string;
+    avatar?: string;
+    avatarUrl?:string;
     email: string;
     hashedPassword: string;
     refreshToken: RefreshToken;

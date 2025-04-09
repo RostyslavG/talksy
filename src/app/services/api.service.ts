@@ -12,7 +12,7 @@ import { UserAuthService } from './user-auth.service';
     providedIn: 'root'
 })
 export class ApiService {
-    private apiUrl = 'https://6436-5-58-58-125.ngrok-free.app/api/';
+    private apiUrl = 'http://localhost:5248/api/';
 
 
     constructor(
@@ -20,25 +20,36 @@ export class ApiService {
         private authService:UserAuthService
     ) {}
 
-    private async createAuthHeaders(): Promise<HttpHeaders> {
+    private async createAuthHeaders(isJson:boolean): Promise<HttpHeaders> {
         await this.authService.ensureValidToken();
 
-        return new HttpHeaders({
-            'Accept': 'application/json',
-            'Authorization': `Bearer ${this.authService.accessTokenValue}`
-        });
+        return isJson ?
+            new HttpHeaders({
+                'Content-Type' : 'application/json',
+                'Authorization': `Bearer ${this.authService.accessTokenValue}`
+            }) 
+            :
+            new HttpHeaders({
+                'Authorization': `Bearer ${this.authService.accessTokenValue}`
+            })
     }
 
 
+    async getAllTeachers(){
+        const headers = await this.createAuthHeaders(true);
+        return firstValueFrom(
+            this.http.get<Array<User>>(`${this.apiUrl}Admin/teachers`, { headers })
+        );
+    }
     async createTeacher(data:FormData){
-        const headers = await this.createAuthHeaders();
+        const headers = await this.createAuthHeaders(false);
         return firstValueFrom(
             this.http.post(`${this.apiUrl}Admin/teachers`, data, { headers })
         );
     }
 
     async studentCabinet(): Promise<User> {
-        const headers = await this.createAuthHeaders();
+        const headers = await this.createAuthHeaders(true);
         return firstValueFrom(
           this.http.get<User>(`${this.apiUrl}Student`, { headers })
         );

@@ -23,8 +23,17 @@
                     </div>
                     <p class="text">Завантажити фотографію</p>
                 </div>
-                <input class="image-field" type="file" name="image" (change)="onFileSelected($event)" id="imag">
+                <input class="image-field" type="file" name="image" (change)="onFileSelected($event)" id="image">
             </label>
+
+            <div class="levels">
+                <p>Оберіть рівень:</p>
+                <button *ngFor="let level of levels" type="button" (click)="selectLevel(level.name)" class="level-btn">
+                    {{ level.name }}
+                </button>
+            </div>
+
+        
             <button class="btn" type="button" (click)="openConfirmModal()" >Додати викладача</button>
 
         </form>
@@ -39,8 +48,13 @@
                 </div>
             </div>
 
-            <div class="list">
+            <div class="list" >
 
+                <div *ngFor="let teacher of teachers" class="teacher">
+                    <img [src]="teacher.avatarUrl" alt="teacher image">
+                    <p class="teacher-info">{{ teacher.lastName }} {{ teacher.name }} {{teacher.patronymic}}</p>
+                </div>
+<!--                 
                 <div class="teacher">
                     <img src="../../../assets/images/teacher_photo.jpg" alt="teacher image">
                     <p class="teacher-info">Тарасенко Василь Дмитрович</p>
@@ -69,7 +83,7 @@
                 <div class="teacher">
                     <img src="../../../assets/images/teacher_photo.jpg" alt="teacher image">
                     <p class="teacher-info">Тарасенко Василь Дмитрович</p>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
