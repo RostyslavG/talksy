@@ -65,6 +65,7 @@ export class TeachersComponent implements OnInit {
         }
     }
     
+    
     selectLevel(level: string): void {
         this.teacherForm.patchValue({ level: level });
     }
