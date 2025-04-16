@@ -2,15 +2,47 @@
     <app-header-log class="admin-header"></app-header-log>
     <app-label-log class="admin-label"></app-label-log>
 
+    <div class="radio-group" #radioGroup>
+        <label class="radio-option">
+            <input type="radio" name="level" value="Beginner (A1)" checked>
+            <svg class="cat-icon" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.5043 2.80113C9.06232 2.80113 9.62866 2.87537 10.17 3.01561C11.6525 1.36575 14.3593 0.672808 15.5169 1.15127C16.6829 1.62973 15.1671 6.92577 15.1671 6.92577C15.6419 7.80845 16 8.77362 16 9.76353C16 13.4427 12.6436 16 8.5043 16C4.36501 16 1.00861 13.5252 1.00861 9.76353C1.00861 8.73237 1.42503 7.7837 1.84146 6.92577C1.84146 6.92577 0.267364 1.62973 1.42503 1.15127C2.5827 0.672808 5.35611 1.341 6.83859 2.99086C7.38492 2.86611 7.94365 2.80247 8.5043 2.80113Z" stroke="#B09CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>A1</span>
+        </label>
+
+        <label class="radio-option">
+            <input type="radio" name="level" value="Elementary (A2)">
+            <svg class="cat-icon" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.5043 2.80113C9.06232 2.80113 9.62866 2.87537 10.17 3.01561C11.6525 1.36575 14.3593 0.672808 15.5169 1.15127C16.6829 1.62973 15.1671 6.92577 15.1671 6.92577C15.6419 7.80845 16 8.77362 16 9.76353C16 13.4427 12.6436 16 8.5043 16C4.36501 16 1.00861 13.5252 1.00861 9.76353C1.00861 8.73237 1.42503 7.7837 1.84146 6.92577C1.84146 6.92577 0.267364 1.62973 1.42503 1.15127C2.5827 0.672808 5.35611 1.341 6.83859 2.99086C7.38492 2.86611 7.94365 2.80247 8.5043 2.80113Z" stroke="#B09CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>B2</span>
+        </label>
+
+        <label class="radio-option">
+            <input type="radio" name="level" value="Intermediate (B1)">
+            <svg class="cat-icon" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.5043 2.80113C9.06232 2.80113 9.62866 2.87537 10.17 3.01561C11.6525 1.36575 14.3593 0.672808 15.5169 1.15127C16.6829 1.62973 15.1671 6.92577 15.1671 6.92577C15.6419 7.80845 16 8.77362 16 9.76353C16 13.4427 12.6436 16 8.5043 16C4.36501 16 1.00861 13.5252 1.00861 9.76353C1.00861 8.73237 1.42503 7.7837 1.84146 6.92577C1.84146 6.92577 0.267364 1.62973 1.42503 1.15127C2.5827 0.672808 5.35611 1.341 6.83859 2.99086C7.38492 2.86611 7.94365 2.80247 8.5043 2.80113Z" stroke="#B09CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>B2+</span>
+        </label>
+
+        <label class="radio-option">
+            <input type="radio" name="level" value="Upper Intermediate (B2)">
+            <svg class="cat-icon" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.5043 2.80113C9.06232 2.80113 9.62866 2.87537 10.17 3.01561C11.6525 1.36575 14.3593 0.672808 15.5169 1.15127C16.6829 1.62973 15.1671 6.92577 15.1671 6.92577C15.6419 7.80845 16 8.77362 16 9.76353C16 13.4427 12.6436 16 8.5043 16C4.36501 16 1.00861 13.5252 1.00861 9.76353C1.00861 8.73237 1.42503 7.7837 1.84146 6.92577C1.84146 6.92577 0.267364 1.62973 1.42503 1.15127C2.5827 0.672808 5.35611 1.341 6.83859 2.99086C7.38492 2.86611 7.94365 2.80247 8.5043 2.80113Z" stroke="#B09CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>C1</span>
+        </label>
+    </div>
+
     <div class="search-bar">
         <img src="../../../assets/images/lessons/lupa.svg" alt="search"/>
         <input type="text" placeholder="Пошук..."/>
     </div>
 
     <div class="admin-container">
-
         <section class="lesson-block">
-
             <h3 class="lesson-header">Навчання</h3>
 
             <div class="lesson-elements">

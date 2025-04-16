@@ -1,4 +1,4 @@
-.admin { 
+.admin {
     display: grid;
     width: 100%;
     height: 100vh;
@@ -8,7 +8,7 @@
     box-sizing: border-box;
 }
 
-.admin-header { 
+.admin-header {
     grid-row-start: 1;
     grid-row-end: 3;
 }
@@ -66,7 +66,7 @@
     height: 100%;
 }
 
-.lesson-header { 
+.lesson-header {
     padding-bottom: 30px;
 }
 
@@ -93,7 +93,7 @@
 
 .lesson-theme {
     padding: 10px 0;
-} 
+}
 
 .controls {
     display: flex;
@@ -216,12 +216,51 @@
     transform: translate(-50%);
 }
 
+/*===================================*/
+
+.radio-group {
+    position: absolute;
+    display: flex;
+    gap: 30px;
+    padding: 50px;
+    top: 65px;
+    left: 140px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.radio-option input[type="radio"] {
+    display: none;
+}
+
+.cat-icon {
+    margin-right: 8px;
+    stroke: #b18af7;
+    fill: none;
+}
+
+.radio-option span {
+    font-weight: bold;
+    color: #000;
+    margin-top: 2px;
+}
+
+.radio-option input[type="radio"]:checked + svg {
+    fill: #b18af7;
+    opacity: 0.4;
+}
+
 @media (max-width: 1199px) {
 
     .admin {
         grid-template-columns: repeat(12, 1fr);
         grid-template-rows: auto auto 1fr auto;
-        height: auto; 
+        height: auto;
     }
 
     .admin-header {
@@ -237,7 +276,7 @@
     }
 
     .search-bar {
-        grid-column: 1 / 8; 
+        grid-column: 1 / 8;
         grid-row: 2;
         margin-left: 30px;
     }
@@ -252,12 +291,12 @@
         gap: 20px;
         max-height: 500px;
     }
-    
+
     .upload-block {
         grid-column: 8 / 13;
         grid-row: 2;
     }
-    
+
     .admin-container {
         grid-column: 1 / 13;
         grid-row: 3;
@@ -309,7 +348,7 @@
 
     .teacher {
         width: 46%;
-        display: inline-flex; 
+        display: inline-flex;
         align-items: center;
         margin-bottom: 10px;
     }
@@ -324,8 +363,6 @@
 }
 
 @media (max-width: 600px) {
-s
-
     .admin > .admin-label {
         max-width: 100%;
         grid-column: 1 / 13;
@@ -340,9 +377,8 @@ s
         margin: 0 20px;
     }
 
-
     .admin-container {
-        display: flex; 
+        display: flex;
         flex-direction: column;
         justify-content: space-around;
         margin: 0;

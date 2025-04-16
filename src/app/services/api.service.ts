@@ -7,6 +7,7 @@ import {JWTToken} from '../model/dto/jwtToken';
 import { UserRegister } from '../model/userRegister';
 import { User } from '../model/user.model';
 import { UserAuthService } from './user-auth.service';
+import { AdminDTO } from '../model/dto/admin.dto';
 
 @Injectable({
     providedIn: 'root'
@@ -27,7 +28,7 @@ export class ApiService {
             new HttpHeaders({
                 'Content-Type' : 'application/json',
                 'Authorization': `Bearer ${this.authService.accessTokenValue}`
-            }) 
+            })
             :
             new HttpHeaders({
                 'Authorization': `Bearer ${this.authService.accessTokenValue}`
@@ -75,5 +76,12 @@ export class ApiService {
                 key: key
             }
         ));
+    }
+
+    async getAdminPageByLevel(level: string): Promise<AdminDTO> {
+        const headers = await this.createAuthHeaders(true);
+        return firstValueFrom(
+            this.http.get<AdminDTO>(`${this.apiUrl}Admin/group/${level}`, { headers })
+        );
     }
 }

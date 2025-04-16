@@ -15,7 +15,7 @@ import { HomeworkListComponent } from './views/homework-list/homework-list.compo
 import { TeachersMainComponent } from './views/teachers-main/teachers-main.component';
 
 export const routes: Routes = [
-    { path: 'main' , component:MainComponent },
+    { path: '' , component:MainComponent },
     { path:'login-registration/:mode', component:LoginRegisterComponent},
     { path:'cabinet', component:CabinetComponent},
     { path:'setting', component:SettingComponent},
