@@ -16,7 +16,24 @@
             <input class="text-field" type="text" formControlName="lastname" placeholder="Прізвище">
             <input class="text-field" type="text" formControlName="patronymic" placeholder="По батькові">
             <input class="text-field" type="date" formControlName="birthDate" placeholder="Дата народження">
-            <label for="image" class="img-container">
+            
+            <div class="teacher-levels">
+                <p>Оберіть рівень:</p>
+                <div>
+                    <button *ngFor="let level of levels" 
+                            type="button" 
+                            (click)="selectLevel(level.name)" 
+                            class="level-btn"
+                            [class.active]="activeLevel === level.name">
+                        {{ level.shortName }}
+                        <img *ngIf="activeLevel === level.name" src="../../../assets/images/svg/lucide_cat.svg" alt="icon"/>
+                        <img *ngIf="activeLevel !== level.name" src="../../../assets/images/cat_input.svg" alt="icon"/>
+                    </button>
+                </div>
+            </div>
+            
+            
+            <label *ngIf="!selectedFile" for="image" class="img-container">
                 <div class="content">
                     <div class="circle">
                         <img src="../../../assets/images/upload_img.svg" alt="upload icon">
@@ -26,14 +43,6 @@
                 <input class="image-field" type="file" name="image" (change)="onFileSelected($event)" id="image">
             </label>
 
-            <div class="levels">
-                <p>Оберіть рівень:</p>
-                <button *ngFor="let level of levels" type="button" (click)="selectLevel(level.name)" class="level-btn">
-                    {{ level.name }}
-                </button>
-            </div>
-
-        
             <button class="btn" type="button" (click)="openConfirmModal()" >Додати викладача</button>
 
         </form>
@@ -51,8 +60,12 @@
             <div class="list" >
 
                 <div *ngFor="let teacher of teachers" class="teacher">
-                    <img [src]="teacher.avatarUrl" alt="teacher image">
-                    <p class="teacher-info">{{ teacher.lastName }} {{ teacher.name }} {{teacher.patronymic}}</p>
+                    <div>
+                        <img [src]="teacher.avatarUrl" alt="teacher image">
+                        <p class="teacher-info">{{ teacher.lastName }} {{ teacher.name }} {{teacher.patronymic}}</p>
+                    </div>
+                 
+                    <button (click)="showUpdateModal(teacher.id)">...</button>
                 </div>
 <!--                 
                 <div class="teacher">
@@ -93,14 +106,14 @@
     <div class="modal-window">
 
         <div class="modal-header">
-            <img src="../../../assets/images/teacher_photo.jpg" alt="teacher image">
+            <img *ngIf="selectedImgUrl" [src]="selectedImgUrl" alt="teacher image">
             <h3 class="teacher-name">
                 {{ teacherForm.get('lastname')?.value }}
                 {{ teacherForm.get('name')?.value }}
                 {{ teacherForm.get('patronymic')?.value }}
             </h3>
-            <div class="buttons">
-                <button class="btn-modal delete-teacher-btn">
+            <div class="buttons" *ngIf="selectedTeacher">
+                <button (click)="showDeleteWindow()" class="btn-modal delete-teacher-btn">
                     <img src="../../../assets/images/icon_delete.svg" alt="delete icon">
                 </button>
 
@@ -143,13 +156,13 @@
     </div>
 </div>
 
-<div class="back">
+<div class="back" [ngClass]="{'active': showDeleteModal}">
     <div class="modal-window delete">
         <h3 class="delete-message">Ви впевнені що хочете видалити?</h3>
 
         <div class="teacher">
-            <img src="../../../assets/images/teacher_photo.jpg" alt="teacher image">
-            <p class="teacher-info">Тарасенко Василь Дмитрович</p>
+            <img [src]="selectedImgUrl" alt="teacher image">
+            <p class="teacher-info">{{selectedTeacher?.lastName}} {{selectedTeacher?.name}} {{selectedTeacher?.patronymic}}</p>
         </div>
 
         <button class="btn btn-delete">Видалити</button>
