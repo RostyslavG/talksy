@@ -23,15 +23,19 @@ export class TeachersComponent implements OnInit {
     confirmForm!: FormGroup;
     selectedFile!: File;
     showConfirmModal: boolean = false;
-
+    showDeleteModal:boolean = false;
+    activeLevel: string | null = null;
+    selectedImgUrl: string | undefined;
+  
     levels = [
-        { name: 'Beginner (A1)' },
-        { name: 'Elementary (A2)' },
-        { name: 'Intermediate (B1)' },
-        { name: 'Upper Intermediate (B2)' }
+        { name: 'Beginner (A1)', shortName: 'A1' },
+        { name: 'Elementary (A2)', shortName: 'B2' },
+        { name: 'Intermediate (B1)', shortName: 'B2+' },
+        { name: 'Upper Intermediate (B2)', shortName: 'C1' }
     ];
 
     teachers: Array<User> | undefined;
+    selectedTeacher: User | undefined;
 
     constructor(
         private router: Router,
@@ -68,10 +72,12 @@ export class TeachersComponent implements OnInit {
     
     selectLevel(level: string): void {
         this.teacherForm.patchValue({ level: level });
+        this.activeLevel =level;
     }
 
     onFileSelected(event: any): void {
         this.selectedFile = event.target.files[0];
+        this.selectedImgUrl = URL.createObjectURL(this.selectedFile);
     }
 
     openConfirmModal(): void {
@@ -79,8 +85,26 @@ export class TeachersComponent implements OnInit {
             this.teacherForm.markAllAsTouched();
             return;
         }
+        this.selectedTeacher = undefined;
         this.showConfirmModal = true;
     }
+
+    showDeleteWindow():void{
+        this.showConfirmModal = false;
+        this.showDeleteModal = true;
+    }
+
+    showUpdateModal(id:string):void{
+        this.selectedTeacher = this.teachers?.find(t => t.id === id);
+        if(this.selectedTeacher ){
+            this.teacherForm.get('name')?.setValue(this.selectedTeacher.name);
+            this.teacherForm.get('lastname')?.setValue(this.selectedTeacher.lastName);
+            this.teacherForm.get('patronymic')?.setValue(this.selectedTeacher.patronymic);
+            this.selectedImgUrl = this.selectedTeacher.avatarUrl
+        }
+        this.showConfirmModal = true;
+    }
+
 
     async submitAll() {
         if (this.confirmForm.invalid) {

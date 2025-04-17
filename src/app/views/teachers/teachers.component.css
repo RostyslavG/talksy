@@ -163,7 +163,16 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 20px;
+    justify-content: space-between;
+}
+.teacher >button{
+    color:#B09CFF;
+    font-size: 42px;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    background-color: transparent;
+    border: none;
 }
 
 .teacher img {
@@ -172,6 +181,42 @@
     object-fit: cover;
     border-radius: 50%;
     flex-shrink: 0;
+}
+.teacher  >div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.teacher-levels{
+    display: flex;
+    flex-direction: column;
+    gap:8px;
+}
+
+.teacher-levels >div{
+    display: flex;
+    justify-content: space-between;
+    gap:12px;
+}
+.teacher-levels >div >button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:4px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    font-size: 16px;
+    font-weight: 600;
+
+}
+.teacher-levels >div >button >img{
+    width: 24px;
+    height: 24px;
 }
 
 .back {
