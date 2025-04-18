@@ -370,74 +370,14 @@
 
             <div class="list">
 
-                <div class="teacher">
+                <div *ngFor="let teacher of teachers" class="teacher">
                     <img src="../../../assets/images/teacher_photo.jpg" alt="teacher photo">
-                    <p class="teacher-info">Тарасенко Василь Дмитрович</p>
-                </div>
-
-                <div class="teacher">
-                    <img src="../../../assets/images/teacher_photo.jpg" alt="teacher photo">
-                    <p class="teacher-info">Тарасенко Василь Дмитрович</p>
-                </div>
-
-                <div class="teacher">
-                    <img src="../../../assets/images/teacher_photo.jpg" alt="teacher photo">
-                    <p class="teacher-info">Тарасенко Василь Дмитрович</p>
-                </div>
-
-                <div class="teacher">
-                    <img src="../../../assets/images/teacher_photo.jpg" alt="teacher photo">
-                    <p class="teacher-info">Тарасенко Василь Дмитрович</p>
-                </div>
-
-                <div class="teacher">
-                    <img src="../../../assets/images/teacher_photo.jpg" alt="teacher photo">
-                    <p class="teacher-info">Тарасенко Василь Дмитрович</p>
-                </div>
-
-                <div class="teacher">
-                    <img src="../../../assets/images/teacher_photo.jpg" alt="teacher photo">
-                    <p class="teacher-info">Тарасенко Василь Дмитрович</p>
-                </div>
-
-                <div class="teacher">
-                    <img src="../../../assets/images/teacher_photo.jpg" alt="teacher photo">
-                    <p class="teacher-info">Тарасенко Василь Дмитрович</p>
-                </div>
-
-                <div class="teacher">
-                    <img src="../../../assets/images/teacher_photo.jpg" alt="teacher photo">
-                    <p class="teacher-info">Тарасенко Василь Дмитрович</p>
-                </div>
-
-                <div class="teacher">
-                    <img src="../../../assets/images/teacher_photo.jpg" alt="teacher photo">
-                    <p class="teacher-info">Тарасенко Василь Дмитрович</p>
-                </div>
-
-                <div class="teacher">
-                    <img src="../../../assets/images/teacher_photo.jpg" alt="teacher photo">
-                    <p class="teacher-info">Тарасенко Василь Дмитрович</p>
-                </div>
-
-                <div class="teacher">
-                    <img src="../../../assets/images/teacher_photo.jpg" alt="teacher photo">
-                    <p class="teacher-info">Тарасенко Василь Дмитрович</p>
-                </div>
-
-                <div class="teacher">
-                    <img src="../../../assets/images/teacher_photo.jpg" alt="teacher photo">
-                    <p class="teacher-info">Тарасенко Василь Дмитрович</p>
-                </div>
-
-                <div class="teacher">
-                    <img src="../../../assets/images/teacher_photo.jpg" alt="teacher photo">
-                    <p class="teacher-info">Тарасенко Василь Дмитрович</p>
+                    <p class="teacher-info">{{teacher.lastname}} {{teacher.name}} Дмитрович</p>
                 </div>
 
             </div>
 
-            <button class="teacher-btn upload-btn" (click)="goToTeachers()">Додати вчитиеля</button>
+            <a class="teacher-btn upload-btn" [routerLink]="['/teachers']">Вчитиеля</a>
 
         </section>
 

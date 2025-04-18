@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HeaderLogComponent } from '../components/header-log/header-log.component';
 import { LabelLogComponent } from '../components/label-log/label-log.component';
 import { UserAuthService } from '../../services/user-auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api.service';
 import { AdminDTO, LessonAdmin, TeacherAdmin } from '../../model/dto/admin.dto';
@@ -10,7 +10,7 @@ import { AdminDTO, LessonAdmin, TeacherAdmin } from '../../model/dto/admin.dto';
 @Component({
     selector: 'app-admin',
     standalone: true,
-    imports: [CommonModule, HeaderLogComponent, LabelLogComponent],
+    imports: [CommonModule, HeaderLogComponent, LabelLogComponent,RouterLink],
     templateUrl: './admin.component.html',
     styleUrl: './admin.component.css'
 })
@@ -64,6 +64,7 @@ export class AdminComponent implements OnInit {
     async sendLevel(level: string): Promise<void> {
         try {
             const data: AdminDTO = await this.apiService.getAdminPageByLevel(level);
+            console.log(data);
             this.adminName = data.adminName;
             this.adminLastname = data.adminLastname;
             this.role = data.role;
