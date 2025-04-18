@@ -16,6 +16,8 @@ import { AdminDTO, LessonAdmin, TeacherAdmin } from '../../model/dto/admin.dto';
 })
 export class AdminComponent implements OnInit {
     @ViewChild('radioGroup') radioGroupRef!: ElementRef;
+    @ViewChild('popup') popupRef!: ElementRef;
+    @ViewChild('openPopupBtn') openPopupBtnRef!: ElementRef;
 
     lessons: LessonAdmin[] = [];
     teachers: TeacherAdmin[] = [];
@@ -47,6 +49,8 @@ export class AdminComponent implements OnInit {
 
     ngAfterViewInit(): void {
         const radioGroup = this.radioGroupRef.nativeElement as HTMLElement;
+        const popup = this.popupRef.nativeElement as HTMLElement;
+        const openPopupBtn = this.openPopupBtnRef.nativeElement as HTMLElement;
 
         radioGroup.querySelectorAll('input[type="radio"][name="level"]').forEach(input => {
             input.addEventListener('change', (event: Event) => {
@@ -58,6 +62,17 @@ export class AdminComponent implements OnInit {
         const defaultRadio = radioGroup.querySelector('input[type="radio"][name="level"]:checked') as HTMLInputElement;
         if (defaultRadio) {
             this.sendLevel(defaultRadio.value);
+        }
+
+        openPopupBtn.addEventListener('click', () => {
+            popup.style.display = 'flex';
+        });
+
+        const closeBtn = popup.querySelector('.close-btn1') as HTMLElement;
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                popup.style.display = 'none';
+            });
         }
     }
 

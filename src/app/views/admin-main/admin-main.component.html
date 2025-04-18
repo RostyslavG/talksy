@@ -79,7 +79,7 @@
             <div class="image">
                 <img src="../../../assets/images/upload-hw.png" alt="upload homework image">
             </div>
-            <button class="add-homework-btn btn">Загрузити домашнє завдання</button>
+            <button class="add-homework-btn btn" #openPopupBtn>Загрузити домашнє завдання</button>
          </div>
         <div class="add-lesson add-element">
             <div class="image">
@@ -108,12 +108,12 @@
             </div>
             <!-- ???? -->
         </div>
-        
+
     </div>
 </div>
 
 
-<div class="back">
+<div class="back" #popup>
     <div class="popup-content">
         <div class="close-btn"></div>
         <div class="popup-header">
@@ -140,7 +140,7 @@
                 <input type="file" name="file-input" id="file-input" class="file-input" />
                 <div class="text">
                     <span>Завантажити</span>
-                    <span>файл </span> 
+                    <span>файл </span>
                     <span class="tablet-hidden">чи перетягнути в область</span>
                 </div>
                 <div class="size-text">Максимальний розмір файлу 30 МБ</div>
