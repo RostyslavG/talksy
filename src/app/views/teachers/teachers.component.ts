@@ -35,6 +35,7 @@ export class TeachersComponent implements OnInit {
     ];
 
     teachers: Array<User> | undefined;
+    user: User | undefined;
     selectedTeacher: User | undefined;
 
     constructor(
@@ -62,7 +63,10 @@ export class TeachersComponent implements OnInit {
 
 
         try{
-            this.teachers = await this.apiService.getAllTeachers();
+            const result = await this.apiService.getAllTeachers();
+            console.log(result);
+            this.teachers = result.teachers;
+            this.user = result.user;
         }
         catch(error){
             console.log(error);

@@ -7,7 +7,7 @@ import {JWTToken} from '../model/dto/jwtToken';
 import { UserRegister } from '../model/userRegister';
 import { User } from '../model/user.model';
 import { UserAuthService } from './user-auth.service';
-import { AdminDTO } from '../model/dto/admin.dto';
+import { AdminDTO, AdminTeachersDTO } from '../model/dto/admin.dto';
 
 @Injectable({
     providedIn: 'root'
@@ -39,7 +39,7 @@ export class ApiService {
     async getAllTeachers(){
         const headers = await this.createAuthHeaders(true);
         return firstValueFrom(
-            this.http.get<Array<User>>(`${this.apiUrl}Admin/teachers`, { headers })
+            this.http.get<AdminTeachersDTO>(`${this.apiUrl}Admin/teachers`, { headers })
         );
     }
     async createTeacher(data:FormData){

@@ -8,7 +8,7 @@
             <p class="welcome">Welcome back, {{user?.name}}!</p>
         </div>
     </div>
-    <div class="badges">
+    <div *ngIf="isPrice" class="badges">
         <div class="badge">
             <img src="../../../../assets/images/icon_coin_1.png" alt="coin"/>
             <span>{{user?.point1}}</span>

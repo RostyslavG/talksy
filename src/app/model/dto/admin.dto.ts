@@ -1,3 +1,5 @@
+import { User } from "../user.model";
+
 export interface LessonAdmin {
     id: string;
     theme: string;
@@ -16,4 +18,9 @@ export interface AdminDTO {
     adminName: string;
     adminLastname: string;
     role: string;
+}
+
+export interface AdminTeachersDTO{
+    user: User;
+    teachers: Array<User>;
 }
