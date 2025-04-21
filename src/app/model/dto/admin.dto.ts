@@ -12,4 +12,7 @@ export interface AdminDTO {
     user: User;
 }
 
-
+export interface AdminTeachersDTO{
+    user: User;
+    teachers: Array<User>;
+}
