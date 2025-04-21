@@ -7,8 +7,7 @@ import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api.service';
 import { AdminDTO } from '../../model/dto/admin.dto';
 import { User } from '../../model/user.model';
-import { LessonAddDTO } from '../../model/dto/lesson-add.dto';
-
+import { LessonDTO } from '../../model/dto/lesson.dto';
 
 @Component({
     selector: 'app-admin',
@@ -31,7 +30,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
     selectedLessonFile: File | null = null;
     selectedHomeworkFile: File | null = null;
 
-    lessons: { id: string; theme: string; time: string }[] = [];
+    lessons: LessonDTO[] = [];
     teachers: User[] = [];
     user: User | undefined;
     groupId: string | undefined;
@@ -125,6 +124,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
         if (this.selectedLessonFile) {
             formData.append('lesson', this.selectedLessonFile);
         }
+
         if (this.selectedHomeworkFile) {
             formData.append('homework', this.selectedHomeworkFile);
         }
@@ -162,5 +162,3 @@ export class AdminComponent implements OnInit, AfterViewInit {
         }
     }
 }
-
-

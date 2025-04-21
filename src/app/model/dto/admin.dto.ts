@@ -1,19 +1,9 @@
-import { User } from "../user.model";
-
-export interface LessonDTO {
-    id: string;
-    theme: string;
-    time: string;
-}
+import { LessonDTO } from './lesson.dto';
+import { User } from '../user.model';
 
 export interface AdminDTO {
     lessons: LessonDTO[];
     teachers: User[];
     user: User;
-    groupId:string;
-}
-
-export interface AdminTeachersDTO{
-    user: User;
-    teachers: Array<User>;
+    groupId: string;
 }

@@ -47,50 +47,36 @@
 
             <div class="lesson-elements">
 
-                <div class="lesson-element">
 
-                    <img src="../../../assets/images/lessons/lesson.png" alt="lesson"/>
-                    <p class="lesson-theme">Lesson 1: Greetings and Introductions</p>
+<!--                <div class="lesson-element">-->
 
-                    <div class="buttons">
+<!--                    <img src="../../../assets/images/lessons/lesson.png" alt="lesson"/>-->
+<!--                    <p class="lesson-theme">Lesson 1: Greetings and Introductions</p>-->
 
-                        <button class="lesson-btn delete-lesson-btn">
-                            <img src="../../../assets/images/icon_delete.svg" alt="delete icon">
-                        </button>
+<!--                    <div class="controls">-->
 
-                        <button class="lesson-btn edit-lesson-btn">
-                            <img src="../../../assets/images/icon_edit.svg" alt="delete icon">
-                        </button>
+<!--                        <div class="buttons">-->
+<!--                            <button class="lesson-btn delete-lesson-btn">-->
+<!--                                <img src="../../../assets/images/icon_delete.svg" alt="delete icon">-->
+<!--                            </button>-->
 
-                        <span class="lesson-date">12.01.2025</span>
-                    </div>
+<!--                            <button class="lesson-btn edit-lesson-btn">-->
+<!--                                <img src="../../../assets/images/icon_edit.svg" alt="delete icon">-->
+<!--                            </button>-->
+<!--                        </div>-->
 
-                </div>
+<!--                        <span class="lesson-date">12.01.2025</span>-->
+<!--                    </div>-->
 
-                <div class="lesson-element">
+<!--                </div>-->
 
-                    <img src="../../../assets/images/lessons/lesson.png" alt="lesson"/>
-                    <p class="lesson-theme">Lesson 1: Greetings and Introductions</p>
+                <div *ngFor="let lesson of lessons" class="lesson-element">
 
-                    <div class="buttons">
+                    <img src="../../../assets/images/lessons/lesson.png" alt="lesson" />
 
-                        <button class="lesson-btn delete-lesson-btn">
-                            <img src="../../../assets/images/icon_delete.svg" alt="delete icon">
-                        </button>
-
-                        <button class="lesson-btn edit-lesson-btn">
-                            <img src="../../../assets/images/icon_edit.svg" alt="delete icon">
-                        </button>
-
-                        <span class="lesson-date">12.01.2025</span>
-                    </div>
-
-                </div>
-
-                <div class="lesson-element">
-
-                    <img src="../../../assets/images/lessons/lesson.png" alt="lesson"/>
-                    <p class="lesson-theme">Lesson 1: Greetings and Introductions</p>
+                    <p class="lesson-theme">
+                        Lesson {{ lesson.lessonCount }}: {{ lesson.theme }}
+                    </p>
 
                     <div class="buttons">
 
@@ -99,251 +85,13 @@
                         </button>
 
                         <button class="lesson-btn edit-lesson-btn">
-                            <img src="../../../assets/images/icon_edit.svg" alt="delete icon">
+                            <img src="../../../assets/images/icon_edit.svg" alt="edit icon">
                         </button>
 
-                        <span class="lesson-date">12.01.2025</span>
-                    </div>
+                        <span class="lesson-date">
+                            {{ lesson.deadline | date: 'dd.MM.yyyy' }}
+                        </span>
 
-                </div>
-
-                <div class="lesson-element">
-
-                    <img src="../../../assets/images/lessons/lesson.png" alt="lesson"/>
-                    <p class="lesson-theme">Lesson 1: Greetings and Introductions</p>
-
-                    <div class="buttons">
-
-                        <button class="lesson-btn delete-lesson-btn">
-                            <img src="../../../assets/images/icon_delete.svg" alt="delete icon">
-                        </button>
-
-                        <button class="lesson-btn edit-lesson-btn">
-                            <img src="../../../assets/images/icon_edit.svg" alt="delete icon">
-                        </button>
-
-                        <span class="lesson-date">12.01.2025</span>
-                    </div>
-
-                </div>
-
-                <div class="lesson-element">
-
-                    <img src="../../../assets/images/lessons/lesson.png" alt="lesson"/>
-                    <p class="lesson-theme">Lesson 1: Greetings and Introductions</p>
-
-                    <div class="buttons">
-
-                        <button class="lesson-btn delete-lesson-btn">
-                            <img src="../../../assets/images/icon_delete.svg" alt="delete icon">
-                        </button>
-
-                        <button class="lesson-btn edit-lesson-btn">
-                            <img src="../../../assets/images/icon_edit.svg" alt="delete icon">
-                        </button>
-
-                        <span class="lesson-date">12.01.2025</span>
-                    </div>
-
-                </div>
-
-                <div class="lesson-element">
-
-                    <img src="../../../assets/images/lessons/lesson.png" alt="lesson"/>
-                    <p class="lesson-theme">Lesson 1: Greetings and Introductions</p>
-
-                    <div class="buttons">
-
-                        <button class="lesson-btn delete-lesson-btn">
-                            <img src="../../../assets/images/icon_delete.svg" alt="delete icon">
-                        </button>
-
-                        <button class="lesson-btn edit-lesson-btn">
-                            <img src="../../../assets/images/icon_edit.svg" alt="delete icon">
-                        </button>
-
-                        <span class="lesson-date">12.01.2025</span>
-                    </div>
-
-                </div>
-
-                <div class="lesson-element">
-
-                    <img src="../../../assets/images/lessons/lesson.png" alt="lesson"/>
-                    <p class="lesson-theme">Lesson 1: Greetings and Introductions</p>
-
-                    <div class="buttons">
-
-                        <button class="lesson-btn delete-lesson-btn">
-                            <img src="../../../assets/images/icon_delete.svg" alt="delete icon">
-                        </button>
-
-                        <button class="lesson-btn edit-lesson-btn">
-                            <img src="../../../assets/images/icon_edit.svg" alt="delete icon">
-                        </button>
-
-                        <span class="lesson-date">12.01.2025</span>
-                    </div>
-
-                </div>
-
-                <div class="lesson-element">
-
-                    <img src="../../../assets/images/lessons/lesson.png" alt="lesson"/>
-                    <p class="lesson-theme">Lesson 1: Greetings and Introductions</p>
-
-                    <div class="buttons">
-
-                        <button class="lesson-btn delete-lesson-btn">
-                            <img src="../../../assets/images/icon_delete.svg" alt="delete icon">
-                        </button>
-
-                        <button class="lesson-btn edit-lesson-btn">
-                            <img src="../../../assets/images/icon_edit.svg" alt="delete icon">
-                        </button>
-
-                        <span class="lesson-date">12.01.2025</span>
-                    </div>
-
-                </div>
-
-                <div class="lesson-element">
-
-                    <img src="../../../assets/images/lessons/lesson.png" alt="lesson"/>
-                    <p class="lesson-theme">Lesson 1: Greetings and Introductions</p>
-
-                    <div class="buttons">
-
-                        <button class="lesson-btn delete-lesson-btn">
-                            <img src="../../../assets/images/icon_delete.svg" alt="delete icon">
-                        </button>
-
-                        <button class="lesson-btn edit-lesson-btn">
-                            <img src="../../../assets/images/icon_edit.svg" alt="delete icon">
-                        </button>
-
-                        <span class="lesson-date">12.01.2025</span>
-                    </div>
-
-                </div>
-
-                <div class="lesson-element">
-
-                    <img src="../../../assets/images/lessons/lesson.png" alt="lesson"/>
-                    <p class="lesson-theme">Lesson 1: Greetings and Introductions</p>
-
-                    <div class="buttons">
-
-                        <button class="lesson-btn delete-lesson-btn">
-                            <img src="../../../assets/images/icon_delete.svg" alt="delete icon">
-                        </button>
-
-                        <button class="lesson-btn edit-lesson-btn">
-                            <img src="../../../assets/images/icon_edit.svg" alt="delete icon">
-                        </button>
-
-                        <span class="lesson-date">12.01.2025</span>
-                    </div>
-                </div>
-
-                <div class="lesson-element">
-
-                    <img src="../../../assets/images/lessons/lesson.png" alt="lesson"/>
-                    <p class="lesson-theme">Lesson 1: Greetings and Introductions</p>
-
-                    <div class="buttons">
-
-                        <button class="lesson-btn delete-lesson-btn">
-                            <img src="../../../assets/images/icon_delete.svg" alt="delete icon">
-                        </button>
-
-                        <button class="lesson-btn edit-lesson-btn">
-                            <img src="../../../assets/images/icon_edit.svg" alt="delete icon">
-                        </button>
-
-                        <span class="lesson-date">12.01.2025</span>
-                    </div>
-
-                </div>
-
-                <div class="lesson-element">
-
-                    <img src="../../../assets/images/lessons/lesson.png" alt="lesson"/>
-                    <p class="lesson-theme">Lesson 1: Greetings and Introductions</p>
-
-                    <div class="buttons">
-
-                        <button class="lesson-btn delete-lesson-btn">
-                            <img src="../../../assets/images/icon_delete.svg" alt="delete icon">
-                        </button>
-
-                        <button class="lesson-btn edit-lesson-btn">
-                            <img src="../../../assets/images/icon_edit.svg" alt="delete icon">
-                        </button>
-
-                        <span class="lesson-date">12.01.2025</span>
-                    </div>
-
-                </div>
-
-                <div class="lesson-element">
-
-                    <img src="../../../assets/images/lessons/lesson.png" alt="lesson"/>
-                    <p class="lesson-theme">Lesson 1: Greetings and Introductions</p>
-
-                    <div class="buttons">
-
-                        <button class="lesson-btn delete-lesson-btn">
-                            <img src="../../../assets/images/icon_delete.svg" alt="delete icon">
-                        </button>
-
-                        <button class="lesson-btn edit-lesson-btn">
-                            <img src="../../../assets/images/icon_edit.svg" alt="delete icon">
-                        </button>
-
-                        <span class="lesson-date">12.01.2025</span>
-                    </div>
-
-                </div>
-
-                <div class="lesson-element">
-
-                    <img src="../../../assets/images/lessons/lesson.png" alt="lesson"/>
-                    <p class="lesson-theme">Lesson 1: Greetings and Introductions</p>
-
-                    <div class="buttons">
-
-                        <button class="lesson-btn delete-lesson-btn">
-                            <img src="../../../assets/images/icon_delete.svg" alt="delete icon">
-                        </button>
-
-                        <button class="lesson-btn edit-lesson-btn">
-                            <img src="../../../assets/images/icon_edit.svg" alt="delete icon">
-                        </button>
-
-                        <span class="lesson-date">12.01.2025</span>
-                    </div>
-
-                </div>
-
-                <div class="lesson-element">
-
-                    <img src="../../../assets/images/lessons/lesson.png" alt="lesson"/>
-                    <p class="lesson-theme">Lesson 1: Greetings and Introductions</p>
-
-                    <div class="controls">
-
-                        <div class="buttons">
-                            <button class="lesson-btn delete-lesson-btn">
-                                <img src="../../../assets/images/icon_delete.svg" alt="delete icon">
-                            </button>
-
-                            <button class="lesson-btn edit-lesson-btn">
-                                <img src="../../../assets/images/icon_edit.svg" alt="delete icon">
-                            </button>
-                        </div>
-
-                        <span class="lesson-date">12.01.2025</span>
                     </div>
 
                 </div>
@@ -375,7 +123,6 @@
 
             <a class="teacher-btn upload-btn" [routerLink]="['/teachers']">Викладачі</a>
         </section>
-
 
     </div>
 
