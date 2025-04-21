@@ -7,6 +7,8 @@ import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api.service';
 import { AdminDTO } from '../../model/dto/admin.dto';
 import { User } from '../../model/user.model';
+import { LessonAddDTO } from '../../model/dto/lesson-add.dto';
+
 
 @Component({
     selector: 'app-admin',
@@ -19,6 +21,15 @@ export class AdminComponent implements OnInit, AfterViewInit {
     @ViewChild('radioGroup') radioGroupRef!: ElementRef;
     @ViewChild('popup') popupRef!: ElementRef;
     @ViewChild('openPopupBtn') openPopupBtnRef!: ElementRef;
+
+    @ViewChild('lessonCountInput') lessonCountInputRef!: ElementRef;
+    @ViewChild('thameInput') thameInputRef!: ElementRef;
+    @ViewChild('desriptionInput') desriptionInputRef!: ElementRef;
+    @ViewChild('deadlineInput') deadlineInputRef!: ElementRef;
+
+    selectedFile: File | null = null;
+    selectedLessonFile: File | null = null;
+    selectedHomeworkFile: File | null = null;
 
     lessons: { id: string; theme: string; time: string }[] = [];
     teachers: User[] = [];
@@ -73,6 +84,71 @@ export class AdminComponent implements OnInit, AfterViewInit {
                 popup.style.display = 'none';
             });
         }
+    }
+
+    handleLessonFileUpload(event: Event): void {
+        const input = event.target as HTMLInputElement;
+        if (input.files && input.files.length > 0) {
+            this.selectedLessonFile = input.files[0];
+        }
+    }
+
+    handleHomeworkFileUpload(event: Event): void {
+        const input = event.target as HTMLInputElement;
+        if (input.files && input.files.length > 0) {
+            this.selectedHomeworkFile = input.files[0];
+        }
+    }
+
+    async submitLesson(event: Event): Promise<void> {
+        event.preventDefault();
+
+        const lessonCount = (this.lessonCountInputRef.nativeElement as HTMLInputElement).value;
+        const thame = (this.thameInputRef.nativeElement as HTMLInputElement).value;
+        const desription = (this.desriptionInputRef.nativeElement as HTMLTextAreaElement).value;
+        const deadline = (this.deadlineInputRef.nativeElement as HTMLInputElement).value;
+
+        if (!lessonCount || !thame || !deadline) {
+            console.error('Будь ласка, заповніть обов’язкові поля.');
+            return;
+        }
+
+        const lessonAddDto: LessonAddDTO = {
+            id: crypto.randomUUID(),  // або ти можеш не генерувати id і лишити пустим
+            lessonCount: +lessonCount,
+            theme: thame,
+            desription: desription,
+            deadline: new Date(deadline),
+            groupId: '00000000-0000-0000-0000-000000000000' // Поки що заглушка (потім вибиратимеш групу)
+        };
+
+        const formData = new FormData();
+        formData.append('lessonAddDTO', JSON.stringify(lessonAddDto));
+
+        if (this.selectedLessonFile) {
+            formData.append('lesson', this.selectedLessonFile);
+        }
+        if (this.selectedHomeworkFile) {
+            formData.append('homework', this.selectedHomeworkFile);
+        }
+
+        try {
+            await this.apiService.createLesson(formData);
+            console.log('Урок успішно створено!');
+            this.resetForm();
+        } catch (error) {
+            console.error('Помилка при створенні уроку:', error);
+        }
+    }
+
+    resetForm(): void {
+        (this.lessonCountInputRef.nativeElement as HTMLInputElement).value = '';
+        (this.thameInputRef.nativeElement as HTMLInputElement).value = '';
+        (this.desriptionInputRef.nativeElement as HTMLTextAreaElement).value = '';
+        (this.deadlineInputRef.nativeElement as HTMLInputElement).value = '';
+        this.selectedLessonFile = null;
+        this.selectedHomeworkFile = null;
+        (this.popupRef.nativeElement as HTMLElement).style.display = 'none';
     }
 
     async sendLevel(level: string): Promise<void> {

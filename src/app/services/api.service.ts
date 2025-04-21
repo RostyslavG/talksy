@@ -84,4 +84,11 @@ export class ApiService {
             this.http.get<AdminDTO>(`${this.apiUrl}Admin/group/${level}`, { headers })
         );
     }
+
+    async createLesson(data: FormData): Promise<void> {
+        const headers = await this.createAuthHeaders(false);
+        return firstValueFrom(
+            this.http.post<void>(`${this.apiUrl}Admin/lesson`, data, { headers })
+        );
+    }
 }

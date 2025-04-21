@@ -382,36 +382,53 @@
     <div class="back1" #popup>
         <div class="popup-content1">
             <div class="close-btn1"></div>
-            <div class="popup-header1">
-                <h2 class="popup-title1">Lesson 1</h2>
-                <h3 class="lesson-theme1">Greetings and Introductions</h3>
-                <p class="task1">Виконати вправи та написати неофіційний лист</p>
-            </div>
-            <div class="info1">
-                <div class="info-element1">
-                    <span class="info-text1">Викладач</span>
-                    <span class="info-data1">Гончарук Андрій</span>
+            <form (submit)="submitLesson($event)" class="file-upload1">
+
+                <div class="popup-header1">
+                    <label>
+                        <span class="popup-label">Номер уроку</span>
+                        <input type="number" #lessonCountInput required class="popup-input" />
+                    </label>
+
+                    <label>
+                        <span class="popup-label">Тема уроку</span>
+                        <input type="text" #thameInput required class="popup-input" />
+                    </label>
+
+                    <label>
+                        <span class="popup-label">Опис уроку</span>
+                        <textarea #desriptionInput required class="popup-textarea"></textarea>
+                    </label>
                 </div>
-                <div class="info-element1">
-                    <span class="info-text1">Видано</span>
-                    <span class="info-data1">12.01.2025</span>
+
+                <div class="info1">
+                    <label>
+                        <span class="popup-label">Дедлайн</span>
+                        <input type="date" #deadlineInput required class="popup-input" />
+                    </label>
                 </div>
-                <div class="info-element1">
-                    <span class="info-text1">Дедлайн</span>
-                    <span class="info-data1">22.01.2025</span>
-                </div>
-            </div>
-            <form action="#" class="file-upload1">
-                <label for="file-input" class="file-container1">
-                    <input type="file" name="file-input" id="file-input" class="file-input1" />
+
+                <!-- Завантаження файлу уроку -->
+                <label for="lesson-file-input" class="file-container1">
+                    <input type="file" id="lesson-file-input" (change)="handleLessonFileUpload($event)" class="file-input1" />
                     <div class="text1">
-                        <span>Завантажити</span>
-                        <span>файл </span>
+                        <span>Завантажити файл уроку</span>
                         <span class="tablet-hidden1">чи перетягнути в область</span>
                     </div>
                     <div class="size-text1">Максимальний розмір файлу 30 МБ</div>
                 </label>
-                <input type="submit" value="Завантажити" class="submit-btn1 btn1" />
+
+                <!-- Завантаження файлу домашнього завдання -->
+                <label for="homework-file-input" class="file-container1">
+                    <input type="file" id="homework-file-input" (change)="handleHomeworkFileUpload($event)" class="file-input1" />
+                    <div class="text1">
+                        <span>Завантажити файл домашнього завдання</span>
+                        <span class="tablet-hidden1">чи перетягнути в область</span>
+                    </div>
+                    <div class="size-text1">Максимальний розмір файлу 30 МБ</div>
+                </label>
+
+                <input type="submit" value="Створити урок" class="submit-btn1 btn1" />
             </form>
         </div>
     </div>
