@@ -1,29 +1,28 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { HeaderLogComponent } from '../components/header-log/header-log.component';
 import { LabelLogComponent } from '../components/label-log/label-log.component';
 import { UserAuthService } from '../../services/user-auth.service';
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api.service';
-import { AdminDTO, LessonAdmin, TeacherAdmin } from '../../model/dto/admin.dto';
+import { AdminDTO } from '../../model/dto/admin.dto';
+import { User } from '../../model/user.model';
 
 @Component({
     selector: 'app-admin',
     standalone: true,
-    imports: [CommonModule, HeaderLogComponent, LabelLogComponent,RouterLink],
+    imports: [CommonModule, HeaderLogComponent, LabelLogComponent, RouterLink],
     templateUrl: './admin.component.html',
     styleUrl: './admin.component.css'
 })
-export class AdminComponent implements OnInit {
+export class AdminComponent implements OnInit, AfterViewInit {
     @ViewChild('radioGroup') radioGroupRef!: ElementRef;
     @ViewChild('popup') popupRef!: ElementRef;
     @ViewChild('openPopupBtn') openPopupBtnRef!: ElementRef;
 
-    lessons: LessonAdmin[] = [];
-    teachers: TeacherAdmin[] = [];
-    adminName: string = '';
-    adminLastname: string = '';
-    role: string = '';
+    lessons: { id: string; theme: string; time: string }[] = [];
+    teachers: User[] = [];
+    user: User | undefined;
 
     constructor(
         private router: Router,
@@ -79,15 +78,15 @@ export class AdminComponent implements OnInit {
     async sendLevel(level: string): Promise<void> {
         try {
             const data: AdminDTO = await this.apiService.getAdminPageByLevel(level);
-            console.log(data);
-            this.adminName = data.adminName;
-            this.adminLastname = data.adminLastname;
-            this.role = data.role;
-            this.lessons = data.lessons;
-            this.teachers = data.teachers;
+            console.log('Отримані дані:', data);
+
+            this.lessons = data.lessons ?? [];
+            this.teachers = data.teachers ?? [];
+            this.user = data.user;
         } catch (err) {
             console.error('Помилка при запиті:', err);
         }
     }
 }
+
 

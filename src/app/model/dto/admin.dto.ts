@@ -1,26 +1,15 @@
 import { User } from "../user.model";
 
-export interface LessonAdmin {
+export interface LessonDTO {
     id: string;
     theme: string;
     time: string;
 }
 
-export interface TeacherAdmin {
-    id: string;
-    name: string;
-    lastname: string;
-}
-
 export interface AdminDTO {
-    lessons: LessonAdmin[];
-    teachers: TeacherAdmin[];
-    adminName: string;
-    adminLastname: string;
-    role: string;
+    lessons: LessonDTO[];
+    teachers: User[];
+    user: User;
 }
 
-export interface AdminTeachersDTO{
-    user: User;
-    teachers: Array<User>;
-}
+
