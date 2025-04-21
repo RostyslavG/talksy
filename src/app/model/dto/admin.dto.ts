@@ -7,3 +7,8 @@ export interface AdminDTO {
     user: User;
     groupId: string;
 }
+
+export interface AdminTeachersDTO{
+    user: User;
+    teachers: Array<User>;
+}
