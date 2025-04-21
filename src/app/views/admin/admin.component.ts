@@ -34,6 +34,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
     lessons: { id: string; theme: string; time: string }[] = [];
     teachers: User[] = [];
     user: User | undefined;
+    groupId: string | undefined;
 
     constructor(
         private router: Router,
@@ -117,8 +118,9 @@ export class AdminComponent implements OnInit, AfterViewInit {
         formData.append('LessonCount', lessonCount);
         formData.append('Theme', thame);
         formData.append('Desription', desription);
+        formData.append('CreatedAt', new Date().toISOString());
         formData.append('Deadline', new Date(deadline).toISOString());
-        formData.append('GroupId', '00000000-0000-0000-0000-000000000000');
+        formData.append('GroupId', this.groupId!);
 
         if (this.selectedLessonFile) {
             formData.append('lesson', this.selectedLessonFile);
@@ -154,6 +156,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
             this.lessons = data.lessons ?? [];
             this.teachers = data.teachers ?? [];
             this.user = data.user;
+            this.groupId = data.groupId;
         } catch (err) {
             console.error('Помилка при запиті:', err);
         }

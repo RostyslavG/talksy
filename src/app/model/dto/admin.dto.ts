@@ -10,6 +10,7 @@ export interface AdminDTO {
     lessons: LessonDTO[];
     teachers: User[];
     user: User;
+    groupId:string;
 }
 
 export interface AdminTeachersDTO{
