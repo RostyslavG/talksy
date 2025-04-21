@@ -113,17 +113,12 @@ export class AdminComponent implements OnInit, AfterViewInit {
             return;
         }
 
-        const lessonAddDto: LessonAddDTO = {
-            id: crypto.randomUUID(),  // або ти можеш не генерувати id і лишити пустим
-            lessonCount: +lessonCount,
-            theme: thame,
-            desription: desription,
-            deadline: new Date(deadline),
-            groupId: '00000000-0000-0000-0000-000000000000' // Поки що заглушка (потім вибиратимеш групу)
-        };
-
         const formData = new FormData();
-        formData.append('lessonAddDTO', JSON.stringify(lessonAddDto));
+        formData.append('LessonCount', lessonCount);
+        formData.append('Theme', thame);
+        formData.append('Desription', desription);
+        formData.append('Deadline', new Date(deadline).toISOString());
+        formData.append('GroupId', '00000000-0000-0000-0000-000000000000');
 
         if (this.selectedLessonFile) {
             formData.append('lesson', this.selectedLessonFile);
