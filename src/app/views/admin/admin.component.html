@@ -70,7 +70,7 @@
 
 <!--                </div>-->
 
-                <a *ngFor="let lesson of lessons" class="lesson-element" [routerLink]="['/admin-main', lesson.id]">
+                <a *ngFor="let lesson of lessons" class="lesson-element" [routerLink]="['/admin-main',groupId, lesson.id]">
 
                     <img src="../../../assets/images/lessons/lesson.png" alt="lesson" />
 

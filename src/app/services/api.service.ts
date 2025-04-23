@@ -8,6 +8,8 @@ import { UserRegister } from '../model/userRegister';
 import { User } from '../model/user.model';
 import { UserAuthService } from './user-auth.service';
 import { AdminDTO, AdminTeachersDTO } from '../model/dto/admin.dto';
+import { LessDTO } from '../model/dto/less.dto';
+
 
 @Injectable({
     providedIn: 'root'
@@ -36,6 +38,12 @@ export class ApiService {
     }
 
 
+    async getLesson(id:string){
+        const headers = await this.createAuthHeaders(true);
+        return firstValueFrom(
+            this.http.get<LessDTO>(`${this.apiUrl}Admin/lessons/${id}`, { headers })
+        );
+    }
     async getAllTeachers(){
         const headers = await this.createAuthHeaders(true);
         return firstValueFrom(

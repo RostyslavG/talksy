@@ -1,6 +1,6 @@
-export interface LessonDTO {
+export interface LessonDTO{
     id: string;
-    theme: string;
-    deadline: Date;
-    lessonCount: number;
+    theme:string;
+    deadline:Date;
+    lessonCount:number;
 }

@@ -1,6 +1,6 @@
 <div class="admin">
     <app-header-log class="admin-header"></app-header-log>
-    <app-label-log class="admin-label"></app-label-log>
+    <app-label-log class="admin-label" [user]="user"></app-label-log>
 
     <div class="search-bar">
         <img src="../../../assets/images/lessons/lupa.svg" alt="search"/>
@@ -12,7 +12,7 @@
          <div class="students">
             <h2 class="students-header block-header">Студенти</h2>
             <div class="students-list">
-                <div class="student">
+                <div *ngFor="let student of lesson?.userLessons" class="student">
                     <div class="avatar">
                         <span class="first-letter">A</span>  <!-- can replace to img if student have avatar -->
                     </div>
@@ -22,7 +22,7 @@
                         <div class="circle ofline"></div>
                     </div>
                 </div>
-                <div class="student">
+                <!-- <div class="student">
                     <div class="avatar">
                        <img src="../../../assets/images/teacher_photo.jpg" alt="student photo">
                     </div>
@@ -71,7 +71,7 @@
                         <div class="circle"></div>
                         <div class="circle ofline"></div>
                     </div>
-                </div>
+                </div> -->
             </div>
          </div>
 
@@ -91,20 +91,21 @@
         <div class="tests">
             <h2 class="tests-header block-header">Тести</h2>
             <div class="tests-list">
-                <a href="#" class="test-link">Greetings and Introductions</a>
-                <a href="#" class="test-link">Greetings and Introductions</a>
-                <a href="#" class="test-link">Greetings and Introductions</a>
-                <a href="#" class="test-link">Greetings and Introductions</a>
-                <a href="#" class="test-link">Greetings and Introductions</a>
+                <a  class="test-link">{{ test }}</a>
             </div>
-            <button class="tests-btn btn">Створити новий тест</button>
+            <a [routerLink]="['/test',groupId]" class="tests-btn btn">Створити новий тест</a>
         </div>
 
         <div class="lesson-container">
             <h2 class="lesson-header block-header">Урок</h2>
             <div class="lesson-content">
 
+                <strong>Lesson {{ lesson?.lessonCount}}</strong>
+                <span>{{ lesson?.thame}}</span>
 
+                <a [href]="lesson?.lessonUrl" download>урок</a>
+                <a [href]="lesson?.homework" download>лз</a>
+            
             </div>
             <!-- ???? -->
         </div>

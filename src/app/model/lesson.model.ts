@@ -7,6 +7,9 @@ export interface Lesson {
     desription: string;
     lessonFile: string;
     homework: string;
+    lessonUrl:string;
+    homeworkUrl:string;
     deadline: Date;
     createdAt: Date;
+    userLessons:Array<UserLesson>
 }
