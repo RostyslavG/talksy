@@ -47,29 +47,6 @@
 
             <div class="lesson-elements">
 
-
-<!--                <div class="lesson-element">-->
-
-<!--                    <img src="../../../assets/images/lessons/lesson.png" alt="lesson"/>-->
-<!--                    <p class="lesson-theme">Lesson 1: Greetings and Introductions</p>-->
-
-<!--                    <div class="controls">-->
-
-<!--                        <div class="buttons">-->
-<!--                            <button class="lesson-btn delete-lesson-btn">-->
-<!--                                <img src="../../../assets/images/icon_delete.svg" alt="delete icon">-->
-<!--                            </button>-->
-
-<!--                            <button class="lesson-btn edit-lesson-btn">-->
-<!--                                <img src="../../../assets/images/icon_edit.svg" alt="delete icon">-->
-<!--                            </button>-->
-<!--                        </div>-->
-
-<!--                        <span class="lesson-date">12.01.2025</span>-->
-<!--                    </div>-->
-
-<!--                </div>-->
-
                 <a *ngFor="let lesson of lessons" class="lesson-element" [routerLink]="['/admin-main',groupId, lesson.id]">
 
                     <img src="../../../assets/images/lessons/lesson.png" alt="lesson" />
@@ -99,21 +76,19 @@
             </div>
         </section>
 
-        <section class="upload-block">
-            <div class="add-lesson add-block">
-                <img src="../../../assets/images/upload_lesson.png" alt="upload lesson image">
-                <button class="add-lesson-btn upload-btn">Створити новий урок</button>
-            </div>
+        <div class="add-lesson add-block">
+            <img src="../../../assets/images/upload_lesson.png" alt="upload lesson image">
+            <button class="add-lesson-btn upload-btn">Створити новий урок</button>
+        </div>
 
-            <div class="add-homework add-block">
-                <img src="../../../assets/images/upload-hw.png" alt="upload homework image">
-                <button class="add-lesson-btn upload-btn" #openPopupBtn>Загрузити домашнє завдання</button>
-            </div>
-        </section>
+        <div class="add-homework add-block">
+            <img src="../../../assets/images/upload-hw.png" alt="upload homework image">
+            <button class="add-lesson-btn upload-btn" #openPopupBtn>Загрузити домашнє завдання</button>
+        </div>
 
         <section class="teacher-list">
             <h3 class="teacher-header">Викладачі</h3>
-
+            
             <div class="list">
                 <div *ngFor="let teacher of teachers" class="teacher">
                     <img [src]="teacher.avatarUrl" alt="teacher image" />

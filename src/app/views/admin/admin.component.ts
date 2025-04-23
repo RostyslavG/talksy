@@ -60,6 +60,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
     ngAfterViewInit(): void {
         const radioGroup = this.radioGroupRef.nativeElement as HTMLElement;
         const popup = this.popupRef.nativeElement as HTMLElement;
+        const popuoParent = popup.parentElement as HTMLElement;
         const openPopupBtn = this.openPopupBtnRef.nativeElement as HTMLElement;
 
         radioGroup.querySelectorAll('input[type="radio"][name="level"]').forEach(input => {
@@ -76,12 +77,14 @@ export class AdminComponent implements OnInit, AfterViewInit {
 
         openPopupBtn.addEventListener('click', () => {
             popup.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
         });
 
         const closeBtn = popup.querySelector('.close-btn1') as HTMLElement;
         if (closeBtn) {
             closeBtn.addEventListener('click', () => {
                 popup.style.display = 'none';
+                document.body.style.overflow = 'auto';
             });
         }
     }
