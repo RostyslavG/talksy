@@ -1,0 +1,212 @@
+<section class="calendar">
+    <app-header-log class="calendar-header"></app-header-log>
+    <app-label-log class="calendar-stats" [user]="user"></app-label-log>
+
+    <div class="search-bar">
+        <img src="../../../assets/images/lessons/lupa.svg" alt="search"/>
+        <input type="text" placeholder="Пошук..."/>
+    </div>
+
+    <div class="radio-group" #radioGroup>
+        <label class="radio-option">
+            <input type="radio" name="level" value="Beginner (A1)" checked>
+            <svg class="cat-icon" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.5043 2.80113C9.06232 2.80113 9.62866 2.87537 10.17 3.01561C11.6525 1.36575 14.3593 0.672808 15.5169 1.15127C16.6829 1.62973 15.1671 6.92577 15.1671 6.92577C15.6419 7.80845 16 8.77362 16 9.76353C16 13.4427 12.6436 16 8.5043 16C4.36501 16 1.00861 13.5252 1.00861 9.76353C1.00861 8.73237 1.42503 7.7837 1.84146 6.92577C1.84146 6.92577 0.267364 1.62973 1.42503 1.15127C2.5827 0.672808 5.35611 1.341 6.83859 2.99086C7.38492 2.86611 7.94365 2.80247 8.5043 2.80113Z" stroke="#B09CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>A1</span>
+        </label>
+
+        <label class="radio-option">
+            <input type="radio" name="level" value="Elementary (A2)">
+            <svg class="cat-icon" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.5043 2.80113C9.06232 2.80113 9.62866 2.87537 10.17 3.01561C11.6525 1.36575 14.3593 0.672808 15.5169 1.15127C16.6829 1.62973 15.1671 6.92577 15.1671 6.92577C15.6419 7.80845 16 8.77362 16 9.76353C16 13.4427 12.6436 16 8.5043 16C4.36501 16 1.00861 13.5252 1.00861 9.76353C1.00861 8.73237 1.42503 7.7837 1.84146 6.92577C1.84146 6.92577 0.267364 1.62973 1.42503 1.15127C2.5827 0.672808 5.35611 1.341 6.83859 2.99086C7.38492 2.86611 7.94365 2.80247 8.5043 2.80113Z" stroke="#B09CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>B2</span>
+        </label>
+
+        <label class="radio-option">
+            <input type="radio" name="level" value="Intermediate (B1)">
+            <svg class="cat-icon" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.5043 2.80113C9.06232 2.80113 9.62866 2.87537 10.17 3.01561C11.6525 1.36575 14.3593 0.672808 15.5169 1.15127C16.6829 1.62973 15.1671 6.92577 15.1671 6.92577C15.6419 7.80845 16 8.77362 16 9.76353C16 13.4427 12.6436 16 8.5043 16C4.36501 16 1.00861 13.5252 1.00861 9.76353C1.00861 8.73237 1.42503 7.7837 1.84146 6.92577C1.84146 6.92577 0.267364 1.62973 1.42503 1.15127C2.5827 0.672808 5.35611 1.341 6.83859 2.99086C7.38492 2.86611 7.94365 2.80247 8.5043 2.80113Z" stroke="#B09CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>B2+</span>
+        </label>
+
+        <label class="radio-option">
+            <input type="radio" name="level" value="Upper Intermediate (B2)">
+            <svg class="cat-icon" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.5043 2.80113C9.06232 2.80113 9.62866 2.87537 10.17 3.01561C11.6525 1.36575 14.3593 0.672808 15.5169 1.15127C16.6829 1.62973 15.1671 6.92577 15.1671 6.92577C15.6419 7.80845 16 8.77362 16 9.76353C16 13.4427 12.6436 16 8.5043 16C4.36501 16 1.00861 13.5252 1.00861 9.76353C1.00861 8.73237 1.42503 7.7837 1.84146 6.92577C1.84146 6.92577 0.267364 1.62973 1.42503 1.15127C2.5827 0.672808 5.35611 1.341 6.83859 2.99086C7.38492 2.86611 7.94365 2.80247 8.5043 2.80113Z" stroke="#B09CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>C1</span>
+        </label>
+    </div>
+
+    <div class="calendar-container">
+        <div class="section-schedule-month"> 
+            <span>&#60;</span>
+            <span>{{ monthNames[now.getMonth()] }}</span>
+            <span>&#62;</span>
+        </div>
+        <div class="section-schedule-icons">
+            <div>
+                <img src="../../../assets/images/input_selected.svg" alt="input"/>
+                <span>Заннятя</span>
+            </div>
+            <div>
+                <img src="../../../assets/images/input_test.svg" alt="input"/>
+                <span>Тестування</span>
+            </div>
+        </div>
+        <table class="calendar-container-block">
+            <thead>
+                <tr>
+                    <th><span>Понеділок</span><span>Пн</span></th>
+                    <th><span>Вівторок</span><span>Вт</span></th>
+                    <th><span>Середа</span><span>Ср</span></th>
+                    <th><span>Четвер</span><span>Чт</span></th>
+                    <th><span>П'ятниця</span><span>Пт</span></th>
+                    <th><span>Субота</span><span>Сб</span></th>
+                    <th><span>Неділя</span><span>Нд</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let week of calendarMatrix; let weekIndex = index">
+                    <td *ngFor="let day of week; let dayIndex = index">
+                      <b *ngIf="day !== 0">{{ day }}</b>
+                    
+                      <div *ngIf="day !== 0 && isMatchingDate(day)" class="calendar-element-time2">
+                        18:00-21:00
+                      </div>
+
+                      
+                      <div *ngIf="day !== 0 && getScheduleForDay(dayIndex) && !isMatchingDate(day)" class="calendar-element-time1">
+                        {{ getScheduleForDay(dayIndex) }}
+                      </div>
+                    </td>
+                  </tr>
+                            
+                <!-- <tr>
+                    <td></td>
+                    <td ></td>
+                    <td>
+                        <b>1</b>
+                    </td >
+                    <td class="calendar-element">
+                        <b>2</b>
+                        <div class="calendar-element-time1">18:00 21:00</div>
+                    </td>
+                    <td class="calendar-element">
+                        <b>3</b>
+                        
+                    </td>
+                    <td class="calendar-element">
+                        <b>4</b>
+                        <div class="calendar-element-time1">18:00 21:00</div>
+                    </td>
+                    <td class="calendar-element">
+                        <b>5</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>6</b>
+                    </td >
+                    <td>
+                        <b>7</b>
+                        <div class="calendar-element-time1">18:00 21:00</div>
+                    </td >
+                    <td>
+                        <b>8</b>
+                    </td >
+                    <td class="calendar-element">
+                        <b>9</b>
+                        <div class="calendar-element-time1">18:00 21:00</div>
+                    </td>
+                    <td class="calendar-element">
+                        <b>10</b>
+                    </td>
+                    <td class="calendar-element">
+                        <b>11</b>
+                        <div class="calendar-element-time1">18:00 21:00</div>
+                    </td>
+                    <td class="calendar-element">
+                        <b>12</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>13</b>
+                    </td >
+                    <td>
+                        <b>14</b>
+                        <div class="calendar-element-time1">18:00 21:00</div>
+                    </td >
+                    <td>
+                        <b>15</b>
+                    </td >
+                    <td class="calendar-element">
+                        <b>16</b>
+                        <div class="calendar-element-time1">18:00 21:00</div>
+                    </td>
+                    <td class="calendar-element">
+                        <b>17</b>
+                    </td>
+                    <td class="calendar-element">
+                        <b>18</b>
+                        <div class="calendar-element-time1">18:00 21:00</div>
+                    </td>
+                    <td class="calendar-element">
+                        <b>19</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>20</b>
+                    </td >
+                    <td>
+                        <b>21</b>
+                        <div class="calendar-element-time1">18:00 21:00</div>
+                    </td >
+                    <td>
+                        <b>22</b>
+                    </td >
+                    <td class="calendar-element">
+                        <b>23</b>
+                        <div class="calendar-element-time1">18:00 21:00</div>
+                    </td>
+                    <td class="calendar-element">
+                        <b>24</b>
+                    </td>
+                    <td class="calendar-element">
+                        <b>25</b>
+                        <div class="calendar-element-time2">18:00 21:00</div>
+                    </td>
+                    <td class="calendar-element">
+                        <b>26</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>27</b>
+                    </td >
+                    <td>
+                        <b>28</b>
+                        <div class="calendar-element-time2">18:00 21:00</div>
+                    </td >
+                    <td>
+                        <b>29</b>
+                    </td >
+                    <td>
+                        <b>30</b>
+                        <div class="calendar-element-time1">18:00 21:00</div>
+                    </td>
+                    <td >
+                        <b>31</b>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+</section>

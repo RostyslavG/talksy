@@ -8,22 +8,26 @@
             <span>{{ user?.levelNumber}}%</span>
         </div>
         <div>
-            <div></div>
+            <div [style.width.px]="user?.levelNumber || 0"></div>
         </div>
     </div>
 
     <div class="section-daily background-section-cube">
         <div class="section-daily-test">
             <span class="section-daily-test-question">Обери синонім до слова <span class="section-daily-test-question-word">"tired"</span></span>
-            <div class="section-daily-variant">
+            <div class="section-daily-result" *ngIf="daily!=null">
+                <b *ngIf="daily">Молодець! Правильно</b>
+                <b *ngIf="!daily">Попробуй наступного разу</b>
+            </div>
+            <div *ngIf="daily==null" (click)="tapDailyk(false)" class="section-daily-variant">
                 <img  src="../../../assets/images/cat_input.svg" alt="input"/>
                 <span>energetic</span>
             </div>
-            <div class="section-daily-variant">
+            <div *ngIf="daily==null" (click)="tapDailyk(true)" class="section-daily-variant">
                 <img  src="../../../assets/images/cat_input.svg" alt="input"/>
                 <span>exhausted</span>
             </div>
-            <div class="section-daily-variant">
+            <div *ngIf="daily==null" (click)="tapDailyk(false)" class="section-daily-variant">
                 <img  src="../../../assets/images/cat_input.svg" alt="input"/>
                 <span>ecstatic</span>
             </div>
@@ -69,7 +73,7 @@
             <span>Розклад</span>
             <div>
                 <span>&#60;</span>
-                <span>Січень</span>
+                <span>{{currentMonth}}</span>
                 <span>&#62;</span>
             </div>
         </div>
@@ -86,7 +90,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr *ngFor="let week of calendarMatrix">
+                    <td *ngFor="let day of week; let dayIndex = index"
+                    [ngClass]="{'section-schedule-day-study': isStudyDay(dayIndex)
+                      }">
+                      <span >{{ day }}</span>
+                    </td>
+                  </tr>
+              
+              
+                <!-- <tr>
                     <td>1</td>
                     <td>2</td>
                     <td>3</td>
@@ -134,7 +147,7 @@
                     <td>29</td>
                     <td>30</td>
                     <td>31</td>
-                </tr> 
+                </tr>  -->
             </tbody>
         </table>
         <div class="section-schedule-icons">

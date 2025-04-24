@@ -9,6 +9,7 @@ import { User } from '../model/user.model';
 import { UserAuthService } from './user-auth.service';
 import { AdminDTO, AdminTeachersDTO } from '../model/dto/admin.dto';
 import { LessDTO } from '../model/dto/less.dto';
+import { AdminCalendarDTO } from '../model/dto/admin-calendar.dto';
 
 
 @Injectable({
@@ -38,6 +39,13 @@ export class ApiService {
     }
 
 
+    async getCalendarForAdmin(name: string){
+        const headers = await this.createAuthHeaders(true);
+        return firstValueFrom(
+            this.http.get<AdminCalendarDTO>(`${this.apiUrl}Admin/groupcalendar/${name}`, { headers })
+        ); 
+    }
+    
     async getLesson(id:string){
         const headers = await this.createAuthHeaders(true);
         return firstValueFrom(

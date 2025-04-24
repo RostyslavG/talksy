@@ -29,6 +29,10 @@
     grid-row-end: 16;
 }
 
+.section-daily-result{
+    padding-top: 30px;
+    transform: rotate(-5deg);
+}
 
 /* Stats ---------------------------------------- */
 .stats{
@@ -231,13 +235,15 @@
 .section-schedule-day-study >span{
     background-color: #B09CFF;
     border-radius: 50%;
-    padding: 4px;
+    padding: 8px 3px 3px 3px;
+    width: 24px;
     color: white;
 }
 .section-schedule-day-test >span{
     background-color: #4a1ebb;
     border-radius: 50%;
-    padding: 4px;
+    padding: 8px 3px 3px 3px;
+    width: 24px;
     color: white;
 }
 
@@ -248,6 +254,10 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    /* display: inline-flex;
+    justify-content: center;
+    align-items: center;
+   */
 }
 
 .section-schedule-day-study > span, 

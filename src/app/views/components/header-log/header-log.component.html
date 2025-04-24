@@ -5,16 +5,25 @@
              <span>Taskly</span>
          </div>
          <div class="section-header-buttons">
-             <a [routerLink]="['/cabinet']">
+             <a *ngIf="role && role=='User'" [routerLink]="['/cabinet']">
                  <img class="small-button-img" src="../../../assets/images/icon_home.svg" alt="home"/>
              </a>
-             <a [routerLink]="['/lessons']">
+             <a *ngIf="role && role=='User'" [routerLink]="['/lessons']">
                  <img class="big-button-img" src="../../../assets/images/icon_study.svg" alt="study"/>
              </a>
-             <a [routerLink]="['/homework']">
+             <a *ngIf="role && role=='User'" [routerLink]="['/homework']">
                  <img class="small-button-img" src="../../../assets/images/icon_test.svg" alt="test"/>
              </a>
-             <a [routerLink]="['/cabinet']"> 
+             <a *ngIf="role && role=='User'" [routerLink]="['/cabinet']"> 
+                 <img class="big-button-img" src="../../../assets/images/icon_calendar.svg" alt="calendar"/>
+             </a>
+              <a *ngIf="role && role=='Admin'" [routerLink]="['/admin']">
+                 <img class="small-button-img" src="../../../assets/images/icon_home.svg" alt="home"/>
+             </a>
+             <a *ngIf="role && role=='Admin'" [routerLink]="['/teachers']">
+                <img class="small-button-img" src="../../../assets/images/icon_test.svg" alt="test"/>
+             </a>
+              <a *ngIf="role && role=='Admin'" [routerLink]="['/calendar-admin']"> 
                  <img class="big-button-img" src="../../../assets/images/icon_calendar.svg" alt="calendar"/>
              </a>
          </div>

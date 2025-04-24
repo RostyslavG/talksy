@@ -168,8 +168,8 @@ export class LoginRegisterComponent implements OnInit {
                 name: name,
                 lastname: lastname,
                 birthday: birthday,
-                level: level
-            
+                level: level,
+                patronymic: 'none'
             }
 
             const response = await this.apiService.registration(user);
@@ -180,6 +180,7 @@ export class LoginRegisterComponent implements OnInit {
             }
            
         } catch (error) {
+           
             if(error){
                 if(error instanceof ErrorResponce){
                     this.invalid = `У полі ${error.reason} не правильно заповнене. Зверніть увагу, що ${error.message}`;

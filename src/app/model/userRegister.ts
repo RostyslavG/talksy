@@ -5,4 +5,5 @@ export interface UserRegister{
     lastname:string;
     birthday:string;
     level:string;
+    patronymic?:string;
 }

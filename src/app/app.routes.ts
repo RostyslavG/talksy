@@ -13,6 +13,7 @@ import { TeachersComponent } from './views/teachers/teachers.component';
 import { AdminMainComponent } from './views/admin-main/admin-main.component';
 import { HomeworkListComponent } from './views/homework-list/homework-list.component';
 import { TeachersMainComponent } from './views/teachers-main/teachers-main.component';
+import { CalendarAdminComponent } from './views/calendar-admin/calendar-admin.component';
 
 export const routes: Routes = [
     { path: '' , component:MainComponent },
@@ -25,6 +26,7 @@ export const routes: Routes = [
     { path:'lesson/:id', component: SingleLessonComponent },
     { path:'admin', component:AdminComponent},
     { path:'calendar', component:CalendarComponent},
+    { path:'calendar-admin', component:CalendarAdminComponent},
     { path:'teachers', component:TeachersComponent},
     { path:'admin-main/:group/:id', component:AdminMainComponent},
     { path:'teachers-main', component:TeachersMainComponent},
