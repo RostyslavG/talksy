@@ -4,7 +4,7 @@
     <div *ngIf="mode === 'login'">
         <div class="container">
             <div class="left">
-                <img alt="login_img" src="assets/images/login-main.png" />
+                <img alt="login_img" src="assets/images/login-main.png" style="z-index: 99999"/>
             </div>
             <form [formGroup]="authForm" (ngSubmit)="login()">
                 <div class="right">
@@ -49,13 +49,13 @@
             <div *ngIf="!registerTrue" class="left">
                 <img *ngIf="registrationCount == 0 "  alt="reg_img" src="assets/images/reg-main.png"  class="reg-1-img"/>
                 <img *ngIf="registrationCount == 2 "  alt="reg_img" src="assets/images/cat-relax.png"  class="reg-2-img"/>
-                <img alt="login_img" src="assets/images/register-m.png" />
+<!--                <img alt="login_img" src="assets/images/register-m.png" />-->
             </div>
             <form *ngIf="!registerTrue" [formGroup]="authForm" (ngSubmit)="registration()">
                 <div class="right">
                     <h1> {{ labelRefister }} </h1>
                     <span *ngIf="invalid" style="color: red;">{{invalid}}</span>
-                    
+
                     <div *ngIf="registrationCount == 0 " class="input-group" [ngClass]="{ error: email?.invalid && email?.touched }">
                         <input formControlName="email" type="email"  placeholder="E-mail" />
                         <i
@@ -67,7 +67,7 @@
                         ></i>
                     </div>
                     <div *ngIf="registrationCount === 0 " class="input-group" [ngClass]="{ error: password?.invalid && password?.touched }">
-                        <input formControlName="password" 
+                        <input formControlName="password"
                         type="password"
                         placeholder="Пароль" />
                         <i
@@ -97,7 +97,7 @@
                             [ngClass]="{ error: name?.invalid && name?.touched || authForm.errors?.['mismatch'] }"
                     >
                         <input formControlName="name" type="text"  placeholder="Ім'я" />
-                        <i      
+                        <i
                                 class="fas icon"
                                 [ngClass]="{
                                 'fa-check': name?.valid && !authForm.errors?.['mismatch'],
@@ -124,7 +124,7 @@
                     >
                         <input formControlName="birthday" type="date"  placeholder="Ім'я" />
                         <i
-                                
+
                                 class="fas icon"
                                 [ngClass]="{
                                 'fa-check': birthday?.valid && !authForm.errors?.['mismatch'],
@@ -132,7 +132,7 @@
                                 }"
                         ></i>
                     </div>
-                    
+
                     <div  *ngIf="registrationCount === 2 "
                             class="input-group"
                             [ngClass]="{ error: level?.invalid && level?.touched || authForm.errors?.['mismatch'] }"
@@ -141,7 +141,7 @@
                     </div>
 
                     <ul *ngIf="registrationCount === 2 " class="register-radio">
-                        <li *ngFor="let level of levels; let i = index" 
+                        <li *ngFor="let level of levels; let i = index"
                             (click)="selectLevel(level, i)"
                             [class.active]="selectedIndex === i">
                             <b>{{ level.name }}</b>
@@ -151,14 +151,14 @@
                     </ul>
 
                     <button *ngIf="registrationCount <= 2 " (click)="nexyStepRegister()" class="login-button" type="button"  >Далі</button>
-                    
+
                     <div class="register">
                         Вже маєте аккаунт?
                         <a href="#">УВІЙТИ</a>
                     </div>
                 </div>
-            
-                
+
+
             </form>
             <div *ngIf="registerTrue" class="register-assept-container">
                 <img  alt="reg_img" src="assets/images/register-accept.png"  class="reg-1-img"/>
@@ -167,7 +167,7 @@
                     <button (click)="routeToPage()">Далі</button>
                 </div>
             </div>
-           
+
         </div>
     </div>
 

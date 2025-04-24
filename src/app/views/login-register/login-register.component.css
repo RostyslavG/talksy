@@ -17,7 +17,7 @@
     gap:45px;
 }
 
-.left {    
+.left {
     width: 700px;
     display: flex;
     flex-direction: column;
@@ -30,12 +30,14 @@
     height: auto;
     object-fit: cover;
 }
-.left img:last-of-type{
-    display: none;
+
+.left img:last-of-type {
+    display: block;
     height: auto;
     object-fit: contain;
     width: 100%;
 }
+
 .reg-2-img{
     width: auto;
     height: 70%;
@@ -311,7 +313,7 @@
         padding: 20px;
     }
 
-    .left {    
+    .left {
         width: 100%;
         z-index: 5;
         align-items: start;
@@ -400,5 +402,5 @@
         top:15%;
         z-index: 1;
     }
-   
+
 }
