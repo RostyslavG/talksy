@@ -1,6 +1,6 @@
 <div class="lessons">
     <app-header-log class="lessons-header"></app-header-log>
-    <app-label-log class="lessons-label"></app-label-log>
+    <app-label-log class="lessons-label" [user]="user"></app-label-log>
 
     <div class="search-bar">
         <img src="../../../assets/images/lessons/lupa.svg" alt="search"/>
@@ -10,7 +10,13 @@
     <div class="lessons-container">
 
         <div class="lessons-content">
-            <div class="lesson-element" *ngFor="let lesson of lessons" [routerLink]="['/lesson', lesson.id]">
+
+            <a [href]="lesson?.lessonUrl" class="lesson-element" *ngFor="let lesson of lessons">
+                <img src="../../../assets/images/lessons/lesson.png" alt="lesson"/>
+                <span>Lesson:{{ lesson.lessonCount}} {{ lesson.thame}}</span>
+                <span>{{ lesson.createdAt | date:'dd MMMM yyyy' }}</span>
+            </a>
+            <!-- <div class="lesson-element">
                 <img src="../../../assets/images/lessons/lesson.png" alt="lesson"/>
                 <span>Lesson 1: Greetings and Introductions</span>
                 <span>12.01.2025</span>
@@ -49,12 +55,7 @@
                 <img src="../../../assets/images/lessons/lesson.png" alt="lesson"/>
                 <span>Lesson 1: Greetings and Introductions</span>
                 <span>12.01.2025</span>
-            </div>
-            <div class="lesson-element">
-                <img src="../../../assets/images/lessons/lesson.png" alt="lesson"/>
-                <span>Lesson 1: Greetings and Introductions</span>
-                <span>12.01.2025</span>
-            </div>
+            </div> -->
 
         </div>
     </div>

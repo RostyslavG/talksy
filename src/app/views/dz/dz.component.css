@@ -15,7 +15,7 @@
     grid-column-end: 8;
 }
 
-.level {
+.section-level {
     grid-column: 8 / span 12;
     grid-row-start: 1;
     background-color: #FFFBFA;
@@ -24,24 +24,32 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: start;
-    margin: 20px 30px;
+    align-items: center;
+    margin: 20px;
+    border-radius: 100px;
+    background-color: white;
+    padding: 10px 40px;
+    overflow: hidden;
 }
 
-.text {
+.section-level >div:first-child{
+    font-weight: bold;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     width: 100%;
-    font-weight: 600;
-    margin-bottom: 10px;
+    padding: 5px 20px;
 }
-
-.progress_bar {
+.section-level >div:last-child{
+    background-color: #FFE0DB;
+    height: 20px;
+    width: 93%;
+    border-radius: 20px;
+}
+.section-level >div:last-child >div{
+    background-color: #B09CFF;
+    height: 20px;
     width: 70%;
-    height: 10px;
-    border-radius: 10px;
-    background-color: #4A1EBB;
+    border-radius: 20px;
 }
 
 .homework-container{
@@ -49,6 +57,10 @@
     grid-row: 2 / span 12;
     overflow-x: hidden;
     width: 100%;
+}
+
+.homework-container >div:first-child >b{
+    cursor: pointer;
 }
 
 
@@ -86,7 +98,12 @@
     border-radius: 20px;
     max-width: 180px;
     gap: 10px;
+    text-decoration: none;
 }
+.homework-element>b{
+    color:black;
+}
+
 .homework-element >div{
     display: flex;
     justify-content: space-between;
@@ -98,6 +115,7 @@
 
 .label-element {
     padding-bottom: 10px;
+    color:black;
 }
 
 .label-element:last-child {
@@ -108,12 +126,7 @@
     position: relative;
 }
 
-.img-container {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-}
+
 
 
 @media(max-width: 1200px){
@@ -127,7 +140,7 @@
         grid-column: 1;
     }
 
-    .level {
+    .section-level {
         display: none;
     }
     

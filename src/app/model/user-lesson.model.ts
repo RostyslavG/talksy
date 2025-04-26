@@ -9,4 +9,5 @@ export interface UserLesson {
     lesson: Lesson;
     homework: string;
     pointOfWork: number;
+    homeworkUrl: string;
 }

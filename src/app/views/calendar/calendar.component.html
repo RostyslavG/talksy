@@ -1,6 +1,6 @@
 <section class="calendar">
     <app-header-log class="calendar-header"></app-header-log>
-    <app-label-log class="calendar-stats"></app-label-log>
+    <app-label-log class="calendar-stats" [user]="user"></app-label-log>
 
     <div class="search-bar">
         <img src="../../../assets/images/lessons/lupa.svg" alt="search"/>
@@ -36,127 +36,20 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td></td>
-                    <td ></td>
-                    <td>
-                        <b>1</b>
-                    </td >
-                    <td class="calendar-element">
-                        <b>2</b>
-                        <div class="calendar-element-time1">18:00 21:00</div>
+                <tr *ngFor="let week of calendarMatrix; let weekIndex = index">
+                    <td *ngFor="let day of week; let dayIndex = index">
+                      <b *ngIf="day !== 0">{{ day }}</b>
+                    
+                      <div *ngIf="day !== 0 && isMatchingDate(day)" class="calendar-element-time2">
+                        18:00-21:00
+                      </div>
+
+                      
+                      <div *ngIf="day !== 0 && getScheduleForDay(dayIndex) && !isMatchingDate(day)" class="calendar-element-time1">
+                        {{ getScheduleForDay(dayIndex) }}
+                      </div>
                     </td>
-                    <td class="calendar-element">
-                        <b>3</b>
-                        
-                    </td>
-                    <td class="calendar-element">
-                        <b>4</b>
-                        <div class="calendar-element-time1">18:00 21:00</div>
-                    </td>
-                    <td class="calendar-element">
-                        <b>5</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>6</b>
-                    </td >
-                    <td>
-                        <b>7</b>
-                        <div class="calendar-element-time1">18:00 21:00</div>
-                    </td >
-                    <td>
-                        <b>8</b>
-                    </td >
-                    <td class="calendar-element">
-                        <b>9</b>
-                        <div class="calendar-element-time1">18:00 21:00</div>
-                    </td>
-                    <td class="calendar-element">
-                        <b>10</b>
-                    </td>
-                    <td class="calendar-element">
-                        <b>11</b>
-                        <div class="calendar-element-time1">18:00 21:00</div>
-                    </td>
-                    <td class="calendar-element">
-                        <b>12</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>13</b>
-                    </td >
-                    <td>
-                        <b>14</b>
-                        <div class="calendar-element-time1">18:00 21:00</div>
-                    </td >
-                    <td>
-                        <b>15</b>
-                    </td >
-                    <td class="calendar-element">
-                        <b>16</b>
-                        <div class="calendar-element-time1">18:00 21:00</div>
-                    </td>
-                    <td class="calendar-element">
-                        <b>17</b>
-                    </td>
-                    <td class="calendar-element">
-                        <b>18</b>
-                        <div class="calendar-element-time1">18:00 21:00</div>
-                    </td>
-                    <td class="calendar-element">
-                        <b>19</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>20</b>
-                    </td >
-                    <td>
-                        <b>21</b>
-                        <div class="calendar-element-time1">18:00 21:00</div>
-                    </td >
-                    <td>
-                        <b>22</b>
-                    </td >
-                    <td class="calendar-element">
-                        <b>23</b>
-                        <div class="calendar-element-time1">18:00 21:00</div>
-                    </td>
-                    <td class="calendar-element">
-                        <b>24</b>
-                    </td>
-                    <td class="calendar-element">
-                        <b>25</b>
-                        <div class="calendar-element-time2">18:00 21:00</div>
-                    </td>
-                    <td class="calendar-element">
-                        <b>26</b>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>27</b>
-                    </td >
-                    <td>
-                        <b>28</b>
-                        <div class="calendar-element-time2">18:00 21:00</div>
-                    </td >
-                    <td>
-                        <b>29</b>
-                    </td >
-                    <td>
-                        <b>30</b>
-                        <div class="calendar-element-time1">18:00 21:00</div>
-                    </td>
-                    <td >
-                        <b>31</b>
-                    </td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                  </tr>
             </tbody>
         </table>
     </div>

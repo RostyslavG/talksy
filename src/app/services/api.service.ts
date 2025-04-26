@@ -10,6 +10,7 @@ import { UserAuthService } from './user-auth.service';
 import { AdminDTO, AdminTeachersDTO } from '../model/dto/admin.dto';
 import { LessDTO } from '../model/dto/less.dto';
 import { AdminCalendarDTO } from '../model/dto/admin-calendar.dto';
+import { StudentLessonDTO } from '../model/dto/student-lesson.dto';
 
 
 @Injectable({
@@ -38,6 +39,33 @@ export class ApiService {
             })
     }
 
+    async uploadHomework(id:number,data:FormData){
+        const headers = await this.createAuthHeaders(false);
+        return firstValueFrom(
+            this.http.post<StudentLessonDTO>(`${this.apiUrl}Student/lessons/${id}`,data, { headers })
+        ); 
+    }
+
+    async getTestForStudent(){
+        const headers = await this.createAuthHeaders(true);
+        return firstValueFrom(
+            this.http.get<User>(`${this.apiUrl}Student/test`, { headers })
+        ); 
+    }
+
+    async getLessonsForStudent(){
+        const headers = await this.createAuthHeaders(true);
+        return firstValueFrom(
+            this.http.get<StudentLessonDTO>(`${this.apiUrl}Student/lessons`, { headers })
+        ); 
+    }
+
+    async getCalendarForStudent(){
+        const headers = await this.createAuthHeaders(true);
+        return firstValueFrom(
+            this.http.get<User>(`${this.apiUrl}Student/calendar`, { headers })
+        ); 
+    }
 
     async getCalendarForAdmin(name: string){
         const headers = await this.createAuthHeaders(true);
@@ -65,10 +93,10 @@ export class ApiService {
         );
     }
 
-    async studentCabinet(): Promise<User> {
+    async studentCabinet(): Promise<StudentLessonDTO> {
         const headers = await this.createAuthHeaders(true);
         return firstValueFrom(
-          this.http.get<User>(`${this.apiUrl}Student`, { headers })
+          this.http.get<StudentLessonDTO>(`${this.apiUrl}Student/lessons`, { headers })
         );
     }
 

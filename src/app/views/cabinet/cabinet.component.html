@@ -50,22 +50,23 @@
 
     <div class="section-homework background-section-cube ">
         <span>Домашні завдання</span>
-        <div>
-            <span>Modal Verbs</span>
-            <span>30.01</span>
+        <div *ngFor="let lesson of lessons" [ngClass]="{'ended' : lesson.userLessons[0].homework}">
+            <span>{{lesson.thame}}</span>
+            <span *ngIf="lesson.userLessons[0].homework">{{ lesson.deadline| date:'dd MMMM' }}</span>
+            <span *ngIf="lesson.userLessons[0].homework">&#10003;</span>
         </div>
-        <div class="ended">
+        <!-- <div class="">
             <span>Past Perfect</span>
             <span>&#10003;</span>
         </div>
         <div class="ended">
             <span>Full Infinitive/Bare Infinitive</span>
-            <span>&#10003;</span>
+            <span></span>
         </div>
         <div>
             <span>Formal Letter</span>
             <span>22.01</span>
-        </div>
+        </div> -->
     </div>
 
     <div class="section-schedule background-section-cube">

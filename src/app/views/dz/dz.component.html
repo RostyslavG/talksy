@@ -1,168 +1,37 @@
 <section class="homework">
     <app-header-log class="homework-header"></app-header-log>
-    <app-label-log class="homework-stats"></app-label-log>
+    <app-label-log class="homework-stats" [user]="user"></app-label-log>
 
-    <div class="level">
-        <div class="text">
-            <span class="level-text">B2 Upper Intermediate</span>
-            <span class="percent">70%</span>
+    <div class="section-level">
+        <div>
+            <span>{{ user?.levelName}}</span>
+            <span>{{ user?.levelNumber}}%</span>
         </div>
-        <div class="progress_bar"></div>
+        <div>
+            <div [style.width.px]="user?.levelNumber || 0"></div>
+        </div>
     </div>
 
     <div class="homework-container">
         <div>
-            <b class="purple-label">До виконання</b>
-            <b>Виконанні</b>
+            <b (click)="change()" [ngClass]="{'purple-label': isActive}">До виконання</b>
+            <b (click)="change()" [ngClass]="{'purple-label': !isActive}">Виконанні</b>
         </div>
         <div class="homework-content">
-            <div class="homework-element">
+            <div  *ngFor="let lesson of (isActive ? notSubmittedLessons : submittedLessons)" class="homework-element">
                 <img src="../../../assets/images/homework/homework.png" alt="homework"/>
-                <b>Lesson 1: Greetings and Introductions</b>
+                <a [href]="lesson.lessonUrl">Lesson {{ lesson.lessonCount}}: {{ lesson.thame}}</a>
                 <div>
                     <div>
-                        <div class="label-element"><span class="purple-label">Видано</span> 12.01.2025</div>
-                        <div  class="label-element"><span class="purple-label">Дедлайн</span> 22.01.2025</div>
+                        <div class="label-element"><span class="purple-label">Видано</span> {{ lesson.createdAt | date:'dd MMMM yyyy' }}</div>
+                        <div class="label-element"><span class="purple-label">Дедлайн</span> {{ lesson.deadline | date:'dd MMMM yyyy' }}</div>
                     </div>
 
-                    <div class="img-container">
+                    <div (click)="openFileDialog(lesson.lessonCount)" class="img-container">
                         <img src="../../../assets/images/homework/download.svg" alt="download"/>
-                    </div>
-                </div>
-            </div>
-
-            <div class="homework-element">
-                <img src="../../../assets/images/homework/homework.png" alt="homework"/>
-                <b>Lesson 1: Greetings and Introductions</b>
-                <div>
-                    <div>
-                        <div class="label-element"><span class="purple-label">Видано</span> 12.01.2025</div>
-                         <div  class="label-element"><span class="purple-label">Дедлайн</span> 22.01.2025</div>
-                    </div>
-
-                    <div class="img-container">
-                        <img src="../../../assets/images/homework/download.svg" alt="download"/>
-                    </div>
-                </div>
-            </div>
-
-            <div class="homework-element">
-                <img src="../../../assets/images/homework/homework.png" alt="homework"/>
-                <b>Lesson 1: Greetings and Introductions</b>
-                <div>
-                    <div>
-                        <div class="label-element"><span class="purple-label">Видано</span> 12.01.2025</div>
-                         <div  class="label-element"><span class="purple-label">Дедлайн</span> 22.01.2025</div>
-                    </div>
-
-                    <div class="img-container">
-                        <img src="../../../assets/images/homework/download.svg" alt="download"/>
-                    </div>
-                </div>
-            </div>
-
-            <div class="homework-element">
-                <img src="../../../assets/images/homework/homework.png" alt="homework"/>
-                <b>Lesson 1: Greetings and Introductions</b>
-                <div>
-                    <div>
-                        <div class="label-element"><span class="purple-label">Видано</span> 12.01.2025</div>
-                        <div  class="label-element"><span class="purple-label">Дедлайн</span> 22.01.2025</div>
-                    </div>
-
-                    <div class="img-container">
-                        <img src="../../../assets/images/homework/download.svg" alt="download"/>
-                    </div>
-                </div>
-            </div>
-
-            <div class="homework-element">
-                <img src="../../../assets/images/homework/homework.png" alt="homework"/>
-                <b>Lesson 1: Greetings and Introductions</b>
-                <div>
-                    <div>
-                        <div class="label-element"><span class="purple-label">Видано</span> 12.01.2025</div>
-                        <div  class="label-element"><span class="purple-label">Дедлайн</span> 22.01.2025</div>
-                    </div>
-
-                    <div class="img-container">
-                        <img src="../../../assets/images/homework/download.svg" alt="download"/>
-                    </div>
-                </div>
-            </div>
-
-            <div class="homework-element">
-                <img src="../../../assets/images/homework/homework.png" alt="homework"/>
-                <b>Lesson 1: Greetings and Introductions</b>
-                <div>
-                    <div>
-                        <div class="label-element"><span class="purple-label">Видано</span> 12.01.2025</div>
-                         <div  class="label-element"><span class="purple-label">Дедлайн</span> 22.01.2025</div>
-                    </div>
-
-                    <div class="img-container">
-                        <img src="../../../assets/images/homework/download.svg" alt="download"/>
-                    </div>
-                </div>
-            </div>
-
-            <div class="homework-element">
-                <img src="../../../assets/images/homework/homework.png" alt="homework"/>
-                <b>Lesson 1: Greetings and Introductions</b>
-                <div>
-                    <div>
-                        <div class="label-element"><span class="purple-label">Видано</span> 12.01.2025</div>
-                        <div  class="label-element"><span class="purple-label">Дедлайн</span> 22.01.2025</div>
-                    </div>
-
-                    <div class="img-container">
-                        <img src="../../../assets/images/homework/download.svg" alt="download"/>
-                    </div>
-                </div>
-            </div>
-
-            <div class="homework-element">
-                <img src="../../../assets/images/homework/homework.png" alt="homework"/>
-                <b>Lesson 1: Greetings and Introductions</b>
-                <div>
-                    <div>
-                        <div class="label-element"><span class="purple-label">Видано</span> 12.01.2025</div>
-                         <div  class="label-element"><span class="purple-label">Дедлайн</span> 22.01.2025</div>
-                    </div>
-
-                    <div class="img-container">
-                        <img src="../../../assets/images/homework/download.svg" alt="download"/>
-                    </div>
-                </div>
-            </div>
-
-            <div class="homework-element">
-                <img src="../../../assets/images/homework/homework.png" alt="homework"/>
-                <b>Lesson 1: Greetings and Introductions</b>
-                <div>
-                    <div>
-                        <div class="label-element"><span class="purple-label">Видано</span> 12.01.2025</div>
-                        <div  class="label-element"><span class="purple-label">Дедлайн</span> 22.01.2025</div>
-                    </div>
-
-                    <div class="img-container">
-                        <img src="../../../assets/images/homework/download.svg" alt="download"/>
-                    </div>
-                </div>
-            </div>
-
-            <div class="homework-element">
-                <img src="../../../assets/images/homework/homework.png" alt="homework"/>
-                <b>Lesson 1: Greetings and Introductions</b>
-                <div>
-                    <div>
-                        <div class="label-element"><span class="purple-label">Видано</span> 12.01.2025</div>
-                        <div  class="label-element"><span class="purple-label">Дедлайн</span> 22.01.2025</div>
-                    </div>
-                    <div class="img-container">
-                        <img src="../../../assets/images/homework/download.svg" alt="download"/>
-                    </div>
-
+                        <input type="file" [id]="'fileInput-' + lesson.lessonCount" (change)="onFileSelected($event, lesson.lessonCount)" style="display: none"/>
+                      </div>
+                    
                 </div>
             </div>
         </div>

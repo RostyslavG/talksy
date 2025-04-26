@@ -1,50 +1,57 @@
 <section class="test-container">
     <app-header-log class="test-header"></app-header-log>
-    <app-label-log class="test-stats"></app-label-log>
+    <app-label-log class="test-stats" [user]="user"></app-label-log>
     
     <div class="test-container-form">
         
         <div>
             <div>
                 <h3>Test №</h3>
-                <strong class="purple-label">Заголовок</strong>
+                <strong class="purple-label">{{user?.group?.testName}}</strong>
             </div>
             <div>
-                <strong>01</strong><strong class="purple-label">/10</strong>
+                <strong>{{ count + 1 }}</strong><strong class="purple-label">/{{maxCount}}</strong>
             </div>
         </div>
 
         <div class="test-container-form-form">
 
            
-            <div>
-                <strong>How do you greet someone in the morning?</strong>
+            <div> 
+                <strong>{{ thatsAll ? 'Ваш результат' : tests[count!].question }}</strong>
 
-                <div class="test-input">
-                    <div>
-                        <img src="../../../assets/images/test/input_disabled_cat.svg" alt="input"/>
-                        <span>Good night</span>
+                <span *ngIf="thatsAll" class="result">{{result}}/{{maxCount}}</span>
+                
+                <div *ngIf="!thatsAll" class="test-input">
+                    <div (click)="selectInput(tests[count!].variable1,0)">
+                        <img src="{{btns[0]}}" alt="input"/>
+                        <span>{{ tests[count!].variable1 }}</span>
                     </div>
-                    <div>
-                        <img src="../../../assets/images/test/input_disabled_cat.svg" alt="input"/>
-                        <span>Good night</span>
+                    <div (click)="selectInput(tests[count!].variable2 ,1)">
+                        <img src="{{btns[1]}}" alt="input"/>
+                        <span>{{ tests[count!].variable2 }}</span>
                     </div>
-                    <div>
-                        <img src="../../../assets/images/test/input_disabled_cat.svg" alt="input"/>
-                        <span>Good night</span>
+                    <div (click)="selectInput(tests[count!].variable3,2)">
+                        <img src="{{btns[2]}}" alt="input"/>
+                        <span>{{ tests[count!].variable3 }}</span>
                     </div>
-                    <div>
-                        <img src="../../../assets/images/test/input_disabled_cat.svg" alt="input"/>
-                        <span>Good night</span>
+                    <div (click)="selectInput(tests[count!].variable4,3)">
+                        <img src="{{btns[3]}}" alt="input"/>
+                        <span>{{ tests[count!].variable4 }}</span>
                     </div>
                 </div>
 
-                <div class="test-btn">
+                
+                <div *ngIf="!thatsAll" class="test-btn" (click)="nextStep()">
                     Далі
                 </div>
 
+                <a *ngIf="thatsAll" class="test-btn" [routerLink]="['/cabinet']">
+                    Повернутись у кабінет
+                </a>
+
             </div>
-            <img src="../../../assets/images/test/cat-question.png" alt="cat-question"/>
+            <img src="{{cat}}" alt="cat-question"/>
         </div>
 
 

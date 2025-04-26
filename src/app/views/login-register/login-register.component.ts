@@ -123,7 +123,7 @@ export class LoginRegisterComponent implements OnInit {
                         this.router.navigate(['/cabinet']);
                     break;
                 case 'Teacher':
-                        this.router.navigate(['/teachers']);
+                        this.router.navigate(['/admin-main']);
                     break;
                 case 'Admin':
                         this.router.navigate(['/admin']);

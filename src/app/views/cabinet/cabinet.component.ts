@@ -6,6 +6,7 @@ import { UserAuthService } from '../../services/user-auth.service';
 import { ApiService } from '../../services/api.service';
 import { User } from '../../model/user.model';
 import { CommonModule } from '@angular/common';
+import { Lesson } from '../../model/lesson.model';
 
 @Component({
   selector: 'app-cabinet',
@@ -29,7 +30,7 @@ export class CabinetComponent implements OnInit {
   scheduleData: { day: string; time: string }[] = [];
   dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   datetest: Date | undefined;
-
+  lessons:Array<Lesson> | undefined;
 
   constructor(private router:Router,
     private userAuthService:UserAuthService,
@@ -57,10 +58,11 @@ export class CabinetComponent implements OnInit {
     }
     
     try{
-      this.user = await this.apiService.studentCabinet();
+      const data =await this.apiService.studentCabinet();
+      this.user =  data.user;
       this.scheduleData = this.user.group.shedule ? JSON.parse(this.user.group.shedule) as { day: string; time: string }[] : [];
       this.datetest= this.user.group.testDate;
-      console.log(this.user);
+      this.lessons = data.lessons;
     }
     catch(error){
       console.log(error);

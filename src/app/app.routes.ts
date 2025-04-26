@@ -20,7 +20,7 @@ export const routes: Routes = [
     { path:'login-registration/:mode', component:LoginRegisterComponent},
     { path:'cabinet', component:CabinetComponent},
     { path:'setting', component:SettingComponent},
-    { path:'test/:id', component:TestComponent},
+    { path:'test', component:TestComponent},
     { path:'homework', component:DzComponent},
     { path:'lessons', component:LessonsComponent},
     { path:'lesson/:id', component: SingleLessonComponent },
