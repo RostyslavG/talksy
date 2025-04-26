@@ -100,11 +100,11 @@
             <h2 class="lesson-header block-header">Урок</h2>
             <div class="lesson-content">
 
-                <strong>Lesson {{ lesson?.lessonCount}}</strong>
-                <span>{{ lesson?.thame}}</span>
+                <strong class="lesson-count">Lesson {{ lesson?.lessonCount}}</strong>
+                <span class="lesson-info">{{ lesson?.thame}}</span>
 
-                <a [href]="lesson?.lessonUrl" download>урок</a>
-                <a [href]="lesson?.homework" download>лз</a>
+                <a [href]="lesson?.lessonUrl" class="link-lesson" download>урок</a>
+                <a [href]="lesson?.homework" class="link-lesson" download>лз</a>
             
             </div>
             <!-- ???? -->

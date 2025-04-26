@@ -188,6 +188,8 @@
     color: #FDF6F2;
     width: 100%;
     cursor: pointer;
+    text-align: center;
+    text-decoration: none;
 }
 
 /* ========== tests block ========== */
@@ -247,8 +249,36 @@
 
 .lesson-content {
     width: 100%;
-    max-height: 100%;
-    overflow-y: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.lesson-count, .lesson-info {
+    font-size: 25px;
+    color: #121212;
+    text-transform: capitalize;
+}
+
+.link-lesson {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #B09CFF;
+    border-radius: 100px;
+    text-decoration: none;
+    color: #121212;
+    cursor: pointer;
+    text-transform: uppercase;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.link-lesson:hover {
+    background-color: #B09CFF;
+    color: #FDF6F2;
 }
 
 /* ========== popup  ========== */
